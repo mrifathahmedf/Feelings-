@@ -16,43 +16,24 @@
             overflow-x: hidden;
         }
 
-        /* 🌟 ওয়েলকাম টেক্সট (টিভির খবরের মতো স্ক্রল করবে) */
-        .welcome-text {
-            position: absolute;
-            top: 50px;
-            white-space: nowrap;
-            font-size: 24px;
+        /* 🌟 ওয়েলকাম টেক্সট (নীল বক্সে থাকবে) */
+        .welcome-box {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0055aa;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
             font-weight: bold;
-            animation: marquee 8s linear forwards;
+            z-index: 999;
         }
 
-        @keyframes marquee {
-            from { left: 100vw; }
-            to { left: -100vw; }
-        }
-
-        /* 🌸 ফুলের ইফেক্ট (random scatter effect) */
-        .flower-container {
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            overflow: hidden;
+        /* ১০ সেকেন্ড পর হাইড হবে */
+        .hide {
             display: none;
-        }
-
-        .flower {
-            position: absolute;
-            font-size: 30px;
-            opacity: 0;
-            animation: scatter 5s linear forwards;
-        }
-
-        @keyframes scatter {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(100vh) scale(1.5); opacity: 0; }
         }
 
         .button-container {
@@ -68,12 +49,6 @@
             width: 80%;
             font-size: 16px;
             line-height: 1.8;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         button {
@@ -84,7 +59,6 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            transition: 0.3s;
             width: 200px;
             margin: 5px;
         }
@@ -102,9 +76,8 @@
 </head>
 <body>
 
-    <div class="welcome-text">🌟 স্বাগতম অনুভূতির জগতে! আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে, কখন আসিবেন আর সঙ্গ দিবেন আমার সনে!... 🌟</div>
-
-    <div class="flower-container"></div>
+    <!-- 🌟 ওয়েলকাম টেক্সট (নীল বক্সে) -->
+    <div class="welcome-box" id="welcomeBox">🌟 স্বাগতম অনুভূতির জগতে! আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে! কখন আসিবেন আর সঙ্গ দিবেন আমার সনে!... 🌟</div>
 
     <div class="button-container">
         <button onclick="togglePoem('poem1')">অপেক্ষায় চক্রাকার</button>
@@ -175,25 +148,10 @@
             }
         }
 
-        // ওয়েলকাম টেক্সট শেষ হলে ফুলের ইফেক্ট দেখাবে, ৫ সেকেন্ড পর হাইড করবে
+        // ১০ সেকেন্ড পর ওয়েলকাম টেক্সট হাইড করবে
         setTimeout(() => {
-            let flowerContainer = document.querySelector('.flower-container');
-            flowerContainer.style.display = "block";
-
-            for (let i = 0; i < 15; i++) {
-                let flower = document.createElement("div");
-                flower.className = "flower";
-                flower.innerHTML = "🌸";
-                flower.style.left = Math.random() * 100 + "vw";
-                flower.style.top = Math.random() * 20 + "vh";
-                flower.style.animationDelay = Math.random() * 0.5 + "s";
-                flowerContainer.appendChild(flower);
-            }
-
-            setTimeout(() => {
-                flowerContainer.style.display = "none";
-            }, 5000);
-        }, 8000); // ৮ সেকেন্ড পর ফুল আসবে
+            document.getElementById('welcomeBox').classList.add('hide');
+        }, 10000);
     </script>
 
 </body>
