@@ -29,24 +29,29 @@
             z-index: -1;
         }
 
-        /* স্ক্রলিং টেক্সট */
+        /* স্ক্রলিং টেক্সট (উপরে ধীরে যাবে এবং অটো হাইড হবে) */
         .scroll-text {
             position: fixed;
-            bottom: 10px;
+            top: 10px;
             left: 100%;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             color: #00aaff;
             white-space: nowrap;
-            animation: marquee 10s linear infinite;
             background: rgba(0, 0, 0, 0.7);
-            padding: 5px 20px;
+            padding: 8px 15px;
             border-radius: 5px;
+            animation: marquee 12s linear forwards, fadeOut 2s 15s forwards;
         }
 
         @keyframes marquee {
             0% { left: 100%; }
             100% { left: -100%; }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
         }
 
         .container {
