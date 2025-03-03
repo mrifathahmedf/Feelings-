@@ -13,7 +13,7 @@
             text-align: center;
             padding: 20px;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -21,7 +21,7 @@
         .scroll-text {
             position: absolute;
             top: 20px;
-            right: -100%;
+            left: -100%;
             font-size: 18px;
             font-weight: bold;
             color: #ffcc00;
@@ -29,12 +29,12 @@
             background: rgba(0, 0, 0, 0.7);
             padding: 6px 12px;
             border-radius: 5px;
-            animation: marquee 10s linear 1;
+            animation: scrollText 8s linear forwards;
         }
 
-        @keyframes marquee {
-            0% { right: -100%; }
-            100% { right: 100vw; }
+        @keyframes scrollText {
+            0% { left: -100%; }
+            100% { left: 100vw; }
         }
 
         .hide-text {
@@ -42,7 +42,7 @@
         }
 
         .container {
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .button-container {
@@ -89,21 +89,21 @@
         /* ফুলের এনিমেশন */
         .flower {
             position: absolute;
-            font-size: 20px;
-            opacity: 0;
-            animation: fall 4s linear infinite;
+            font-size: 24px;
+            opacity: 0.8;
+            animation: fall linear infinite;
         }
 
         @keyframes fall {
-            0% { transform: translateY(0px); opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
     <div class="scroll-text" id="welcome-text">
-        অনুভূতির জগতে আপনাকে স্বাগতম! আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে, কখন আসিবেন আর সঙ্গ দিবেন আমার সনে!🖤
+        অনুভূতির জগতে আপনাকে স্বাগতম! আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে, কখন আসিবেন আর সঙ্গ দিবেন আমার সনে। 🌸
     </div>
 
     <div class="container">
@@ -160,33 +160,40 @@
 
     <script>
         function togglePoem(id) {
-            // সব কবিতাকে হাইড করবো
-            document.querySelectorAll('.poem-container').forEach(poem => poem.style.display = "none");
+            let poem = document.getElementById(id);
+            let allPoems = document.querySelectorAll('.poem-container');
 
-            // যে কবিতা ক্লিক করা হয়েছে সেটাকে দেখাবো
-            document.getElementById(id).style.display = "block";
+            // যদি কবিতাটি ওপেন থাকে তাহলে হাইড করবো, নাহলে অন্যসব বন্ধ করে এটা ওপেন করবো
+            if (poem.style.display === "block") {
+                poem.style.display = "none";
+            } else {
+                allPoems.forEach(p => p.style.display = "none");
+                poem.style.display = "block";
+            }
         }
 
         // ওয়েলকাম টেক্সট এনিমেশন শেষ হলে লুকিয়ে যাবে
         setTimeout(() => {
             document.getElementById('welcome-text').classList.add("hide-text");
-        }, 10000); // 10 সেকেন্ড পর লুকিয়ে যাবে
+        }, 8000);
 
         // ফুল ঝরানোর ফাংশন
         function createFlower() {
             const flower = document.createElement("div");
             flower.classList.add("flower");
-            flower.innerHTML = "🌸🌼🌺🌷🌹💮"[Math.floor(Math.random() * 7)];
+            const flowerTypes = ["🌸", "🌼", "🌺", "🌷", "🌹", "💮"];
+            flower.innerHTML = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
             flower.style.left = Math.random() * 100 + "vw";
+            flower.style.top = "-10px";
             flower.style.animationDuration = Math.random() * 3 + 2 + "s";
             document.body.appendChild(flower);
 
             setTimeout(() => {
                 flower.remove();
-            }, 4000);
+            }, 5000);
         }
 
-        setInterval(createFlower, 500);
+        setInterval(createFlower, 700);
     </script>
 
 </body>
