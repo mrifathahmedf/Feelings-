@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অপেক্ষায় চক্রাকার</title>
+    <title>অনুভূতির জগৎ</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
+
         body {
             font-family: 'SolaimanLipi', Arial, sans-serif;
             background: url('https://source.unsplash.com/800x600/?night,sky') no-repeat center center fixed;
@@ -12,7 +14,7 @@
             text-align: center;
             padding: 20px;
             position: relative;
-            color: white; /* লেখাকে সাদা করে দিলাম, যাতে ডার্ক ব্যাকগ্রাউন্ডে সুন্দর দেখায় */
+            color: white;
         }
         body::before {
             content: "";
@@ -21,27 +23,54 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 10, 30, 0.8); /* গাঢ় নীল-কালো থিম */
-            backdrop-filter: blur(5px); /* হালকা ব্লার এফেক্ট */
+            background: rgba(10, 10, 30, 0.8);
+            backdrop-filter: blur(5px);
             z-index: -1;
         }
+        
+        /* এনিমেটেড স্বাগতম বার্তা */
+        .welcome-text {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid white;
+            width: 100%;
+            display: inline-block;
+            animation: typing 6s steps(60, end) infinite, blink 1s step-end infinite;
+        }
+        
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+        
+        @keyframes blink {
+            from { border-color: white; }
+            to { border-color: transparent; }
+        }
+
         .container {
-            background: rgba(0, 0, 0, 0.7); /* ব্ল্যাক ট্রান্সপারেন্ট */
+            background: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
             max-width: 500px;
-            margin: auto;
+            margin: 20px auto;
             position: relative;
         }
+        
         .poem {
             display: none;
             margin-top: 15px;
             font-size: 18px;
             line-height: 1.6;
         }
+        
         button {
-            background-color: #1e3a8a; /* গাঢ় নীল */
+            background-color: #1e3a8a;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -50,16 +79,21 @@
             cursor: pointer;
             margin-top: 10px;
         }
+        
         button:hover {
-            background-color: #102a67; /* আরও ডার্ক ব্লু */
+            background-color: #102a67;
         }
     </style>
 </head>
 <body>
 
+    <div class="welcome-text">
+        অনুভূতির জগতে আপনাকে স্বাগতম, আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে। কখন আসিবেন আর সঙ্গ দিবেন আমার সনে
+    </div>
+
     <div class="container">
-        <button onclick="togglePoem()">অপেক্ষায় চক্রাকার</button>
-        <div class="poem" id="poem">
+        <button onclick="togglePoem('poem1')">অপেক্ষায় চক্রাকার</button>
+        <div class="poem" id="poem1">
             <p>প্রিয়তে ফিরে পাওয়ার আকাঙ্ক্ষায়<br>
                কাটিয়ে দেওয়া অপেক্ষার মূহূর্ত ,<br>
                যেনো মনে হয়, রয়েছে সে অজানায়<br>
@@ -78,46 +112,37 @@
                তবে কি পুণরায় দাঁড়িয়ে গুণবো অপেক্ষার প্রহর?</p>
         </div>
     </div>
-<div class="container">
-    <button onclick="togglePoem()">আবার আসিব ফিরে</button>
-    <div class="poem" id="poem">
-        <p>আবার আসিব ফিরে<br>
-           তার নীড়ে,<br>
-           হয়তো সেই আমি<br>
-           কিংবা ছদ্মবেশীর ভীড়ে!</p>
 
-        <p>হয়তো আমি হারিয়ে যাবো<br>
-           তার অনূভুতির অন্ধকারে—<br>
-           হয়তো বা কখনো সন্ধ্যায়,<br>
-           একদিন সন্ধ্যার বেলায়<br>
-           সাঁঝের তারা হয়ে ফুটে থাকবো,<br>
-           একা তার নীড়ায় !</p>
+    <div class="container">
+        <button onclick="togglePoem('poem2')">আবার আসিব ফিরে</button>
+        <div class="poem" id="poem2">
+            <p>আবার আসিব ফিরে<br>
+               তার নীড়ে,<br>
+               হয়তো সেই আমি<br>
+               কিংবা ছদ্মবেশীর ভীড়ে!</p>
 
-        <p>হয়তো আমি ভুলে যাবো সব,<br>
-           তার সাথে ঘটে যাওয়া যত অনুভব!</p>
+            <p>হয়তো আমি হারিয়ে যাবো<br>
+               তার অনূভুতির অন্ধকারে—<br>
+               হয়তো বা কখনো সন্ধ্যায়,<br>
+               একদিন সন্ধ্যার বেলায়<br>
+               সাঁঝের তারা হয়ে ফুটে থাকবো,<br>
+               একা তার নীড়ায় !</p>
 
-        <p>তবুও আবার আসিব ফিরে<br>
-           তারি নীড়ে ।<br>
-           হয়তো সেই তুমি অপেক্ষা করিবে<br>
-           শত শতাব্দীর ভীড়ে।</p>
+            <p>হয়তো আমি ভুলে যাবো সব,<br>
+               তার সাথে ঘটে যাওয়া যত অনুভব!</p>
 
-        <p><em>Inspire from Jibanananda Das 🖤</em></p>
+            <p>তবুও আবার আসিব ফিরে<br>
+               তারি নীড়ে ।<br>
+               হয়তো সেই তুমি অপেক্ষা করিবে<br>
+               শত শতাব্দীর ভীড়ে।</p>
+
+            <p><em>Inspire from Jibanananda Das 🖤</em></p>
+        </div>
     </div>
-</div>
 
-<script>
-    function togglePoem() {
-        var poem = document.getElementById("poem");
-        if (poem.style.display === "none" || poem.style.display === "") {
-            poem.style.display = "block";
-        } else {
-            poem.style.display = "none";
-        }
-    }
-</script>
     <script>
-        function togglePoem() {
-            var poem = document.getElementById("poem");
+        function togglePoem(id) {
+            var poem = document.getElementById(id);
             if (poem.style.display === "none" || poem.style.display === "") {
                 poem.style.display = "block";
             } else {
