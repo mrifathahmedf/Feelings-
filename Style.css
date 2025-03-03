@@ -76,32 +76,3 @@ p {
         transform: translateY(-100vh) translateX(50px);
     }
 }
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;700&display=swap');
-
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    font-family: 'Noto Serif Bengali', serif;
-    text-align: center;
-    color: #FFD700;
-}
-
-.container {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    width: 90%;
-    max-width: 700px;
-}
-
-h1 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.8;
-}
