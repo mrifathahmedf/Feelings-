@@ -28,7 +28,7 @@
             z-index: -1;
         }
         
-        /* এনিমেটেড স্বাগতম বার্তা */
+        /* টাইপিং এনিমেশন */
         .welcome-text {
             font-size: 22px;
             font-weight: bold;
@@ -38,18 +38,23 @@
             border-right: 2px solid white;
             width: 100%;
             display: inline-block;
-            animation: typing 6s steps(60, end) infinite, blink 1s step-end infinite;
+            text-align: center;
+            animation: typing 6s steps(60, end) forwards, stay 3s 6s forwards, deleteText 3s 9s forwards;
         }
         
         @keyframes typing {
-            0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
+            from { width: 0; }
+            to { width: 100%; }
         }
         
-        @keyframes blink {
-            from { border-color: white; }
-            to { border-color: transparent; }
+        @keyframes stay {
+            from { border-right: 2px solid white; }
+            to { border-right: 2px solid transparent; }
+        }
+
+        @keyframes deleteText {
+            from { width: 100%; }
+            to { width: 0; }
         }
 
         .container {
