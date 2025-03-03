@@ -4,7 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>অপেক্ষায় চক্রাকার</title>
-    <link rel="stylesheet" href="style.css"> <!-- আলাদা CSS ফাইল লিংক -->
+    <style>
+        body {
+            font-family: 'SolaimanLipi', Arial, sans-serif;
+            background: url('https://source.unsplash.com/800x600/?nature,abstract') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 100, 100, 0.3); /* লালচে রঙের ফিল্টার */
+            backdrop-filter: blur(5px); /* হালকা ব্লার এফেক্ট */
+            z-index: -1;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+            position: relative;
+        }
+        .poem {
+            display: none;
+            margin-top: 15px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
