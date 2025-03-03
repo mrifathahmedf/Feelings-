@@ -27,34 +27,32 @@
             backdrop-filter: blur(5px);
             z-index: -1;
         }
-        
+
         /* টাইপিং এনিমেশন */
         .welcome-text {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: bold;
             margin-bottom: 20px;
             overflow: hidden;
             white-space: nowrap;
             border-right: 2px solid white;
-            width: 100%;
+            width: fit-content;
             display: inline-block;
             text-align: center;
-            animation: typing 6s steps(60, end) forwards, stay 3s 6s forwards, deleteText 3s 9s forwards;
-        }
-        
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        
-        @keyframes stay {
-            from { border-right: 2px solid white; }
-            to { border-right: 2px solid transparent; }
+            color: #00aaff; /* নীল রঙ */
+            padding: 10px;
+            max-width: 90%;
+            animation: typing 6s steps(60, end) infinite, blink 1s step-end infinite;
         }
 
-        @keyframes deleteText {
-            from { width: 100%; }
-            to { width: 0; }
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        
+        @keyframes blink {
+            from { border-color: white; }
+            to { border-color: transparent; }
         }
 
         .container {
@@ -88,12 +86,24 @@
         button:hover {
             background-color: #102a67;
         }
+
+        /* মোবাইল ফ্রেন্ডলি */
+        @media (max-width: 600px) {
+            .welcome-text {
+                font-size: 18px;
+                max-width: 100%;
+                white-space: normal; /* মোবাইলে ভাঙবে না */
+            }
+            .container {
+                max-width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="welcome-text">
-        অনুভূতির জগতে আপনাকে স্বাগতম, আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে। কখন আসিবেন আর সঙ্গ দিবেন আমার সনে
+        অনুভূতির জগতে আপনাকে স্বাগতম, আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে। <br> কখন আসিবেন আর সঙ্গ দিবেন আমার সনে।
     </div>
 
     <div class="container">
