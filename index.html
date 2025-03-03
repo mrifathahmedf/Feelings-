@@ -29,19 +29,19 @@
             z-index: -1;
         }
 
-        /* স্ক্রলিং টেক্সট (উপরে ধীরে যাবে এবং অটো হাইড হবে) */
+        /* স্ক্রলিং ওয়েলকাম টেক্সট */
         .scroll-text {
             position: fixed;
             top: 10px;
             left: 100%;
-            font-size: 22px;
+            font-size: 16px;
             font-weight: bold;
             color: #00aaff;
             white-space: nowrap;
             background: rgba(0, 0, 0, 0.7);
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 5px;
-            animation: marquee 12s linear forwards, fadeOut 2s 15s forwards;
+            animation: marquee 10s linear forwards, fadeOut 2s 12s forwards;
         }
 
         @keyframes marquee {
@@ -52,6 +52,11 @@
         @keyframes fadeOut {
             0% { opacity: 1; }
             100% { opacity: 0; visibility: hidden; }
+        }
+
+        /* কবিতাগুলোর জন্য স্পেস */
+        .spacer {
+            margin-top: 40px;
         }
 
         .container {
@@ -90,8 +95,10 @@
 <body>
 
     <div class="scroll-text">
-        অনুভূতির জগতে আপনাকে স্বাগতম, আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে। কখন আসিবেন আর সঙ্গ দিবেন আমার সনে।
+        অনুভূতির জগতে স্বাগতম! 🖤
     </div>
+
+    <div class="spacer"></div> <!-- ওয়েলকাম টেক্সটের নিচে একটু গ্যাপ -->
 
     <div class="container">
         <button onclick="togglePoem('poem1')">অপেক্ষায় চক্রাকার</button>
