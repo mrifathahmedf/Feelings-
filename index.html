@@ -27,30 +27,32 @@
         }
 
         @keyframes marquee {
-            from { left: 100%; }
-            to { left: -100%; }
+            from { left: 100vw; }
+            to { left: -100vw; }
         }
 
-        /* 🌸 ফুলের ইফেক্ট (ছিটকে পড়বে) */
-        .flowers {
+        /* 🌸 ফুলের ইফেক্ট (random scatter effect) */
+        .flower-container {
             position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 30px;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
             display: none;
-            animation: scatter 5s linear forwards, fadeOut 5s linear 5s forwards;
+        }
+
+        .flower {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0;
+            animation: scatter 5s linear forwards;
         }
 
         @keyframes scatter {
-            0% { top: -50px; transform: translateX(-50%) scale(1); opacity: 1; }
-            50% { transform: translateX(-30%) rotate(15deg) scale(1.2); }
-            100% { top: 80vh; transform: translateX(50%) rotate(-15deg) scale(1.5); opacity: 0; }
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(100vh) scale(1.5); opacity: 0; }
         }
 
         .button-container {
@@ -102,7 +104,7 @@
 
     <div class="welcome-text">🌟 স্বাগতম অনুভূতির জগতে! আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে, কখন আসিবেন আর সঙ্গ দিবেন আমার সনে!... 🌟</div>
 
-    <div class="flowers">🌼🌻🏵️💮🌸🪷🌷🌺🥀🌹💐</div>
+    <div class="flower-container"></div>
 
     <div class="button-container">
         <button onclick="togglePoem('poem1')">অপেক্ষায় চক্রাকার</button>
@@ -175,7 +177,22 @@
 
         // ওয়েলকাম টেক্সট শেষ হলে ফুলের ইফেক্ট দেখাবে, ৫ সেকেন্ড পর হাইড করবে
         setTimeout(() => {
-            document.querySelector('.flowers').style.display = "block";
+            let flowerContainer = document.querySelector('.flower-container');
+            flowerContainer.style.display = "block";
+
+            for (let i = 0; i < 15; i++) {
+                let flower = document.createElement("div");
+                flower.className = "flower";
+                flower.innerHTML = "🌸";
+                flower.style.left = Math.random() * 100 + "vw";
+                flower.style.top = Math.random() * 20 + "vh";
+                flower.style.animationDelay = Math.random() * 0.5 + "s";
+                flowerContainer.appendChild(flower);
+            }
+
+            setTimeout(() => {
+                flowerContainer.style.display = "none";
+            }, 5000);
         }, 8000); // ৮ সেকেন্ড পর ফুল আসবে
     </script>
 
