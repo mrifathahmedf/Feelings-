@@ -23,7 +23,7 @@
             white-space: nowrap;
             font-size: 24px;
             font-weight: bold;
-            animation: marquee 7s linear forwards;
+            animation: marquee 8s linear forwards;
         }
 
         @keyframes marquee {
@@ -31,7 +31,7 @@
             to { left: -100%; }
         }
 
-        /* 🌸 ফুলের ইফেক্ট (উপর থেকে নিচে পড়বে) */
+        /* 🌸 ফুলের ইফেক্ট (ছিটকে পড়বে) */
         .flowers {
             position: absolute;
             top: -50px;
@@ -39,12 +39,13 @@
             transform: translateX(-50%);
             font-size: 30px;
             display: none;
-            animation: fallDown 5s linear forwards, fadeOut 5s linear 5s forwards;
+            animation: scatter 5s linear forwards, fadeOut 5s linear 5s forwards;
         }
 
-        @keyframes fallDown {
-            0% { top: -50px; }
-            100% { top: 80vh; }
+        @keyframes scatter {
+            0% { top: -50px; transform: translateX(-50%) scale(1); opacity: 1; }
+            50% { transform: translateX(-30%) rotate(15deg) scale(1.2); }
+            100% { top: 80vh; transform: translateX(50%) rotate(-15deg) scale(1.5); opacity: 0; }
         }
 
         @keyframes fadeOut {
@@ -90,7 +91,6 @@
             background: #0055aa;
         }
 
-        /* কপিরাইট টেক্সট */
         .footer {
             margin-top: 30px;
             font-size: 14px;
@@ -106,8 +106,6 @@
 
     <div class="button-container">
         <button onclick="togglePoem('poem1')">অপেক্ষায় চক্রাকার</button>
-        <button onclick="togglePoem('poem2')">আবার আসিব ফিরে</button>
-        
         <div id="poem1" class="poem-container">
             <p>
                 “প্রিয়তে ফিরে পাওয়ার আকাঙ্ক্ষায়,<br>
@@ -128,6 +126,7 @@
             </p>
         </div>
 
+        <button onclick="togglePoem('poem2')">আবার আসিব ফিরে</button>
         <div id="poem2" class="poem-container">
             <p>
                 “আবার আসিব ফিরে <br>
@@ -170,13 +169,14 @@
             } else {
                 allPoems.forEach(p => p.style.display = "none");
                 poem.style.display = "block";
+                poem.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
         // ওয়েলকাম টেক্সট শেষ হলে ফুলের ইফেক্ট দেখাবে, ৫ সেকেন্ড পর হাইড করবে
         setTimeout(() => {
             document.querySelector('.flowers').style.display = "block";
-        }, 7000); // ৭ সেকেন্ড পর ফুল আসবে
+        }, 8000); // ৮ সেকেন্ড পর ফুল আসবে
     </script>
 
 </body>
