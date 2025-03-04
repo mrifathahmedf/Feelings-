@@ -335,6 +335,17 @@
             return "আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়া বারাকাতুহু / ধন্যবাদ! আবার আসবেন 💐";
         }
     </script>
-
+<div class="review-container">
+    <button class="review-button" onclick="toggleReview()">⭐ Review Me</button>
+    <div class="review-box" id="reviewBox">
+        <p>Give your rating:</p>
+        <span class="star" onclick="submitReview(5)">⭐</span>
+        <span class="star" onclick="submitReview(4)">⭐</span>
+        <span class="star" onclick="submitReview(3)">⭐</span>
+        <span class="star" onclick="submitReview(2)">⭐</span>
+        <span class="star" onclick="submitReview(1)">⭐</span>
+    </div>
+    <p id="thankYouMessage" class="hidden">Thanks for review!</p>
+</div>
 </body>
 </html>
