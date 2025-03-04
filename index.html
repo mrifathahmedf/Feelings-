@@ -194,6 +194,39 @@
     ভিতর কি বাহির বুঝে <br>
     বাহির কি ভিতর খুঁজে (^_^)
 </div>
+<button class="poem-button" onclick="togglePoem('poem9')">অনূভুতির বিন্যাস</button>
+<div class="poem slide-in" id="poem9">
+    হাজার শব্দের সংমিশ্রণে তৈরি হয় উপন্যাস, <br>
+    একটি শব্দের সংমিশ্রণে তৈরি হয় অনূভুতির বিন্যাস 😌 <br>
+    সেই শব্দটি হচ্ছে, <b>তুমি</b> কিংবা <b>আমি</b> :^)
+</div>
+
+<style>
+    .slide-in {
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .slide-in.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    function togglePoem(id) {
+        var poem = document.getElementById(id);
+        if (poem.classList.contains("show")) {
+            poem.classList.remove("show");
+            setTimeout(() => { poem.style.display = "none"; }, 500);
+        } else {
+            poem.style.display = "block";
+            setTimeout(() => { poem.classList.add("show"); }, 10);
+        }
+    }
+</script>
     <div class="footer">
         ©2025 myinnerfeelings <br>
         ®ℜ𝔦𝔣𝔞𝔱𝔥 Ā𝔥𝔪ëđ™
