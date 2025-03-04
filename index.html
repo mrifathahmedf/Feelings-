@@ -103,63 +103,52 @@ content="width=device-width,
 
 initial-scale=1.0">
 
-<meta property="og:title"
-
-content="My Inner Feelings">
-
-<meta property="og:description"
-
-content="Feel the depth of emotions">
-
-<meta property="og:image"
-
-content="https://myinner feelings.netlify
-
-.app/logo.png">
-
-<meta property="og:url"
-
-content="https://myinnerfeelings.netlify
-
-.app">
-
-<meta name="theme-color"
-
-content="#00FF00">
-
-
 <style>
 
 body {
 
-background-color: black;
-
-color: #00FF00;
-
-font-family: 'Arial',
-
-sans-serif;
-
-}
-
-text-align: center;
-
-font-size: 2rem;
-
-height: 100vh;
+margin: 0;
 
 display: flex;
+
+flex-direction: column;
 
 justify-content: center;
 
 align-items: center;
+
+height: 100vh;
+
+background-color: #f4f4f4;
+
+logo {
+
+width: 400px;
+
+height: 200px;
+
+object-fit: cover;
+
+border-radius: 8px;
+
+box-shadow: 0 2px 8px
+
+rgba(0,0,0,0.1);
+
+}
 
 </style>
     
 </head>
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
-<h1>My Inner Feelings</h1>
+<!-- লোগো -->
+
+<img
+
+src="https://i.imgur.com/EAFomLO.png"
+
+alt="My Logo" class="logo">
 
     <!-- 🌟 ওয়েলকাম টেক্সট -->
     <div class="welcome-box" id="welcomeBox">🌟 স্বাগতম myinnerfeelings! আপনার প্রতীক্ষায় প্রহর গুনছি আনমনে, কখন আসিবেন আর সঙ্গ দিবেন আমার সনে!... 🌟</div>
