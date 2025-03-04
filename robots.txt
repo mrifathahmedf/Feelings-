@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://myinnerfeelings.netlify.app/sitemap.xml
