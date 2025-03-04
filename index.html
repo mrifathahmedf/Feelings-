@@ -71,11 +71,9 @@
        
     </style>
 <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     
-       <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
    
     <style>
         .profile-pic {
@@ -88,8 +86,7 @@
         }
     </style>
 
-  <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
    
     <style>
         /* সোশ্যাল আইকন ফিক্সড বটমে রাখার জন্য */
@@ -120,8 +117,6 @@
     </style>
 
 
- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <style>
         /* পুরো পেজের ব্যাকগ্রাউন্ড */
@@ -160,6 +155,37 @@
             border: 2px solid #112240;
         }
     </style>
+ <style>
+        /* 🔵 ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a192f;
+            color: white;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+        }
+
+        /* 🔵 প্রতিটি সেকশন */
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            scroll-snap-align: start;
+            font-size: 2rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* 🔵 আলাদা আলাদা সেকশনের রঙ */
+        .section:nth-child(1) { background: #1e293b; }
+        .section:nth-child(2) { background: #334155; }
+        .section:nth-child(3) { background: #475569; }
+        .section:nth-child(4) { background: #64748b; }
+
+    </style>
+
 </head>
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
