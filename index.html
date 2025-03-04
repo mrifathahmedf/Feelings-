@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>অনুভূতির জগৎ</title>
+    <title>My Inner Feelings</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
 
@@ -94,57 +94,7 @@
         }
     </style>
 <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
-    <meta charset="UTF-8">
-
-<meta name="viewport"
-
-content="width=device-width,
-
-initial-scale=1.0">
-
-<title>Review Button</title>
-
-<style>
-
-/* রিভিউ বাটন ডিজাইন */
-
-.review-container {
-
-position: fixed;
-
-bottom: 20px;
-
-left: 50%;
-
-transform: translateX(-50%);
-
-text-align: center;
-
-display: none;
-
-}
-
-.review-btn {
-
-padding: 15px 30px;
-
-font-size: 18px;
-
-cursor: pointer;
-
-background-color: #0056b3; /*
-
-নীল রঙ */
-
-}
-
-color: white;
-
-border: none;
-
-border-radius: 5px;
-
-</style>
+    
 </head>
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
@@ -387,40 +337,6 @@ border-radius: 5px;
         }
     </script>
 
-<div class="review-container" id="reviewContainer">
-    <button class="review-btn" onclick="toggleStars()">⭐ Review Me</button>
-    <div class="stars" id="stars">
-        <span onclick="submitReview(5)">★</span>
-        <span onclick="submitReview(4)">★</span>
-        <span onclick="submitReview(3)">★</span>
-        <span onclick="submitReview(2)">★</span>
-        <span onclick="submitReview(1)">★</span>
-    </div>
-    <div class="thank-you" id="thankYou">Thanks for review!</div>
-</div>
 
-<script>
-
-// ১ মিনিট পর রিভিউ বাটন দেখাবে setTimeout(() => {
-
-document.getElementById("reviewContainer" ).style.display = "block";
-
-// ১০ সেকেন্ড পর অটো হাইড হবে setTimeout(() => {
-
-document.getElementById("reviewContainer"
-
-).style.display = "none";
-
-}, 10000);
-
-}, 60000);
-
-// ম্যানুয়ালি বাটন ক্লিক করলে হাইড হবে function hideReviewButton() {
-
-document.getElementById("reviewContainer" ).style.display = "none";
-
-}
-
-</script>
 </body>
 </html>
