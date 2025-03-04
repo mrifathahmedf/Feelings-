@@ -335,6 +335,7 @@
             return "আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়া বারাকাতুহু / ধন্যবাদ! আবার আসবেন 💐";
         }
     </script>
+
 <div class="review-container">
     <button class="review-button" id="reviewBtn" onclick="toggleReview()">⭐ Review Me</button>
     <div class="review-box hidden" id="reviewBox">
@@ -348,6 +349,28 @@
     </div>
 </div>
 
+<script>
+    function toggleStars() {
+        const stars = document.getElementById('stars');
+        const reviewBtn = document.querySelector('.review-btn');
+        if (stars.style.display === 'none' || stars.style.display === '') {
+            stars.style.display = 'block';
+            reviewBtn.style.display = 'none';
+        } else {
+            stars.style.display = 'none';
+        }
+    }
+
+    function submitReview(rating) {
+        const stars = document.getElementById('stars');
+        const thankYou = document.getElementById('thankYou');
+        stars.style.display = 'none';
+        thankYou.style.display = 'block';
+
+        // You can send the rating to your server here if needed
+        console.log(`User rated: ${rating} stars`);
+    }
+</script>
 
 </body>
 </html>
