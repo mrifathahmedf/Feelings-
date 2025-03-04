@@ -337,16 +337,15 @@
     </script>
 
 <div class="review-container">
-    <button class="review-button" id="reviewBtn" onclick="toggleReview()">⭐ Review Me</button>
-    <div class="review-box hidden" id="reviewBox">
-        <p>Give your rating:</p>
-        <button class="star" onclick="submitReview(5)">⭐</button>
-        <button class="star" onclick="submitReview(4)">⭐</button>
-        <button class="star" onclick="submitReview(3)">⭐</button>
-        <button class="star" onclick="submitReview(2)">⭐</button>
-        <button class="star" onclick="submitReview(1)">⭐</button>
-        <p id="thankYouMessage" class="hidden">Thanks for review!</p>
+    <button class="review-btn" onclick="toggleStars()">Review Me</button>
+    <div class="stars" id="stars">
+        <span onclick="submitReview(5)">★</span>
+        <span onclick="submitReview(4)">★</span>
+        <span onclick="submitReview(3)">★</span>
+        <span onclick="submitReview(2)">★</span>
+        <span onclick="submitReview(1)">★</span>
     </div>
+    <div class="thank-you" id="thankYou">Thanks for review</div>
 </div>
 
 <script>
