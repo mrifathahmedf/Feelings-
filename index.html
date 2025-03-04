@@ -94,6 +94,59 @@
         }
     </style>
 <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Button</title>
+    <style>
+        /* Center the button */
+        .review-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        /* Style the button */
+        .review-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF; /* Blue color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Style the stars */
+        .stars {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .stars span {
+            font-size: 24px;
+            cursor: pointer;
+            color: #ccc;
+        }
+
+        .stars span:hover,
+        .stars span:hover ~ span {
+            color: #ffcc00;
+        }
+
+        .stars span.active {
+            color: #ffcc00;
+        }
+
+        /* Style the thank you message */
+        .thank-you {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #007BFF; /* Blue color */
+        }
+    </style>
 </head>
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
@@ -347,14 +400,21 @@
     </div>
     <div class="thank-you" id="thankYou">Thanks for review</div>
 </div>
-
 <script>
+    let isReviewSubmitted = false;
+
     function toggleStars() {
         const stars = document.getElementById('stars');
         const reviewBtn = document.querySelector('.review-btn');
+        const thankYou = document.getElementById('thankYou');
+
+        if (isReviewSubmitted) {
+            return; // If review is already submitted, do nothing
+        }
+
         if (stars.style.display === 'none' || stars.style.display === '') {
             stars.style.display = 'block';
-            reviewBtn.style.display = 'none';
+            thankYou.style.display = 'none'; // Hide thank you message
         } else {
             stars.style.display = 'none';
         }
@@ -363,8 +423,11 @@
     function submitReview(rating) {
         const stars = document.getElementById('stars');
         const thankYou = document.getElementById('thankYou');
+        const reviewBtn = document.querySelector('.review-btn');
+
         stars.style.display = 'none';
         thankYou.style.display = 'block';
+        isReviewSubmitted = true;
 
         // You can send the rating to your server here if needed
         console.log(`User rated: ${rating} stars`);
