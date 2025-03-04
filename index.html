@@ -95,59 +95,56 @@
     </style>
 <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Button</title>
-    <style>
-        /* রিভিউ বাটন স্টাইল */
-        .review-container {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            z-index: 999;
-        }
 
-        .review-btn {
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            background-color: #0056b3; /* নীল রঙ */
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
+<meta name="viewport"
 
-        /* স্টার স্টাইল */
-        .stars {
-            display: none;
-            margin-top: 10px;
-        }
+content="width=device-width,
 
-        .stars span {
-            font-size: 30px;
-            cursor: pointer;
-            color: #ccc;
-        }
+initial-scale=1.0">
 
-        .stars span:hover,
-        .stars span:hover ~ span {
-            color: #ffcc00;
-        }
+<title>Review Button</title>
 
-        .stars span.active {
-            color: green; /* সবুজ স্টার */
-        }
+<style>
 
-        /* ধন্যবাদ বার্তা */
-        .thank-you {
-            display: none;
-            margin-top: 10px;
-            font-size: 18px;
-            color: #007BFF;
-        }
-    </style>
+/* রিভিউ বাটন ডিজাইন */
+
+.review-container {
+
+position: fixed;
+
+bottom: 20px;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+text-align: center;
+
+display: none;
+
+}
+
+.review-btn {
+
+padding: 15px 30px;
+
+font-size: 18px;
+
+cursor: pointer;
+
+background-color: #0056b3; /*
+
+নীল রঙ */
+
+}
+
+color: white;
+
+border: none;
+
+border-radius: 5px;
+
+</style>
 </head>
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
@@ -403,61 +400,27 @@
 </div>
 
 <script>
-    let isReviewSubmitted = localStorage.getItem("reviewSubmitted") === "true";
-    let reviewContainer = document.getElementById('reviewContainer');
-    
-    function toggleStars() {
-        let stars = document.getElementById('stars');
-        let thankYou = document.getElementById('thankYou');
 
-        if (isReviewSubmitted) return;
+// ১ মিনিট পর রিভিউ বাটন দেখাবে setTimeout(() => {
 
-        if (stars.style.display === 'none' || stars.style.display === '') {
-            stars.style.display = 'block';
-            thankYou.style.display = 'none';
-        } else {
-            stars.style.display = 'none';
-        }
-    }
+document.getElementById("reviewContainer" ).style.display = "block";
 
-    function submitReview(rating) {
-        let stars = document.getElementById('stars');
-        let thankYou = document.getElementById('thankYou');
+// ১০ সেকেন্ড পর অটো হাইড হবে setTimeout(() => {
 
-        stars.style.display = 'none';
-        thankYou.style.display = 'block';
-        isReviewSubmitted = true;
+document.getElementById("reviewContainer"
 
-        // লোকাল স্টোরেজে সেট করে দিচ্ছি, যেন বারবার না দেখায়
-        localStorage.setItem("reviewSubmitted", "true");
+).style.display = "none";
 
-        // রেটিং দেওয়া স্টার সবুজ করা
-        let starElements = document.querySelectorAll('.stars span');
-        starElements.forEach((star, index) => {
-            if (index < rating) {
-                star.classList.add('active');
-            }
-        });
+}, 10000);
 
-        console.log(`User rated: ${rating} stars`);
-    }
+}, 60000);
 
-    // ওয়েবসাইট লোড হওয়ার পর রিভিউ বাটন ১ মিনিট থাকবে, তারপর হাইড হবে
-    setTimeout(() => {
-        if (!isReviewSubmitted) {
-            reviewContainer.style.display = 'none';
-        }
-    }, 60000); // ১ মিনিট = ৬০,০০০ মিলিসেকেন্ড
+// ম্যানুয়ালি বাটন ক্লিক করলে হাইড হবে function hideReviewButton() {
 
-    // যদি ভিজিটর ১০ মিনিট ওয়েবসাইটে থাকে, তাহলে আবার রিভিউ বাটন দেখাবে
-    setInterval(() => {
-        if (!isReviewSubmitted) {
-            reviewContainer.style.display = 'block';
-            setTimeout(() => {
-                reviewContainer.style.display = 'none';
-            }, 60000); // ১ মিনিট পর হাইড হবে
-        }
-    }, 600000); // ১০ মিনিট পর আবার দেখাবে
+document.getElementById("reviewContainer" ).style.display = "none";
+
+}
+
 </script>
 </body>
 </html>
