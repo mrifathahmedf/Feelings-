@@ -98,34 +98,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review Button</title>
     <style>
-        /* Center the button */
+        /* রিভিউ বাটন স্টাইল */
         .review-container {
             position: fixed;
-            bottom: 20px;
+            bottom: 10px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
+            z-index: 999;
         }
 
-        /* Style the button */
         .review-btn {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: bold;
             cursor: pointer;
-            background-color: #007BFF; /* Blue color */
+            background-color: #0056b3; /* নীল রঙ */
             color: white;
             border: none;
             border-radius: 5px;
         }
 
-        /* Style the stars */
+        /* স্টার স্টাইল */
         .stars {
             display: none;
             margin-top: 10px;
         }
 
         .stars span {
-            font-size: 24px;
+            font-size: 30px;
             cursor: pointer;
             color: #ccc;
         }
@@ -136,15 +137,15 @@
         }
 
         .stars span.active {
-            color: #ffcc00;
+            color: green; /* সবুজ স্টার */
         }
 
-        /* Style the thank you message */
+        /* ধন্যবাদ বার্তা */
         .thank-you {
             display: none;
             margin-top: 10px;
             font-size: 18px;
-            color: #007BFF; /* Blue color */
+            color: #007BFF;
         }
     </style>
 </head>
@@ -389,8 +390,8 @@
         }
     </script>
 
-<div class="review-container">
-    <button class="review-btn" onclick="toggleStars()">Review Me</button>
+<div class="review-container" id="reviewContainer">
+    <button class="review-btn" onclick="toggleStars()">⭐ Review Me</button>
     <div class="stars" id="stars">
         <span onclick="submitReview(5)">★</span>
         <span onclick="submitReview(4)">★</span>
@@ -398,41 +399,65 @@
         <span onclick="submitReview(2)">★</span>
         <span onclick="submitReview(1)">★</span>
     </div>
-    <div class="thank-you" id="thankYou">Thanks for review</div>
+    <div class="thank-you" id="thankYou">Thanks for review!</div>
 </div>
+
 <script>
-    let isReviewSubmitted = false;
-
+    let isReviewSubmitted = localStorage.getItem("reviewSubmitted") === "true";
+    let reviewContainer = document.getElementById('reviewContainer');
+    
     function toggleStars() {
-        const stars = document.getElementById('stars');
-        const reviewBtn = document.querySelector('.review-btn');
-        const thankYou = document.getElementById('thankYou');
+        let stars = document.getElementById('stars');
+        let thankYou = document.getElementById('thankYou');
 
-        if (isReviewSubmitted) {
-            return; // If review is already submitted, do nothing
-        }
+        if (isReviewSubmitted) return;
 
         if (stars.style.display === 'none' || stars.style.display === '') {
             stars.style.display = 'block';
-            thankYou.style.display = 'none'; // Hide thank you message
+            thankYou.style.display = 'none';
         } else {
             stars.style.display = 'none';
         }
     }
 
     function submitReview(rating) {
-        const stars = document.getElementById('stars');
-        const thankYou = document.getElementById('thankYou');
-        const reviewBtn = document.querySelector('.review-btn');
+        let stars = document.getElementById('stars');
+        let thankYou = document.getElementById('thankYou');
 
         stars.style.display = 'none';
         thankYou.style.display = 'block';
         isReviewSubmitted = true;
 
-        // You can send the rating to your server here if needed
+        // লোকাল স্টোরেজে সেট করে দিচ্ছি, যেন বারবার না দেখায়
+        localStorage.setItem("reviewSubmitted", "true");
+
+        // রেটিং দেওয়া স্টার সবুজ করা
+        let starElements = document.querySelectorAll('.stars span');
+        starElements.forEach((star, index) => {
+            if (index < rating) {
+                star.classList.add('active');
+            }
+        });
+
         console.log(`User rated: ${rating} stars`);
     }
-</script>
 
+    // ওয়েবসাইট লোড হওয়ার পর রিভিউ বাটন ১ মিনিট থাকবে, তারপর হাইড হবে
+    setTimeout(() => {
+        if (!isReviewSubmitted) {
+            reviewContainer.style.display = 'none';
+        }
+    }, 60000); // ১ মিনিট = ৬০,০০০ মিলিসেকেন্ড
+
+    // যদি ভিজিটর ১০ মিনিট ওয়েবসাইটে থাকে, তাহলে আবার রিভিউ বাটন দেখাবে
+    setInterval(() => {
+        if (!isReviewSubmitted) {
+            reviewContainer.style.display = 'block';
+            setTimeout(() => {
+                reviewContainer.style.display = 'none';
+            }, 60000); // ১ মিনিট পর হাইড হবে
+        }
+    }, 600000); // ১০ মিনিট পর আবার দেখাবে
+</script>
 </body>
 </html>
