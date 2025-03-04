@@ -132,6 +132,47 @@ height: auto;
 }
 
 </style>
+
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডার্ক নাইট মোড</title>
+    <style>
+        /* পুরো পেজের ব্যাকগ্রাউন্ড */
+        body {
+            background-color: #0a192f; /* গাঢ় ডার্ক ব্লু */
+            color: #ccd6f6; /* হালকা নীলাভ সাদা টেক্সট */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* বাটনের ডিজাইন */
+        .button {
+            background-color: #112240; /* আরও গাঢ় নীল */
+            color: #64ffda; /* নীয়ন সবুজাভ নীল */
+            padding: 12px 24px;
+            margin: 10px;
+            border: 2px solid #64ffda;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            width: 220px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* হোভার ইফেক্ট (মাউস গেলে) */
+        .button:hover {
+            background-color: #64ffda; /* উজ্জ্বল নীলাভ সবুজ */
+            color: #112240; /* গাঢ় নীল */
+            border: 2px solid #112240;
+        }
+    </style>
 </head>
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
