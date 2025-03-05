@@ -7,18 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Inner Feelings</title>
     <style>
+        /* Google Font: Solaiman Lipi for Bengali text */
         @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
 
+        /* 🔵 Base Styles and Body */
         body {
-            font-family: 'SolaimanLipi', Arial, sans-serif;
-            background: #0a0a20;
-            text-align: center;
-            padding: 20px;
-            color: white;
-            overflow-x: hidden;
+            font-family: 'SolaimanLipi', Arial, sans-serif; /* Bengali font and fallback */
+            background-color: #0a192f; /* ব্লু ডার্ক নাইট - Consistent background color */
+            color: #ccd6f6; /* হালকা নীলাভ সাদা টেক্সট - Consistent text color */
+            text-align: center; /* Default text alignment */
+            padding: 20px; /* General padding for body */
+            margin: 0; /* Reset default margin */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-y: scroll; /* Enable vertical scroll */
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center content vertically and horizontally */
+            scroll-snap-type: y mandatory; /* Enable scroll snapping */
         }
 
-        /* 🌟 ওয়েলকাম টেক্সট */
+        /* Section Styles for Scroll Snapping */
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height for each section */
+            scroll-snap-align: start; /* Align sections to the start of the viewport */
+            font-size: 2rem; /* Example font size for section content */
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Separator between sections */
+        }
+
+        /* Section Background Colors - You can customize these */
+        .section:nth-child(1) { background: #1e293b; }
+        .section:nth-child(2) { background: #334155; }
+        .section:nth-child(3) { background: #475569; }
+        .section:nth-child(4) { background: #64748b; }
+
+
+        /* 🌟 ওয়েলকাম বক্স স্টাইল */
         .welcome-box {
             position: relative;
             background: #0055aa;
@@ -33,14 +60,15 @@
             text-align: center;
         }
 
-        /* ১০ সেকেন্ড পর হাইড হবে */
+        /* হাইড ক্লাস - ওয়েলকাম বক্স ১০ সেকেন্ড পর লুকানোর জন্য */
         .hide {
             display: none;
         }
 
-        /* কবিতা বাটন */
+
+        /* কবিতা বাটন এবং কন্টেইনার স্টাইল */
         .poem-container {
-            margin-top: 20px; /* ওয়েলকাম টেক্সট থেকে নিচে সরানোর জন্য */
+            margin-top: 20px; /* ওয়েলকাম টেক্সট থেকে নিচে সরানোর জন্য */
         }
 
         .poem-button {
@@ -54,7 +82,7 @@
             border-radius: 5px;
         }
 
-        /* কবিতা */
+        /* কবিতা স্টাইল */
         .poem {
             display: none;
             background: #111;
@@ -69,14 +97,8 @@
             margin-right: auto;
         }
 
-       
-    </style>
-<meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
 
-    
-       
-   
-    <style>
+        /* 👤 প্রোফাইল পিকচার স্টাইল */
         .profile-pic {
             width: 100px;
             height: 100px;
@@ -85,151 +107,90 @@
             top: 10px;
             left: 10px;
         }
-    </style>
 
-  
-   
-    <style>
-    /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
-    body {
-        background-color: #0a192f; /* ব্লু ডার্ক নাইট */
-        color: white;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
 
-    /* সোশ্যাল আইকন অংশের ব্যাকগ্রাউন্ড শুধু সাদা */
-    .social-icons {
-        display: flex;
-        justify-content: space-between; /* আইকনগুলো পুরো জায়গায় সমানভাবে ছড়াবে */
-        padding: 15px 20px; /* আইকন জায়গার প্যাডিং ঠিক রাখলাম */
-        background: white; /* শুধু এই অংশ সাদা */
-        border-radius: 10px; /* ডিজাইন একটু স্মুথ রাখার জন্য */
-    }
-
-    /* আইকনের ডিজাইন */
-    .social-icons a img {
-        width: 30px; /* আইকনের সাইজ ঠিক রাখা */
-        height: 30px;
-        transition: transform 0.3s;
-    }
-
-    /* হোভার করলে জুম হবে */
-    .social-icons a:hover img {
-        transform: scale(1.2);
-    }
-
-    /* ফুটারের ডিজাইন */
-    .footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 14px;
-        background: rgba(0, 0, 0, 0.1); /* ফুটারের ব্যাকগ্রাউন্ড হালকা */
-        width: 100%;
-        position: relative;
-    }
-</style>
-
-    
-    <style>
-        /* পুরো পেজের ব্যাকগ্রাউন্ড */
-        body {
-            background-color: #0a192f; /* গাঢ় ডার্ক ব্লু */
-            color: #ccd6f6; /* হালকা নীলাভ সাদা টেক্সট */
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
+        /* 🌐 সোশ্যাল আইকন স্টাইল */
+        .social-icons {
+            display: flex;
+            justify-content: space-between; /* আইকনগুলো পুরো জায়গায় সমানভাবে ছড়াবে */
+            padding: 15px 20px; /* আইকন জায়গার প্যাডিং ঠিক রাখলাম */
+            background: white; /* শুধু এই অংশ সাদা */
+            border-radius: 10px; /* ডিজাইন একটু স্মুথ রাখার জন্য */
+            margin-top: 20px; /* ওয়েলকাম বক্স বা অন্য এলিমেন্ট থেকে নিচে নামানোর জন্য */
+            width: 100%; /* পুরো উইথ জুড়ে নেবার জন্য */
+            max-width: 700px; /* ফর্ম কন্টেইনার এর সাথে সামঞ্জস্য রেখে ম্যাক্স উইথ সেট করলাম */
+            margin-left: auto;
+            margin-right: auto; /* ফর্ম কন্টেইনার এর সাথে সেন্টার করার জন্য */
         }
 
-        /* বাটনের ডিজাইন */
+        /* সোশ্যাল আইকনের ইমেজ স্টাইল */
+        .social-icons a img {
+            width: 30px; /* আইকনের সাইজ ঠিক রাখা */
+            height: 30px;
+            transition: transform 0.3s;
+        }
+
+        /* হোভার করলে জুম হবে */
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
+
+
+        /*  button Styles - জেনেরিক বাটন ডিজাইন */
         .button {
-            background-color: #112240; /* আরও গাঢ় নীল */
-            color: #64ffda; /* নীয়ন সবুজাভ নীল */
+            background-color: #112240; /* আরও গাঢ় নীল */
+            color: #64ffda; /* নীয়ন সবুজাভ নীল */
             padding: 12px 24px;
             margin: 10px;
             border: 2px solid #64ffda;
             cursor: pointer;
             font-size: 18px;
-            display: block;
-            width: 220px;
-            text-align: center;
-            text-decoration: none;
+            display: block; /* block এলিমেন্ট হিসেবে দেখানোর জন্য */
+            width: 220px; /* নির্দিষ্ট উইথ */
+            text-align: center; /* টেক্সট সেন্টার */
+            text-decoration: none; /* আন্ডারলাইন সরাতে */
             border-radius: 8px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: 0.3s; /* স্মুথ ট্রানজিশন */
             margin-left: auto;
-            margin-right: auto;
+            margin-right: auto; /* মার্জিন অটো করে সেন্টার করা */
         }
 
-        /* হোভার ইফেক্ট (মাউস গেলে) */
+        /* Button হোভার ইফেক্ট (মাউস গেলে) */
         .button:hover {
             background-color: #64ffda; /* উজ্জ্বল নীলাভ সবুজ */
-            color: #112240; /* গাঢ় নীল */
+            color: #112240; /* গাঢ় নীল */
             border: 2px solid #112240;
         }
-    </style>
 
- <style>
-        /* 🔵 ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0a192f;
-            color: white;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            height: 100vh;
-        }
 
-        /* 🔵 প্রতিটি সেকশন */
-        .section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            scroll-snap-align: start;
-            font-size: 2rem;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* 🔵 আলাদা আলাদা সেকশনের রঙ */
-        .section:nth-child(1) { background: #1e293b; }
-        .section:nth-child(2) { background: #334155; }
-        .section:nth-child(3) { background: #475569; }
-        .section:nth-child(4) { background: #64748b; }
-
-    </style>
-
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0a192f; /* ব্লু ডার্ক নাইট */
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background: #0a192f; /* ব্লু ডার্ক নাইট */
+        /* 📦 ফর্ম কন্টেইনার স্টাইল */
+        .container, .form-container { /* .form-container ও যুক্ত করা হলো যেনো ফর্ম এর ক্ষেত্রেও সেইম স্টাইল থাকে */
+            background: #0a192f; /* ব্লু ডার্ক নাইট - ফর্ম কন্টেইনার ব্যাকগ্রাউন্ড */
             padding: 20px;
             border-radius: 10px;
-            width: 350px;
+            width: 100%; /* রেস্পন্সিভ করার জন্য উইথ ১০০% করা হলো */
+            max-width: 700px; /* ফর্ম কন্টেইনার এর ম্যাক্সিমাম উইথ */
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
             border: 1px solid #4db8ff; /* হালকা নীল বর্ডার */
+            margin: 20px auto; /* উপর নিচে মার্জিন এবং অটো মার্জিন দিয়ে সেন্টার করা */
         }
+
+        /* ফর্ম হেডিং স্টাইল */
         h2 {
             text-align: center;
-            color: #4db8ff;
+            color: #4db8ff; /* হেডিং এর কালার */
         }
+
+        /* ফর্ম লেবেল স্টাইল */
         label {
             font-size: 14px;
             font-weight: bold;
             display: block;
             margin: 10px 0 5px;
         }
+
+        /* ফর্ম ইনপুট এবং টেক্সট এরিয়া স্টাইল */
         input, textarea {
             width: 100%;
             padding: 8px;
@@ -239,17 +200,22 @@
             color: #fff;
             margin-bottom: 10px;
         }
+
         textarea {
             height: 100px;
-            resize: none;
+            resize: none; /* টেক্সট এরিয়া রিসাইজ বন্ধ করা হলো */
         }
+
+        /* ওয়ার্নিং মেসেজ স্টাইল */
         .warning {
             font-size: 12px;
             color: #ff5050;
             text-align: center;
             margin-bottom: 10px;
         }
-        button {
+
+        /* ফর্ম বাটন স্টাইল (সাবমিট বাটন) - ফর্মের ভেতরের বাটন */
+        button[type="submit"] { /*  type="submit" বাটন সিলেক্ট করার জন্য */
             background: #4db8ff;
             color: white;
             border: none;
@@ -260,32 +226,34 @@
             cursor: pointer;
             font-weight: bold;
         }
-        button:hover {
+
+        /* ফর্ম বাটন হোভার স্টাইল */
+        button[type="submit"]:hover {
             background: #0088cc;
         }
-    </style>
 
-<style>
-        body {
-            background-color: #0a192f;
-            color: white;
+
+        /* <footer> ফুটার স্টাইল */
+        .footer {
             text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        h2 {
-            color: #4db8ff;
-        }
-        .form-container {
+            padding: 20px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.1); /* ফুটারের ব্যাকগ্রাউন্ড হালকা */
             width: 100%;
-            max-width: 700px;
-            margin: auto;
+            position: relative;
+            margin-top: 20px; /* ফর্ম কন্টেইনার বা অন্য এলিমেন্ট থেকে নিচে নামানোর জন্য */
         }
+
+        /* iframe Style */
         iframe {
             width: 100%;
-            height: 800px;
+            height: 800px; /* iframe এর ডিফল্ট হাইট */
             border: none;
         }
+
+
     </style>
+<meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
 </head>
 
 
