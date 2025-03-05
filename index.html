@@ -294,29 +294,6 @@
 </head>
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
-<div class="welcome-box">
-        আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়া বারাকাতুহু <br> স্বাগতম!
-    </div>
-
-    <div class="container">
-        <!-- ৫০টি কনফেটি / ফুল / পার্টিকেল / আতশবাজি -->
-        <script>
-            for (let i = 0; i < 50; i++) {
-                let particle = document.createElement("div");
-                particle.className = "particle";
-                particle.style.left = Math.random() * 100 + "vw";
-                particle.style.animationDuration = (Math.random() * 2 + 1) + "s";
-                document.querySelector(".container").appendChild(particle);
-
-                let firework = document.createElement("div");
-                firework.className = "firework";
-                firework.style.left = Math.random() * 100 + "vw";
-                firework.style.top = Math.random() * 100 + "vh";
-                firework.style.animationDuration = (Math.random() * 1.5 + 1) + "s";
-                document.querySelector(".container").appendChild(firework);
-            }
-        </script>
-    </div>
 
 
  
@@ -704,6 +681,31 @@
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5); /* নিচে শ্যাডো */
 }
 </style>
+
+<div class="welcome-box">
+        আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়া বারাকাতুহু <br> স্বাগতম!
+    </div>
+
+    <div class="container">
+        <!-- ৫০টি কনফেটি / ফুল / পার্টিকেল / আতশবাজি -->
+        <script>
+            for (let i = 0; i < 50; i++) {
+                let particle = document.createElement("div");
+                particle.className = "particle";
+                particle.style.left = Math.random() * 100 + "vw";
+                particle.style.animationDuration = (Math.random() * 2 + 1) + "s";
+                document.querySelector(".container").appendChild(particle);
+
+                let firework = document.createElement("div");
+                firework.className = "firework";
+                firework.style.left = Math.random() * 100 + "vw";
+                firework.style.top = Math.random() * 100 + "vh";
+                firework.style.animationDuration = (Math.random() * 1.5 + 1) + "s";
+                document.querySelector(".container").appendChild(firework);
+            }
+        </script>
+    </div>
+
 
 </body>
 </html>
