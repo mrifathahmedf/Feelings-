@@ -91,38 +91,26 @@
     <style>
     /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
     body {
-        background-color: #0a192f; /* ডার্ক ব্লু শেড */
+        background-color: #0a192f; /* ব্লু ডার্ক নাইট */
         color: white;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
     }
 
-    /* ফুটার কন্টেইনার */
-    .footer-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 20px;
-    }
-
-    /* সোশ্যাল আইকন ফুটারের ঠিক উপরে রাখার জন্য */
+    /* সোশ্যাল আইকন অংশের ব্যাকগ্রাউন্ড শুধু সাদা */
     .social-icons {
-        position: relative;
-        bottom: 10px;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 10px;
-        border-radius: 10px;
         display: flex;
-        gap: 10px;
-        z-index: 1000;
+        justify-content: space-between; /* আইকনগুলো পুরো জায়গায় সমানভাবে ছড়াবে */
+        padding: 15px 20px; /* আইকন জায়গার প্যাডিং ঠিক রাখলাম */
+        background: white; /* শুধু এই অংশ সাদা */
+        border-radius: 10px; /* ডিজাইন একটু স্মুথ রাখার জন্য */
     }
 
-    /* সোশ্যাল আইকনের ডিজাইন */
+    /* আইকনের ডিজাইন */
     .social-icons a img {
-        width: 25px;
-        height: 25px;
+        width: 30px; /* আইকনের সাইজ ঠিক রাখা */
+        height: 30px;
         transition: transform 0.3s;
     }
 
@@ -136,8 +124,9 @@
         text-align: center;
         padding: 20px;
         font-size: 14px;
-        background: rgba(0, 0, 0, 0.3); /* হালকা ব্লার ব্যাকগ্রাউন্ড */
+        background: rgba(0, 0, 0, 0.1); /* ফুটারের ব্যাকগ্রাউন্ড হালকা */
         width: 100%;
+        position: relative;
     }
 </style>
 
@@ -181,6 +170,7 @@
             border: 2px solid #112240;
         }
     </style>
+
  <style>
         /* 🔵 ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
         body {
@@ -493,21 +483,6 @@
 
 
        
-<!-- সোশ্যাল মিডিয়া আইকন -->
-    <div class="social-icons">
-        <a href="https://www.facebook.com/I.only.for.you.now" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-        </a>
-        <a href="https://www.instagram.com/i.only.for.you.now" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-        </a>
-        <a href="https://youtube.com/@akhifarjanabestfriend" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
-        </a>
-        <a href="https://www.tiktok.com/@rifath.ahmed603" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="Tiktok">
-        </a>
-    </div>
 
 
 
@@ -572,6 +547,24 @@
 <button class="poem-button" onclick="togglePoem('poem14')">More Info</button>
 <div class="poem" id="poem14">Upcoming more, insha'Allah.Staying with me.You can also visit my social profile click on the social media links below.Thank you so much</div></div>
     
+<!-- সোশ্যাল মিডিয়া আইকন -->
+    <div class="social-icons">
+        <a href="https://www.facebook.com/I.only.for.you.now" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/i.only.for.you.now" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://youtube.com/@akhifarjanabestfriend" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+        </a>
+        <a href="https://www.tiktok.com/@rifath.ahmed603" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="Tiktok">
+        </a>
+    </div>
+
+
+
 <div class="copyright">
     © 2025 My Inner Feelings | All Rights Reserved.
 </div>
