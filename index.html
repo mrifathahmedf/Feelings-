@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Inner Feelings</title>
-    <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
 
-        /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড */
         body {
             font-family: 'SolaimanLipi', Arial, sans-serif;
-            background-color: #0a192f; /* ব্লু ডার্ক নাইট */
-            color: white;
+            background: #0a0a20;
             text-align: center;
             padding: 20px;
-            margin: 0;
+            color: white;
             overflow-x: hidden;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            height: 100vh;
         }
 
         /* 🌟 ওয়েলকাম টেক্সট */
         .welcome-box {
+            position: relative;
             background: #0055aa;
+            color: white;
             padding: 15px 30px;
             border-radius: 8px;
             font-size: 18px;
@@ -33,19 +30,20 @@
             width: 80%;
             max-width: 400px;
             margin: auto;
+            text-align: center;
         }
-
-
 
         /* ১০ সেকেন্ড পর হাইড হবে */
         .hide {
             display: none;
-
         }
 
-
         /* কবিতা বাটন */
-        .poem-button, .button {
+        .poem-container {
+            margin-top: 20px; /* ওয়েলকাম টেক্সট থেকে নিচে সরানোর জন্য */
+        }
+
+        .poem-button {
             background: #003366;
             color: white;
             border: none;
@@ -54,35 +52,137 @@
             margin: 10px;
             cursor: pointer;
             border-radius: 5px;
+        }
+
+        /* কবিতা */
+        .poem {
+            display: none;
+            background: #111;
+            padding: 15px;
+            margin-top: 5px;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+       
+    </style>
+<meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
+
+    
+       
+   
+    <style>
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* বৃত্তাকার করতে */
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+
+  
+   
+    <style>
+    /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
+    body {
+        background-color: #0a192f; /* ব্লু ডার্ক নাইট */
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* সোশ্যাল আইকন অংশের ব্যাকগ্রাউন্ড শুধু সাদা */
+    .social-icons {
+        display: flex;
+        justify-content: space-between; /* আইকনগুলো পুরো জায়গায় সমানভাবে ছড়াবে */
+        padding: 15px 20px; /* আইকন জায়গার প্যাডিং ঠিক রাখলাম */
+        background: white; /* শুধু এই অংশ সাদা */
+        border-radius: 10px; /* ডিজাইন একটু স্মুথ রাখার জন্য */
+    }
+
+    /* আইকনের ডিজাইন */
+    .social-icons a img {
+        width: 30px; /* আইকনের সাইজ ঠিক রাখা */
+        height: 30px;
+        transition: transform 0.3s;
+    }
+
+    /* হোভার করলে জুম হবে */
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+
+    /* ফুটারের ডিজাইন */
+    .footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        background: rgba(0, 0, 0, 0.1); /* ফুটারের ব্যাকগ্রাউন্ড হালকা */
+        width: 100%;
+        position: relative;
+    }
+</style>
+
+    
+    <style>
+        /* পুরো পেজের ব্যাকগ্রাউন্ড */
+        body {
+            background-color: #0a192f; /* গাঢ় ডার্ক ব্লু */
+            color: #ccd6f6; /* হালকা নীলাভ সাদা টেক্সট */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* বাটনের ডিজাইন */
+        .button {
+            background-color: #112240; /* আরও গাঢ় নীল */
+            color: #64ffda; /* নীয়ন সবুজাভ নীল */
+            padding: 12px 24px;
+            margin: 10px;
+            border: 2px solid #64ffda;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            width: 220px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
             transition: 0.3s;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* হোভার ইফেক্ট */
-        .poem-button:hover, .button:hover {
-            background: #64ffda;
-            color: #112240;
+        /* হোভার ইফেক্ট (মাউস গেলে) */
+        .button:hover {
+            background-color: #64ffda; /* উজ্জ্বল নীলাভ সবুজ */
+            color: #112240; /* গাঢ় নীল */
+            border: 2px solid #112240;
+        }
+    </style>
+
+ <style>
+        /* 🔵 ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0a192f;
+            color: white;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            height: 100vh;
         }
 
-        /* সোশ্যাল আইকন */
-        .social-icons {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 20px;
-            background: white;
-            border-radius: 10px;
-        }
-
-        .social-icons a img {
-            width: 30px;
-            height: 30px;
-            transition: transform 0.3s;
-        }
-
-        .social-icons a:hover img {
-            transform: scale(1.2);
-        }
-
-        /* স্ক্রল স্ন্যাপ লেআউট */
+        /* 🔵 প্রতিটি সেকশন */
         .section {
             display: flex;
             align-items: center;
@@ -93,52 +193,79 @@
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* প্রোফাইল পিকচার */
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
-        /* ফুটারের ডিজাইন */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.1);
-            width: 100%;
-        }
+        /* 🔵 আলাদা আলাদা সেকশনের রঙ */
+        .section:nth-child(1) { background: #1e293b; }
+        .section:nth-child(2) { background: #334155; }
+        .section:nth-child(3) { background: #475569; }
+        .section:nth-child(4) { background: #64748b; }
 
     </style>
 
 <style>
         body {
-            background-color: #0a192f;
-            color: white;
-            text-align: center;
             font-family: Arial, sans-serif;
+            background-color: #0a192f; /* ব্লু ডার্ক নাইট */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #0a192f; /* ব্লু ডার্ক নাইট */
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+            border: 1px solid #4db8ff; /* হালকা নীল বর্ডার */
         }
         h2 {
+            text-align: center;
             color: #4db8ff;
         }
-        .form-container {
-            width: 100%;
-            max-width: 700px;
-            margin: auto;
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
         }
-        iframe {
+        input, textarea {
             width: 100%;
-            height: 800px;
+            padding: 8px;
+            border: 1px solid #4db8ff;
+            border-radius: 5px;
+            background: #112240; /* ইনপুট বক্সের ব্যাকগ্রাউন্ড */
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+        .warning {
+            font-size: 12px;
+            color: #ff5050;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        button {
+            background: #4db8ff;
+            color: white;
             border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0088cc;
         }
     </style>
 
-
 </head>
-
 
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
