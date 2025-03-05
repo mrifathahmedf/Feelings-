@@ -89,32 +89,58 @@
   
    
     <style>
-        /* সোশ্যাল আইকন ফিক্সড বটমে রাখার জন্য */
-        .social-icons {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 10px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
+    /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
+    body {
+        background-color: #0a192f; /* ডার্ক ব্লু শেড */
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-        /* আইকনের ডিজাইন */
-        .social-icons a img {
-            width: 20px; /* সাইজ ঠিক রাখা */
-            height: 20px;
-            transition: transform 0.3s;
-        }
+    /* ফুটার কন্টেইনার */
+    .footer-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 20px;
+    }
 
-        /* হোভার করলে জুম হবে */
-        .social-icons a:hover img {
-            transform: scale(1.2);
-        }
-    </style>
+    /* সোশ্যাল আইকন ফুটারের ঠিক উপরে রাখার জন্য */
+    .social-icons {
+        position: relative;
+        bottom: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        gap: 10px;
+        z-index: 1000;
+    }
+
+    /* সোশ্যাল আইকনের ডিজাইন */
+    .social-icons a img {
+        width: 25px;
+        height: 25px;
+        transition: transform 0.3s;
+    }
+
+    /* হোভার করলে জুম হবে */
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+
+    /* ফুটারের ডিজাইন */
+    .footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        background: rgba(0, 0, 0, 0.3); /* হালকা ব্লার ব্যাকগ্রাউন্ড */
+        width: 100%;
+    }
+</style>
+
 
 
     
