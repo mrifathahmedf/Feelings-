@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
     <title>My Inner Feelings</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
 
+        /* 🔵 সাধারণ স্টাইল */
         body {
             font-family: 'SolaimanLipi', Arial, sans-serif;
-            background: #0a0a20;
+            background-color: #0a192f; /* ব্লু ডার্ক নাইট */
+            color: #ccd6f6; /* হালকা নীলাভ সাদা */
             text-align: center;
+            margin: 0;
             padding: 20px;
-            color: white;
             overflow-x: hidden;
         }
 
-        /* 🌟 ওয়েলকাম টেক্সট */
+        /* 🟢 ওয়েলকাম টেক্সট */
         .welcome-box {
-            position: relative;
             background: #0055aa;
             color: white;
             padding: 15px 30px;
@@ -32,29 +33,42 @@
             margin: auto;
             text-align: center;
         }
+        .hide { display: none; } /* ১০ সেকেন্ড পর হাইড হবে */
 
-        /* ১০ সেকেন্ড পর হাইড হবে */
-        .hide {
-            display: none;
+        /* 🔵 প্রোফাইল পিকচার */
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
         }
 
-        /* কবিতা বাটন */
-        .poem-container {
-            margin-top: 20px; /* ওয়েলকাম টেক্সট থেকে নিচে সরানোর জন্য */
-        }
-
-        .poem-button {
+        /* 🟢 বাটন ডিজাইন (Poem & অন্যান্য) */
+        .button {
             background: #003366;
             color: white;
-            border: none;
             padding: 10px 20px;
             font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
+            border: 2px solid #64ffda;
             border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 10px auto;
+            display: block;
+            width: 220px;
+            text-align: center;
+        }
+        .button:hover {
+            background: #64ffda;
+            color: #003366;
+            border: 2px solid #003366;
         }
 
-        /* কবিতা */
+        /* 🟢 কবিতা বক্স */
+        .poem-container { margin-top: 20px; }
         .poem {
             display: none;
             background: #111;
@@ -69,120 +83,31 @@
             margin-right: auto;
         }
 
-       
-    </style>
-<meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
-
-    
-       
-   
-    <style>
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%; /* বৃত্তাকার করতে */
-            position: absolute;
-            top: 10px;
-            left: 10px;
+        /* 🟢 সোশ্যাল আইকন */
+        .social-icons {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 10px;
         }
-    </style>
+        .social-icons a img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s;
+        }
+        .social-icons a:hover img { transform: scale(1.2); }
 
-  
-   
-    <style>
-    /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
-    body {
-        background-color: #0a192f; /* ব্লু ডার্ক নাইট */
-        color: white;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* সোশ্যাল আইকন অংশের ব্যাকগ্রাউন্ড শুধু সাদা */
-    .social-icons {
-        display: flex;
-        justify-content: space-between; /* আইকনগুলো পুরো জায়গায় সমানভাবে ছড়াবে */
-        padding: 15px 20px; /* আইকন জায়গার প্যাডিং ঠিক রাখলাম */
-        background: white; /* শুধু এই অংশ সাদা */
-        border-radius: 10px; /* ডিজাইন একটু স্মুথ রাখার জন্য */
-    }
-
-    /* আইকনের ডিজাইন */
-    .social-icons a img {
-        width: 30px; /* আইকনের সাইজ ঠিক রাখা */
-        height: 30px;
-        transition: transform 0.3s;
-    }
-
-    /* হোভার করলে জুম হবে */
-    .social-icons a:hover img {
-        transform: scale(1.2);
-    }
-
-    /* ফুটারের ডিজাইন */
-    .footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 14px;
-        background: rgba(0, 0, 0, 0.1); /* ফুটারের ব্যাকগ্রাউন্ড হালকা */
-        width: 100%;
-        position: relative;
-    }
-</style>
-
-    
-    <style>
-        /* পুরো পেজের ব্যাকগ্রাউন্ড */
-        body {
-            background-color: #0a192f; /* গাঢ় ডার্ক ব্লু */
-            color: #ccd6f6; /* হালকা নীলাভ সাদা টেক্সট */
-            font-family: Arial, sans-serif;
+        /* 🟢 ফুটার ডিজাইন */
+        .footer {
             text-align: center;
             padding: 20px;
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
 
-        /* বাটনের ডিজাইন */
-        .button {
-            background-color: #112240; /* আরও গাঢ় নীল */
-            color: #64ffda; /* নীয়ন সবুজাভ নীল */
-            padding: 12px 24px;
-            margin: 10px;
-            border: 2px solid #64ffda;
-            cursor: pointer;
-            font-size: 18px;
-            display: block;
-            width: 220px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* হোভার ইফেক্ট (মাউস গেলে) */
-        .button:hover {
-            background-color: #64ffda; /* উজ্জ্বল নীলাভ সবুজ */
-            color: #112240; /* গাঢ় নীল */
-            border: 2px solid #112240;
-        }
-    </style>
-
- <style>
-        /* 🔵 ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0a192f;
-            color: white;
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-            height: 100vh;
-        }
-
-        /* 🔵 প্রতিটি সেকশন */
+        /* 🟢 CSS Scroll Snap Layout */
         .section {
             display: flex;
             align-items: center;
@@ -192,38 +117,21 @@
             font-size: 2rem;
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
-
-        /* 🔵 আলাদা আলাদা সেকশনের রঙ */
         .section:nth-child(1) { background: #1e293b; }
         .section:nth-child(2) { background: #334155; }
         .section:nth-child(3) { background: #475569; }
         .section:nth-child(4) { background: #64748b; }
 
-    </style>
-
-<style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0a192f; /* ব্লু ডার্ক নাইট */
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+        /* 🟢 ফর্ম ডিজাইন */
         .container {
-            background: #0a192f; /* ব্লু ডার্ক নাইট */
+            background: #0a192f;
             padding: 20px;
             border-radius: 10px;
             width: 350px;
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
-            border: 1px solid #4db8ff; /* হালকা নীল বর্ডার */
+            border: 1px solid #4db8ff;
         }
-        h2 {
-            text-align: center;
-            color: #4db8ff;
-        }
+        h2 { text-align: center; color: #4db8ff; }
         label {
             font-size: 14px;
             font-weight: bold;
@@ -235,20 +143,12 @@
             padding: 8px;
             border: 1px solid #4db8ff;
             border-radius: 5px;
-            background: #112240; /* ইনপুট বক্সের ব্যাকগ্রাউন্ড */
+            background: #112240;
             color: #fff;
             margin-bottom: 10px;
         }
-        textarea {
-            height: 100px;
-            resize: none;
-        }
-        .warning {
-            font-size: 12px;
-            color: #ff5050;
-            text-align: center;
-            margin-bottom: 10px;
-        }
+        textarea { height: 100px; resize: none; }
+        .warning { font-size: 12px; color: #ff5050; text-align: center; margin-bottom: 10px; }
         button {
             background: #4db8ff;
             color: white;
@@ -260,12 +160,10 @@
             cursor: pointer;
             font-weight: bold;
         }
-        button:hover {
-            background: #0088cc;
-        }
+        button:hover { background: #0088cc; }
     </style>
-
 </head>
+
 
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
