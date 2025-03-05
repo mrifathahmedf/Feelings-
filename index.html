@@ -1,189 +1,230 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Inner Feelings</title>
+  <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Inner Feelings</title>
-    <meta name="google-site-verification" content="6bjvBMALWDk8DVkscQzaWMutOQxj9tDEAYohprFvNgQ" />
+    /* ১ম ব্লক: মূল সেটিংস, ওয়েলকাম টেক্সট, কবিতা বাটন ও কবিতা */
+    body {
+      font-family: 'SolaimanLipi', Arial, sans-serif;
+      background: #0a0a20;
+      text-align: center;
+      padding: 20px;
+      color: white;
+      overflow-x: hidden;
+    }
+    /* 🌟 ওয়েলকাম টেক্সট */
+    .welcome-box {
+      position: relative;
+      background: #0055aa;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      width: 80%;
+      max-width: 400px;
+      margin: auto;
+      text-align: center;
+    }
+    /* ১০ সেকেন্ড পর হাইড হবে */
+    .hide {
+      display: none;
+    }
+    /* কবিতা বাটন */
+    .poem-container {
+      margin-top: 20px;
+    }
+    .poem-button {
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    /* কবিতা */
+    .poem {
+      display: none;
+      background: #111;
+      padding: 15px;
+      margin-top: 5px;
+      border-radius: 5px;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: justify;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
+    /* ২য় ব্লক: প্রোফাইল পিক */
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; /* বৃত্তাকার করতে */
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
 
-        /* 🔵 পুরো ওয়েবসাইটের ডিজাইন */
-        body {
-            font-family: 'SolaimanLipi', Arial, sans-serif;
-            background: #0a192f; /* ব্লু ডার্ক নাইট */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            overflow-x: hidden;
-            scroll-snap-type: y mandatory;
-        }
+    /* ৩য় ব্লক: সোশ্যাল আইকন ও ফুটার */
+    body {
+      background-color: #0a192f; /* ব্লু ডার্ক নাইট */
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: space-between; /* আইকনগুলো পুরো জায়গায় সমানভাবে ছড়াবে */
+      padding: 15px 20px; /* আইকন জায়গার প্যাডিং ঠিক রাখলাম */
+      background: white; /* শুধু এই অংশ সাদা */
+      border-radius: 10px; /* ডিজাইন একটু স্মুথ রাখার জন্য */
+    }
+    .social-icons a img {
+      width: 30px; /* আইকনের সাইজ ঠিক রাখা */
+      height: 30px;
+      transition: transform 0.3s;
+    }
+    .social-icons a:hover img {
+      transform: scale(1.2);
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.1); /* ফুটারের ব্যাকগ্রাউন্ড হালকা */
+      width: 100%;
+      position: relative;
+    }
 
-        /* 🔵 ওয়েলকাম টেক্সট */
-        .welcome-box {
-            background: #0055aa;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            width: 80%;
-            max-width: 400px;
-            margin: auto;
-            text-align: center;
-       
+    /* ৪র্থ ব্লক: বাটনের ডিজাইন */
+    body {
+      background-color: #0a192f; /* গাঢ় ডার্ক ব্লু */
+      color: #ccd6f6; /* হালকা নীলাভ সাদা টেক্সট */
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .button {
+      background-color: #112240; /* আরও গাঢ় নীল */
+      color: #64ffda; /* নীয়ন সবুজাভ নীল */
+      padding: 12px 24px;
+      margin: 10px;
+      border: 2px solid #64ffda;
+      cursor: pointer;
+      font-size: 18px;
+      display: block;
+      width: 220px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .button:hover {
+      background-color: #64ffda; /* উজ্জ্বল নীলাভ সবুজ */
+      color: #112240; /* গাঢ় নীল */
+      border: 2px solid #112240;
+    }
 
-/* 🔵 কবিতা বাটন */
-.poem-container {
-    margin-top: 120px; /* আগের চেয়ে নিচে নামানো হলো */
-}
-.poem-button {
-    background: #003366;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
+    /* ৫ম ব্লক: স্ক্রল-স্ন্যাপ সেকশন */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0a192f;
+      color: white;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      height: 100vh;
+    }
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      scroll-snap-align: start;
+      font-size: 2rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    .section:nth-child(1) { background: #1e293b; }
+    .section:nth-child(2) { background: #334155; }
+    .section:nth-child(3) { background: #475569; }
+    .section:nth-child(4) { background: #64748b; }
 
-/* 🔵 কবিতা */
-.poem {
-    display: none;
-    background: #111;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: justify;
-    width: 80%;
-    margin: auto;
-}
-
-
-
-        /* 🔵 প্রোফাইল পিকচার */
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
-        /* 🔵 সোশ্যাল আইকন ডিজাইন */
-        .social-icons {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 20px;
-            background: white;
-            border-radius: 10px;
-        }
-        .social-icons a img {
-            width: 30px;
-            height: 30px;
-            transition: transform 0.3s;
-        }
-        .social-icons a:hover img { transform: scale(1.2); }
-
-        /* 🔵 ফুটার */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            background: rgba(0, 0, 0, 0.1);
-            width: 100%;
-        }
-
-        /* 🔵 বাটন ডিজাইন */
-        .button {
-            background-color: #112240;
-            color: #64ffda;
-            padding: 12px 24px;
-            margin: 10px auto;
-            border: 2px solid #64ffda;
-            cursor: pointer;
-            font-size: 18px;
-            display: block;
-            width: 220px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background-color: #64ffda;
-            color: #112240;
-            border: 2px solid #112240;
-        }
-
-        /* 🔵 CSS Scroll Snap Layout */
-        .section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            scroll-snap-align: start;
-            font-size: 2rem;
-        }
-        .section:nth-child(1) { background: #1e293b; }
-        .section:nth-child(2) { background: #334155; }
-        .section:nth-child(3) { background: #475569; }
-        .section:nth-child(4) { background: #64748b; }
-
-        /* 🔵 কন্টাক্ট ফর্ম ডিজাইন */
-        .container {
-            background: #0a192f;
-            padding: 20px;
-            border-radius: 10px;
-            width: 350px;
-            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
-            border: 1px solid #4db8ff;
-        }
-        h2 { text-align: center; color: #4db8ff; }
-        label {
-            font-size: 14px;
-            font-weight: bold;
-            display: block;
-            margin: 10px 0 5px;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #4db8ff;
-            border-radius: 5px;
-            background: #112240;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        textarea { height: 100px; resize: none; }
-        .warning {
-            font-size: 12px;
-            color: #ff5050;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        button {
-            background: #4db8ff;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover { background: #0088cc; }
-
-    </style>
-
+    /* ৬ষ্ঠ ব্লক: কন্টেইনার ও ফর্ম স্টাইলিং */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0a192f; /* ব্লু ডার্ক নাইট */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #0a192f; /* ব্লু ডার্ক নাইট */
+      padding: 20px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+      border: 1px solid #4db8ff; /* হালকা নীল বর্ডার */
+    }
+    h2 {
+      text-align: center;
+      color: #4db8ff;
+    }
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #4db8ff;
+      border-radius: 5px;
+      background: #112240; /* ইনপুট বক্সের ব্যাকগ্রাউন্ড */
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+    .warning {
+      font-size: 12px;
+      color: #ff5050;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #4db8ff;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #0088cc;
+    }
+  </style>
 </head>
 
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
