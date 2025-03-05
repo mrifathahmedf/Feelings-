@@ -91,25 +91,30 @@
     <style>
     /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড ব্লু ডার্ক নাইট */
     body {
-        background-color: #0A1E33; /* ব্লু ডার্ক নাইট */
+        background-color: #0a192f; /* ব্লু ডার্ক নাইট */
         color: white;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
     }
 
-    /* সোশ্যাল আইকন অংশের ব্যাকগ্রাউন্ড শুধু সাদা */
+    /* সোশ্যাল আইকন অংশের ব্যাকগ্রাউন্ড #0A1E33 + পুরো পেজে ছড়ানো */
     .social-icons {
         display: flex;
-        justify-content: space-between; /* আইকনগুলো পুরো জায়গায় সমানভাবে ছড়াবে */
-        padding: 15px 20px; /* আইকন জায়গার প্যাডিং ঠিক রাখলাম */
-        background: white; /* শুধু এই অংশ সাদা */
-        border-radius: 10px; /* ডিজাইন একটু স্মুথ রাখার জন্য */
+        justify-content: space-around; /* পুরো জায়গা জুড়ে ছড়িয়ে দেবে */
+        align-items: center;
+        padding: 15px 0; /* উপরে-নিচে স্পেস */
+        background: #0A1E33; /* নতুন কালার */
+        width: 100%; /* পুরো পেজের চওড়া */
+        position: fixed; /* সবসময় ফিক্সড থাকবে */
+        bottom: 0; /* নিচে রাখার জন্য */
+        left: 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* নিচে হালকা ছায়া */
     }
 
     /* আইকনের ডিজাইন */
     .social-icons a img {
-        width: 30px; /* আইকনের সাইজ ঠিক রাখা */
+        width: 30px; /* আইকনের সাইজ */
         height: 30px;
         transition: transform 0.3s;
     }
@@ -119,17 +124,17 @@
         transform: scale(1.2);
     }
 
-    /* ফুটারের ডিজাইন */
+    /* ফুটারের ডিজাইন (আইকনের নিচে বসবে) */
     .footer {
         text-align: center;
         padding: 20px;
         font-size: 14px;
-        background: rgba(0, 0, 0, 0.1); /* ফুটারের ব্যাকগ্রাউন্ড হালকা */
+        background: transparent; /* ফুটারের ব্যাকগ্রাউন্ড থাকবে না */
         width: 100%;
-        position: relative;
+        position: absolute;
+        bottom: 50px; /* সোশ্যাল আইকনের উপরে থাকবে */
     }
 </style>
-
 
 
     
