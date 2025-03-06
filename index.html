@@ -103,7 +103,7 @@
         }
     </style>
 
-style>
+<style>
         /* ব্যাকগ্রাউন্ড ও সাধারণ ডিজাইন */
         body {
             background-color: #0a0f29; /* ডিপ ব্লু ডার্ক নাইট */
@@ -142,7 +142,7 @@ style>
         }
 
     </style>
-</head>
+
 </head>
 <body>
 <!-- পপআপ মেসেজ -->
@@ -168,10 +168,13 @@ style>
         <button class="btn stories" onclick="toggleContent('stories')">📖 Stories</button>
         <div class="content" id="stories">এখানে স্টোরির কন্টেন্ট থাকবে।</div>
 
-        <button class="btn poetries" onclick="toggleContent('poetries')">📜 Poetries</button>
-            <div class="poem-container">
-        <button class="poem-button" onclick="togglePoem('poem1')">অপেক্ষায় চক্রাকার</button>
-        <div class="poem" id="poem1">
+       
+            <button class="btn poetries">📜 Poetries</button>
+<div class="poem-container">
+    <label>
+        <input type="checkbox" id="poem1">
+        <button class="poem-button">অপেক্ষায় চক্রাকার</button>
+        <div class="poem">
             <p>প্রিয়তে ফিরে পাওয়ার আকাঙ্ক্ষায়<br>
             কাটিয়ে দেওয়া অপেক্ষার মূহূর্ত,<br>
             যেনো মনে হয়, রয়েছে সে অজানায়,<br>
@@ -189,6 +192,9 @@ style>
             জন্ম-জন্মান্তর;<br>
             তবে কি পুনরায় দাঁড়িয়ে গুণবো অপেক্ষার প্রহর?</p>
         </div>
+    </label>
+</div>
+
 
         <button class="btn quotes" onclick="toggleContent('quotes')">💬 Quotes</button>
         <div class="content" id="quotes">এখানে কোটস থাকবে।</div>
