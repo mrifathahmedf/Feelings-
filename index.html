@@ -1,149 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>আমার ওয়েবসাইট</title>
     <style>
-        /* General Styles */
+        /* সাধারণ ডিজাইন */
         body {
-            background-color: #0a0f2c;
+            background-color: #0a0f26; /* ডিপ ব্লু ডার্ক নাইট */
             color: white;
             font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 0;
             text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
         }
         h1 {
-            font-size: 24px;
+            font-size: 28px;
+            margin-bottom: 20px;
         }
-        /* Popup Message */
         .popup {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
+            background: #ffcc00;
+            color: black;
             padding: 10px;
+            font-weight: bold;
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
             border-radius: 5px;
+            display: block;
         }
-        /* Welcome Message */
         .welcome {
-            background-color: #1e1e40;
+            background: #00cc66;
             padding: 10px;
-            border-radius: 5px;
             display: block;
-            margin: 20px auto;
-            width: 50%;
-        }
-        /* Category Button */
-        .category {
-            background-color: #1a1a3a;
-            color: #ffcc00;
+            border-radius: 5px;
+            margin-bottom: 20px;
             font-weight: bold;
-            padding: 10px;
-            border: none;
-            width: 80%;
-            margin: 5px;
-            cursor: pointer;
-            display: block;
-            border-radius: 5px;
         }
-        /* Subcategory Content (Hidden by Default) */
+        /* ক্যাটাগরি ডিজাইন */
+        .category {
+            margin: 20px 0;
+        }
+        .category button {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        /* ক্যাটাগরি আলাদা রঙ */
+        .stories { background: #ff5733; color: white; }
+        .poetries { background: #33a1ff; color: white; }
+        .quotes { background: #ff33a1; color: white; }
+        .islamic { background: #33ff57; color: white; }
+        .knowledge { background: #a133ff; color: white; }
+        .unknown { background: #ffc733; color: black; }
+        .emotions { background: #ff3380; color: white; }
+        .smiley { background: #33ffc7; color: black; }
+        .photos, .videos, .about {
+            background: #cccccc;
+            color: black;
+        }
+        /* কন্টেন্ট ডিজাইন */
         .content {
             display: none;
-            background-color: #26264d;
-            color: white;
             padding: 10px;
-            margin: 5px auto;
-            width: 75%;
+            margin-top: 5px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 5px;
         }
-        /* Footer */
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-        /* Social Media Icons */
+        /* সোশ্যাল মিডিয়া */
         .social-icons img {
             width: 40px;
-            margin: 10px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Popup Message -->
-    <div class="popup">আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে।</div>
+    <!-- পপ-আপ মেসেজ -->
+    <div class="popup">আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে</div>
 
-    <!-- Welcome Message -->
-    <div class="welcome">Welcome to My Personal Website!</div>
+    <div class="container">
+        <!-- ওয়েলকাম মেসেজ -->
+        <div class="welcome">স্বাগতম! ওয়েবসাইটের কাজ চলমান রয়েছে...</div>
 
-    <!-- Categories -->
-    <h1>Categories</h1>
+        <!-- ক্যাটাগরি ও কন্টেন্ট -->
+        <div class="category">
+            <button class="stories" onclick="toggleContent('story-content')">📖 Stories</button>
+            <div class="content" id="story-content">এখানে গল্পের কন্টেন্ট থাকবে...</div>
+        </div>
 
-    <button class="category" onclick="toggleContent('story-content')">Stories</button>
-    <div id="story-content" class="content">এখানে Stories কন্টেন্ট থাকবে।</div>
+        <div class="category">
+            <button class="poetries" onclick="toggleContent('poetry-content')">✍️ Poetries</button>
+            <div class="content" id="poetry-content">এখানে কবিতার কন্টেন্ট থাকবে...</div>
+        </div>
 
-    <button class="category" onclick="toggleContent('poetry-content')">Poetries</button>
-    <div id="poetry-content" class="content">এখানে Poetries কন্টেন্ট থাকবে।</div>
+        <div class="category">
+            <button class="quotes" onclick="toggleContent('quotes-content')">💬 Quotes</button>
+            <div class="content" id="quotes-content">"জীবন একটি আয়না, তুমি যেমন ভাববে, তেমনই প্রতিফলিত হবে।"</div>
+        </div>
 
-    <button class="category" onclick="toggleContent('quotes-content')">Quotes</button>
-    <div id="quotes-content" class="content">এখানে Quotes কন্টেন্ট থাকবে।</div>
+        <div class="category">
+            <button class="islamic" onclick="toggleContent('islamic-content')">🕌 Islamic Messages</button>
+            <div class="content" id="islamic-content">"নিশ্চয়ই আল্লাহ ধৈর্যশীলদের সঙ্গে আছেন।"</div>
+        </div>
 
-    <button class="category" onclick="toggleContent('islamic-content')">Islamic Messages</button>
-    <div id="islamic-content" class="content">এখানে Islamic Messages কন্টেন্ট থাকবে।</div>
+        <div class="category">
+            <button class="knowledge" onclick="toggleContent('knowledge-content')">📚 Knowledge Transfer</button>
+            <div class="content" id="knowledge-content">জ্ঞান মানুষের জীবনের শ্রেষ্ঠ সম্পদ।</div>
+        </div>
 
-    <button class="category" onclick="toggleContent('knowledge-content')">Knowledge Transfer</button>
-    <div id="knowledge-content" class="content">এখানে Knowledge Transfer কন্টেন্ট থাকবে।</div>
+        <div class="category">
+            <button class="photos">🖼 Photos Album</button>
+        </div>
 
-    <button class="category" onclick="toggleContent('facts-content')">Known and Unknown Facts</button>
-    <div id="facts-content" class="content">এখানে Known and Unknown Facts কন্টেন্ট থাকবে।</div>
+        <div class="category">
+            <button class="videos">🎥 Videos Album</button>
+        </div>
 
-    <button class="category" onclick="toggleContent('emotions-content')">Feelings of Emotions</button>
-    <div id="emotions-content" class="content">এখানে Feelings of Emotions কন্টেন্ট থাকবে।</div>
+        <div class="category">
+            <button class="about">ℹ️ About Me</button>
+        </div>
 
-    <button class="category" onclick="toggleContent('smiley-content')">Smiley Face</button>
-    <div id="smiley-content" class="content">এখানে Smiley Face কন্টেন্ট থাকবে।</div>
+        <!-- সোশ্যাল মিডিয়া -->
+        <div class="social-icons">
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
 
-    <h2>Photos Album</h2>
-    <p>এখানে ছবির থাম্বনেইল থাকবে।</p>
-
-    <h2>Videos Album</h2>
-    <p>এখানে ভিডিওর লিস্ট থাকবে।</p>
-
-    <h2>About Me</h2>
-    <p>এখানে About Me কন্টেন্ট থাকবে।</p>
-
-    <!-- Social Media Section -->
-    <h2>Follow Me</h2>
-    <div class="social-icons">
-        <img src="facebook-icon.png" alt="Facebook">
-        <img src="twitter-icon.png" alt="Twitter">
-        <img src="instagram-icon.png" alt="Instagram">
     </div>
-
-    <!-- Footer -->
-    <div class="footer">© All rights reserved</div>
-
-    <script>
-        /* Toggle Content Function */
-        function toggleContent(id) {
-            var content = document.getElementById(id);
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-
-        /* Hide Welcome Message After 5 Seconds */
-        setTimeout(function() {
-            document.querySelector('.welcome').style.display = 'none';
-        }, 5000);
-    </script>
 
 </body>
 </html>
