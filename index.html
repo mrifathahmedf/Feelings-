@@ -1,126 +1,176 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আমার ওয়েবসাইট</title>
+    <title>My Personal Website</title>
     <style>
-        /* সাধারণ ডিজাইন */
+        /* General Styling */
         body {
-            background-color: #0a0f26; /* ডিপ ব্লু ডার্ক নাইট */
+            background-color: #0a0f24;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
         }
         .container {
-            max-width: 900px;
+            width: 90%;
             margin: auto;
+            max-width: 800px;
         }
         h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
+            color: #ffcc00;
         }
-        /* ক্যাটাগরি ডিজাইন */
-        .category {
+        .category, .sub-category {
             margin: 20px 0;
         }
-        .category label {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 18px;
+        .btn {
+            background-color: #1e3a8a;
+            color: white;
             font-weight: bold;
+            padding: 10px;
+            width: 100%;
+            border: none;
             cursor: pointer;
-            margin: 5px 0;
-            text-align: center;
+            text-align: left;
         }
-        /* ক্যাটাগরি আলাদা রঙ */
-        .stories { background: #ff5733; color: white; }
-        .poetries { background: #33a1ff; color: white; }
-        .quotes { background: #ff33a1; color: white; }
-        .islamic { background: #33ff57; color: white; }
-        .knowledge { background: #a133ff; color: white; }
-        .unknown { background: #ffc733; color: black; }
-        .emotions { background: #ff3380; color: white; }
-        .smiley { background: #33ffc7; color: black; }
-        .photos, .videos, .about {
-            background: #cccccc;
-            color: black;
+        .btn:hover {
+            background-color: #2563eb;
         }
-        /* কন্টেন্ট ডিজাইন */
         .content {
             display: none;
+            background-color: #162447;
             padding: 10px;
+            border-radius: 5px;
             margin-top: 5px;
-            background: rgba(255, 255, 255, 0.2);
+        }
+        /* Photo Album */
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            margin: 5px;
             border-radius: 5px;
         }
-        /* CSS দিয়ে বাটন সিস্টেম */
-        input[type="checkbox"] {
-            display: none;
+        /* Video Album */
+        .video-gallery video {
+            width: 200px;
+            height: 120px;
+            margin: 5px;
+            border-radius: 5px;
         }
-        input[type="checkbox"]:checked + .content {
+        /* Welcome Message */
+        .welcome {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
             display: block;
+        }
+        /* Social Media */
+        .social-icons a {
+            margin: 10px;
+            display: inline-block;
+            font-size: 24px;
+        }
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #1a202c;
         }
     </style>
 </head>
 <body>
 
+    <!-- Welcome Message -->
+    <div class="welcome" id="welcome">
+        <p>🌟 আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে। 🌟</p>
+    </div>
+
     <div class="container">
-        <h1>📖 আমার ওয়েবসাইট</h1>
+        <h1>📜 My Personal Website</h1>
 
-        <!-- Stories -->
+        <!-- Category: Stories -->
         <div class="category">
-            <input type="checkbox" id="story">
-            <label for="story" class="stories">📖 Stories</label>
-            <div class="content">এখানে গল্পের কন্টেন্ট থাকবে...</div>
+            <button class="btn" onclick="toggleContent('stories')">📖 Stories</button>
+            <div class="content" id="stories">
+                <button class="btn" onclick="toggleContent('story1')">📜 Story 1</button>
+                <div class="content" id="story1">এখানে তোমার গল্প থাকবে।</div>
+            </div>
         </div>
 
-        <!-- Poetries -->
+        <!-- Category: Quotes -->
         <div class="category">
-            <input type="checkbox" id="poetry">
-            <label for="poetry" class="poetries">✍️ Poetries</label>
-            <div class="content">এখানে কবিতার কন্টেন্ট থাকবে...</div>
+            <button class="btn" onclick="toggleContent('quotes')">💬 Quotes</button>
+            <div class="content" id="quotes">
+                <button class="btn" onclick="toggleContent('quote1')">💡 Inspiration</button>
+                <div class="content" id="quote1">"সফলতা ধৈর্যশীলদের জন্য।"</div>
+            </div>
         </div>
 
-        <!-- Quotes -->
+        <!-- Category: Photos Album -->
         <div class="category">
-            <input type="checkbox" id="quotes">
-            <label for="quotes" class="quotes">💬 Quotes</label>
-            <div class="content">"জীবন একটি আয়না, তুমি যেমন ভাববে, তেমনই প্রতিফলিত হবে।"</div>
+            <button class="btn" onclick="toggleContent('photos')">📷 Photos Album</button>
+            <div class="content" id="photos">
+                <div class="gallery">
+                    <img src="photo1.jpg" alt="Photo 1">
+                    <img src="photo2.jpg" alt="Photo 2">
+                </div>
+            </div>
         </div>
 
-        <!-- Islamic Messages -->
+        <!-- Category: Videos Album -->
         <div class="category">
-            <input type="checkbox" id="islamic">
-            <label for="islamic" class="islamic">🕌 Islamic Messages</label>
-            <div class="content">"নিশ্চয়ই আল্লাহ ধৈর্যশীলদের সঙ্গে আছেন।"</div>
-        </div>
-
-        <!-- Knowledge Transfer -->
-        <div class="category">
-            <input type="checkbox" id="knowledge">
-            <label for="knowledge" class="knowledge">📚 Knowledge Transfer</label>
-            <div class="content">জ্ঞান মানুষের জীবনের শ্রেষ্ঠ সম্পদ।</div>
-        </div>
-
-        <!-- Photos Album -->
-        <div class="category">
-            <label class="photos">🖼 Photos Album</label>
-        </div>
-
-        <!-- Videos Album -->
-        <div class="category">
-            <label class="videos">🎥 Videos Album</label>
+            <button class="btn" onclick="toggleContent('videos')">🎥 Videos Album</button>
+            <div class="content" id="videos">
+                <div class="video-gallery">
+                    <video controls>
+                        <source src="video1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
         </div>
 
         <!-- About Me -->
         <div class="category">
-            <label class="about">ℹ️ About Me</label>
+            <button class="btn" onclick="toggleContent('about')">👤 About Me</button>
+            <div class="content" id="about">
+                <p>আমি একজন কন্টেন্ট ক্রিয়েটর।</p>
+            </div>
         </div>
 
+        <!-- Social Media -->
+        <div class="category">
+            <button class="btn">🌐 Social Media</button>
+            <div class="social-icons">
+                <a href="#" style="color:#1877f2;">🔵 Facebook</a>
+                <a href="#" style="color:#1da1f2;">🔷 Twitter</a>
+                <a href="#" style="color:#e1306c;">💖 Instagram</a>
+            </div>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© All rights reserved</p>
+    </div>
+
+    <script>
+        // Toggle Content Function
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        // Welcome Message Hide After 5 Seconds
+        setTimeout(function() {
+            document.getElementById("welcome").style.display = "none";
+        }, 5000);
+    </script>
 
 </body>
 </html>
