@@ -6,19 +6,11 @@
     <title>My Website</title>
     <style>
         body {
+            background-color: #0a192f; /* Deep Blue Dark Night */
+            color: #ffffff;
             font-family: Arial, sans-serif;
-            background-color: #191970; /* Deep blue dark night */
-            color: white;
             margin: 0;
             padding: 0;
-        }
-
-        .visitor-message {
-            background-color: #ffdb58; /* Yellow for attention */
-            color: #333;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
         }
 
         .welcome-message {
@@ -26,295 +18,174 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 5px;
-            font-size: 20px;
-            animation: welcomeFadeOut 5s forwards; /* Fade out animation */
+            font-size: 24px;
+            animation: hideWelcome 5s forwards;
         }
 
-        @keyframes welcomeFadeOut {
+        @keyframes hideWelcome {
             0% { opacity: 1; }
-            90% {opacity: 1;} /* Stay visible for 5 seconds (adjust 90% keyframe timing to control visibility duration) */
-            100% { opacity: 0; visibility: hidden; display: none;}
+            100% { opacity: 0; display: none; }
         }
 
+        .popup-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
 
         .container {
-            max-width: 960px; /* মার্জিন যেনো ভাঙে না */
-            margin: 20px auto; /* সেন্টার মার্জিন */
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #2929a3; /* Lighter shade for container */
-            border-radius: 8px;
-            overflow: hidden; /* ক্লিয়ারফিক্স */
         }
 
-        .cover-photo {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 20px; /* কভার ছবির নিচে মার্জিন */
+        .category {
+            margin-bottom: 20px;
         }
 
-        .category-buttons {
-            display: flex;
-            flex-direction: column; /* উল্লম্বভাবে বাটনগুলো সাজানো */
-            gap: 10px; /* বাটনের মধ্যে ফাকা */
-            margin-top: -20px; /* কভার ছবির নিচ থেকে শুরু */
+        .category h2 {
+            color: #ff6f61; /* Category Title Color */
+            font-weight: bold;
         }
 
-        .category-button {
-            background-color: #5454c4; /* ডিফল্ট ব্যাকগ্রাউন্ড কালার */
-            color: white; /* ডিফল্ট টেক্সট কালার */
-            padding: 12px 20px;
+        .sub-category-btn {
+            background-color: #1e3a8a; /* Button Color */
+            color: #ffffff;
             border: none;
-            border-radius: 5px;
-            text-align: left;
+            padding: 10px 20px;
+            margin: 5px 0;
             cursor: pointer;
             font-weight: bold;
-            display: block; /* পুরো উইথ বাটন */
-            width: 100%; /* ফুল উইথ */
-            box-sizing: border-box; /* প্যাডিং সহ ফুল উইথ */
         }
 
-        .category-button:hover {
-            background-color: #6a6ac9; /* Hover state */
-        }
-
-        .subcategory-content {
-            margin-top: 10px;
-            border-left: 3px solid #8a8ab4; /* ইন্ডিকেটর বার */
-            padding-left: 15px;
-        }
-
-        .subcategory-button {
-            background-color: #6363b9; /* সাবক্যাটাগরি বাটন ব্যাকগ্রাউন্ড */
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            text-align: left;
-            cursor: pointer;
-            font-weight: bold;
-            margin-bottom: 8px;
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .subcategory-button:hover {
-            background-color: #7a7ac2; /* Hover state */
+        .sub-category-btn:hover {
+            background-color: #3b82f6; /* Button Hover Color */
         }
 
         .content {
-            background-color: #7070a3; /* কন্টেন্ট ব্যাকগ্রাউন্ড */
-            color: white;
-            padding: 15px;
+            display: none;
+            padding: 10px;
+            background-color: #1e3a8a;
+            margin-top: 10px;
             border-radius: 5px;
-            margin-top: 5px;
-            display: none; /* প্রথমে লুকানো থাকবে */
         }
 
-        .social-icons {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .social-icon {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            margin: 0 10px;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-icon:hover {
-            opacity: 1;
-        }
-
-        /* Category specific colors */
-        .category-stories { background-color: #c95454; }
-        .category-poetries { background-color: #54c986; }
-        .category-quotes { background-color: #5486c9; }
-        .category-islamic-messages { background-color: #c98654; }
-        .category-knowledge-transfer { background-color: #8654c9; }
-        .category-known-unknown-facts { background-color: #c9c954; }
-        .category-feelings-emotions { background-color: #54c9c9; }
-        .category-smiley-face { background-color: #a3c954; }
-        .category-photos-album { background-color: #c954a3; }
-        .category-videos-album { background-color: #54a3c9; }
-        .category-about-me { background-color: #a354c9; }
-
-        /* Subcategory button colors - একটু ভিন্নতা রাখার চেষ্টা করা হয়েছে */
-        .subcategory-stories { background-color: #a34343; }
-        .subcategory-poetries { background-color: #43a36b; }
-        .subcategory-quotes { background-color: #436ba3; }
-        .subcategory-islamic-messages { background-color: #a36b43; }
-        .subcategory-knowledge-transfer { background-color: #6b43a3; }
-        .subcategory-known-unknown-facts { background-color: #a3a343; }
-        .subcategory-feelings-emotions { background-color: #43a3a3; }
-        .subcategory-smiley-face { background-color: #84a343; }
-        .subcategory-photos-album { background-color: #a34384; }
-        .subcategory-videos-album { background-color: #4384a3; }
-        .subcategory-about-me { background-color: #8443a3; }
-
-
+        /* Different Colors for Each Category */
+        #stories h2 { color: #ff6f61; }
+        #poetries h2 { color: #ff9f40; }
+        #quotes h2 { color: #ffd700; }
+        #islamic-messages h2 { color: #32cd32; }
+        #knowledge-transfer h2 { color: #00bfff; }
+        #known-unknown-facts h2 { color: #9370db; }
+        #feelings-emotions h2 { color: #ff1493; }
+        #smiley-face h2 { color: #ffd700; }
+        #photos-album h2 { color: #ff6f61; }
+        #videos-album h2 { color: #ff9f40; }
+        #about-me h2 { color: #00bfff; }
     </style>
 </head>
 <body>
-
-    <div class="visitor-message">আসসালামুআলাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে</div>
-
-    <div class="welcome-message">Welcome</div>
-
-    <div class="container">
-        <img src="cover-photo.jpg" alt="Cover Photo" class="cover-photo">
-
-        <div class="category-buttons">
-
-            <button class="category-button category-stories">Stories</button>
-            <div class="subcategory-content">
-                <button class="subcategory-button subcategory-stories">Sub Story 1</button>
-                <div class="content">
-                    এখানে স্টোরি কন্টেন্ট থাকবে। আপনি চাইলে আরও অনেক কিছু লিখতে পারেন।
-                </div>
-                <button class="subcategory-button subcategory-stories">Sub Story 2</button>
-                 <div class="content">
-                    আরেকটা স্টোরি এখানে।
-                </div>
-            </div>
-
-            <button class="category-button category-poetries">Poetries</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-poetries">Sub Poetry 1</button>
-                <div class="content">
-                    এখানে কবিতা থাকবে।
-                </div>
-            </div>
-
-            <button class="category-button category-quotes">Quotes</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-quotes">সেরা উক্তি</button>
-                <div class="content">
-                   জীবন সুন্দর।
-                </div>
-            </div>
-
-            <button class="category-button category-islamic-messages">Islamic Messages</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-islamic-messages">ইসলামিক বার্তা ১</button>
-                <div class="content">
-                    ইসলাম শান্তির ধর্ম।
-                </div>
-            </div>
-
-            <button class="category-button category-knowledge-transfer">Knowledge transfer</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-knowledge-transfer">জ্ঞান ১</button>
-                <div class="content">
-                    জ্ঞাণ অর্জনের শেষ নাই।
-                </div>
-            </div>
-
-            <button class="category-button category-known-unknown-facts">Known and unknown facts</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-known-unknown-facts">অজানা তথ্য ১</button>
-                <div class="content">
-                    পৃথিবী গোলাকার।
-                </div>
-            </div>
-
-            <button class="category-button category-feelings-emotions">Feelings of emotions</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-feelings-emotions">অনুভূতি ১</button>
-                <div class="content">
-                    আজ মন খারাপ।
-                </div>
-            </div>
-
-            <button class="category-button category-smiley-face">Smiley face</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-smiley-face">স্মাইলি ১</button>
-                <div class="content">
-                    😊 😊 😊
-                </div>
-            </div>
-
-             <button class="category-button category-photos-album">Photos album</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-photos-album">ছবি ১</button>
-                <div class="content">
-                    [Image of একটি সুন্দর ছবি]
-                </div>
-            </div>
-
-             <button class="category-button category-videos-album">Videos album</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-videos-album">ভিডিও ১</button>
-                <div class="content">
-                   [Image of একটি ভিডিও থাম্বনেইল]
-                </div>
-            </div>
-
-             <button class="category-button category-about-me">About me</button>
-             <div class="subcategory-content">
-                <button class="subcategory-button subcategory-about-me">আমার সম্পর্কে</button>
-                <div class="content">
-                    আমি একজন ওয়েব ডেভেলপার।
-                </div>
-            </div>
-
-        </div>
-
-        <div class="social-icons">
-            <a href="#" target="_blank">
-                <img src="facebook-icon.png" alt="Facebook" class="social-icon">
-            </a>
-            <a href="#" target="_blank">
-                <img src="twitter-icon.png" alt="Twitter" class="social-icon">
-            </a>
-             <a href="#" target="_blank">
-                <img src="instagram-icon.png" alt="Instagram" class="social-icon">
-            </a>
-             <a href="#" target="_blank">
-                <img src="linkedin-icon.png" alt="LinkedIn" class="social-icon">
-            </a>
-        </div>
-
+    <div class="welcome-message">
+        <p>Welcome to My Website</p>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const welcomeMessage = document.querySelector('.welcome-message');
-            if (welcomeMessage) {
-                // ওয়েলকাম মেসেজ ৫ সেকেন্ড পর হাইড করার জন্য CSS Animation ব্যবহার করা হয়েছে, জাভাস্ক্রিপ্ট ছাড়াই
-            }
+    <div class="popup-message">
+        <p>আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে</p>
+    </div>
 
-             // কন্টেন্ট দেখানোর ও লুকানোর জন্য জাভাস্ক্রিপ্ট ছাড়া <details> এবং <summary> এলিমেন্ট ব্যবহার করা যেতে পারে, কিন্তু এখানে বাটন দিয়ে করার জন্য সামান্য জাভাস্ক্রিপ্ট ব্যবহার করা হলো। যেহেতু আপনি ডেমো চেয়েছেন এবং পরবর্তীতে নিজে শিখতে চেয়েছেন, তাই এটা রাখা হলো। আপনি চাইলে এটা বাদ দিয়ে শুধু HTML ও CSS দিয়ে করতে পারেন <details> ব্যবহার করে।
+    <div class="container">
+        <div class="category" id="stories">
+            <h2>Stories</h2>
+            <button class="sub-category-btn">Story 1</button>
+            <div class="content">
+                <p>This is a story content.</p>
+            </div>
+        </div>
 
-            const categoryButtons = document.querySelectorAll('.category-button');
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const subcategoryContent = this.nextElementSibling;
-                    if (subcategoryContent && subcategoryContent.classList.contains('subcategory-content')) {
-                        subcategoryContent.style.display = subcategoryContent.style.display === 'block' ? 'none' : 'block';
-                    }
-                });
-            });
+        <div class="category" id="poetries">
+            <h2>Poetries</h2>
+            <button class="sub-category-btn">Poetry 1</button>
+            <div class="content">
+                <p>This is a poetry content.</p>
+            </div>
+        </div>
 
-            const subcategoryButtons = document.querySelectorAll('.subcategory-button');
-            subcategoryButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Category button click prevent
-                    const content = this.nextElementSibling;
-                    if (content && content.classList.contains('content')) {
-                        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-                    }
-                });
-            });
-        });
-    </script>
+        <div class="category" id="quotes">
+            <h2>Quotes</h2>
+            <button class="sub-category-btn">Quote 1</button>
+            <div class="content">
+                <p>This is a quote content.</p>
+            </div>
+        </div>
 
+        <div class="category" id="islamic-messages">
+            <h2>Islamic Messages</h2>
+            <button class="sub-category-btn">Message 1</button>
+            <div class="content">
+                <p>This is an Islamic message content.</p>
+            </div>
+        </div>
+
+        <div class="category" id="knowledge-transfer">
+            <h2>Knowledge Transfer</h2>
+            <button class="sub-category-btn">Knowledge 1</button>
+            <div class="content">
+                <p>This is a knowledge transfer content.</p>
+            </div>
+        </div>
+
+        <div class="category" id="known-unknown-facts">
+            <h2>Known and Unknown Facts</h2>
+            <button class="sub-category-btn">Fact 1</button>
+            <div class="content">
+                <p>This is a known/unknown fact content.</p>
+            </div>
+        </div>
+
+        <div class="category" id="feelings-emotions">
+            <h2>Feelings of Emotions</h2>
+            <button class="sub-category-btn">Feeling 1</button>
+            <div class="content">
+                <p>This is a feeling/emotion content.</p>
+            </div>
+        </div>
+
+        <div class="category" id="smiley-face">
+            <h2>Smiley Face</h2>
+            <button class="sub-category-btn">Smiley 1</button>
+            <div class="content">
+                <p>This is a smiley face content.</p>
+            </div>
+        </div>
+
+        <div class="category" id="photos-album">
+            <h2>Photos Album</h2>
+            <button class="sub-category-btn">Photo 1</button>
+            <div class="content">
+                <p>This is a photo album content.</p>
+            </div>
+        </div>
+
+        <div class="category" id="videos-album">
+            <h2>Videos Album</h2>
+            <button class="sub-category-btn">Video 1</button>
+            <div class="content">
+                <p>This is a video album content.</p>
+            </div>
+        </div>
+
+        <div class="category" id="about-me">
+            <h2>About Me</h2>
+            <button class="sub-category-btn">About Me</button>
+            <div class="content">
+                <p>This is about me content.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
