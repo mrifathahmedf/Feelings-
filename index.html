@@ -3,190 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>My Personal Website</title>
     <style>
+        /* General Styles */
         body {
-            background-color: #191970; /* Deep Blue Dark Night */
+            background-color: #0a0f2c;
             color: white;
-            font-family: sans-serif;
-            margin: 5%; /* Consistent margin */
-            text-align: center; /* Center align text */
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            text-align: center;
         }
-
-        .category {
-            margin-bottom: 20px;
-        }
-
-        .category-title {
+        h1 {
             font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
         }
-
-
-        /* Category Color Styles */
-        #stories .category-title { color: #FFD700; } /* Gold */
-        #stories button { background-color: #DAA520; color: white;} /* Goldenrod */
-
-        #poetries .category-title{ color: #008080; } /* Teal */
-        #poetries button { background-color: #4682B4; color: white;} /* Steel Blue */
-
-
-        #quotes .category-title { color: #800080; } /* Purple */
-        #quotes button { background-color: #DA70D6; color: white;} /* Orchid */
-
-
-        #islamic .category-title { color: #228B22; } /* Forest Green */
-        #islamic button { background-color: #3CB371; color: white;} /* Medium Sea Green */
-
-
-        #knowledge .category-title { color: #DC143C; } /* Crimson */
-        #knowledge button { background-color:  #FF6347; color: white;} /* Tomato */
-
-
-        #facts .category-title { color: #4B0082; } /* Indigo */
-        #facts button { background-color: #6A5ACD; color: white;} /* Slate Blue */
-
-
-        #feelings .category-title { color: #FF4500; } /* Orange Red */
-        #feelings button { background-color: #FFA500; color: white;} /* Orange */
-
-
-        #smiley .category-title { color: #FFFF00; } /* Yellow */
-        #smiley button { background-color: #FFFACD; color: black;} /* Lemon Chiffon */
-
-
-        /* About Me will be static text, no button needed */
-        #about .category-title { color: #7FFF00; }  /* Chartreuse */
-
-
-
-        button {
-          padding: 10px 20px;
-            border: none;
+        /* Popup Message */
+        .popup {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-          font-weight: bold;
         }
-
-
+        /* Welcome Message */
+        .welcome {
+            background-color: #1e1e40;
+            padding: 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+            width: 50%;
+        }
+        /* Category Button */
+        .category {
+            background-color: #1a1a3a;
+            color: #ffcc00;
+            font-weight: bold;
+            padding: 10px;
+            border: none;
+            width: 80%;
+            margin: 5px;
+            cursor: pointer;
+            display: block;
+            border-radius: 5px;
+        }
+        /* Subcategory Content (Hidden by Default) */
         .content {
             display: none;
-            margin-top: 10px;
-            text-align: left; /* Align content to the left */  
-            white-space: pre-line; /* Preserve whitespace */
+            background-color: #26264d;
+            color: white;
+            padding: 10px;
+            margin: 5px auto;
+            width: 75%;
+            border-radius: 5px;
         }
-
-
-        .welcome-message {
-           position: fixed;
-           top: 50%;
-           left: 50%;
-           transform: translate(-50%, -50%);
-           background-color: #4CAF50;
-           color: white;
-           padding: 15px;
-           border-radius: 5px;
-           z-index: 999; /* Ensure it's on top */
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
         }
-
+        /* Social Media Icons */
+        .social-icons img {
+            width: 40px;
+            margin: 10px;
+        }
     </style>
 </head>
-
-
 <body>
 
-    <div class="welcome-message" id="welcomeMessage">Welcome to my website!</div>
+    <!-- Popup Message -->
+    <div class="popup">আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে।</div>
 
-    <div id="popupMessage" class="welcome-message" style="display: none;"> আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে</div>
+    <!-- Welcome Message -->
+    <div class="welcome">Welcome to My Personal Website!</div>
 
+    <!-- Categories -->
+    <h1>Categories</h1>
 
-    <div class="category" id="stories">
-        <div class="category-title">Stories</div>
-        <button onclick="toggleContent('story1')">Story 1 Title</button>
-        <div class="content" id="story1">Once upon a time...</div> <button onclick="toggleContent('story2')">Story 2 Title</button>
-        <div class="content" id="story2">In a land far away...</div>
+    <button class="category" onclick="toggleContent('story-content')">Stories</button>
+    <div id="story-content" class="content">এখানে Stories কন্টেন্ট থাকবে।</div>
+
+    <button class="category" onclick="toggleContent('poetry-content')">Poetries</button>
+    <div id="poetry-content" class="content">এখানে Poetries কন্টেন্ট থাকবে।</div>
+
+    <button class="category" onclick="toggleContent('quotes-content')">Quotes</button>
+    <div id="quotes-content" class="content">এখানে Quotes কন্টেন্ট থাকবে।</div>
+
+    <button class="category" onclick="toggleContent('islamic-content')">Islamic Messages</button>
+    <div id="islamic-content" class="content">এখানে Islamic Messages কন্টেন্ট থাকবে।</div>
+
+    <button class="category" onclick="toggleContent('knowledge-content')">Knowledge Transfer</button>
+    <div id="knowledge-content" class="content">এখানে Knowledge Transfer কন্টেন্ট থাকবে।</div>
+
+    <button class="category" onclick="toggleContent('facts-content')">Known and Unknown Facts</button>
+    <div id="facts-content" class="content">এখানে Known and Unknown Facts কন্টেন্ট থাকবে।</div>
+
+    <button class="category" onclick="toggleContent('emotions-content')">Feelings of Emotions</button>
+    <div id="emotions-content" class="content">এখানে Feelings of Emotions কন্টেন্ট থাকবে।</div>
+
+    <button class="category" onclick="toggleContent('smiley-content')">Smiley Face</button>
+    <div id="smiley-content" class="content">এখানে Smiley Face কন্টেন্ট থাকবে।</div>
+
+    <h2>Photos Album</h2>
+    <p>এখানে ছবির থাম্বনেইল থাকবে।</p>
+
+    <h2>Videos Album</h2>
+    <p>এখানে ভিডিওর লিস্ট থাকবে।</p>
+
+    <h2>About Me</h2>
+    <p>এখানে About Me কন্টেন্ট থাকবে।</p>
+
+    <!-- Social Media Section -->
+    <h2>Follow Me</h2>
+    <div class="social-icons">
+        <img src="facebook-icon.png" alt="Facebook">
+        <img src="twitter-icon.png" alt="Twitter">
+        <img src="instagram-icon.png" alt="Instagram">
     </div>
 
-    <div class="category" id="poetries">
-        <div class="category-title">Poetries</div>
-        <button onclick="toggleContent('poetry1')">Poetry 1 Title</button>
-        <div class="content" id="poetry1">The sun rises...</div>
-    </div>
-
-
-    <div class="category" id="quotes">
-      <div class="category-title">Quotes</div>
-      <button onclick="toggleContent('quote1')">Quote 1 Title</button>
-      <div class="content" id="quote1">"The only way to do great work is to love what you do." - Steve Jobs </div>
-    </div>
-
-    <div class="category" id="islamic">
-        <div class="category-title">Islamic Massages</div>
-        <button onclick="toggleContent('islamic1')">Message 1 Title</button>
-        <div class="content" id="islamic1">Content of Islamic Message 1</div>
-    </div>
-
-      <div class="category" id="knowledge">
-        <div class="category-title">Knowledge Transfer</div>
-        <button onclick="toggleContent('knowledge1')">Knowledge 1 Title</button>
-        <div class="content" id="knowledge1">The transfer of knowledge...</div>
-    </div>
-
- <div class="category" id="facts">
-        <div class="category-title">Known and Unknown Facts</div>
-        <button onclick="toggleContent('fact1')">Fact 1 Title</button>
-        <div class="content" id="fact1">Did you know that...</div>
- </div>
-
-<div class="category" id="feelings">
-        <div class="category-title">Feelings of emotions</div>
-        <button onclick="toggleContent('feeling1')">Feeling 1 Title</button>
-        <div class="content" id="feeling1">Joy, sadness, anger...</div>
-    </div>
-
-    <div class="category" id="smiley">
-        <div class="category-title">Smiley Face</div>
-        <button onclick="toggleContent('smiley1')">Smiley 1 Title</button>
-        <div class="content" id="smiley1">:) :D :(</div>
- </div>
-
-
- <div class="category" id="about">
-        <div class="category-title">About Me</div>
-        <p>This is a static section about me. No button needed here. You can write about yourself, your hobbies, interests, etc.</p> 
-    </div>
-  
+    <!-- Footer -->
+    <div class="footer">© All rights reserved</div>
 
     <script>
-      function toggleContent(id) {
-        var x = document.getElementById(id);
-          if (x.style.display === "none") {
-            x.style.display = "block";
-          } else {
-              x.style.display = "none";
-          }
-      }
+        /* Toggle Content Function */
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
 
-
-        // Welcome message timeout
-        setTimeout(function(){
-            document.getElementById('welcomeMessage').style.display = 'none';
+        /* Hide Welcome Message After 5 Seconds */
+        setTimeout(function() {
+            document.querySelector('.welcome').style.display = 'none';
         }, 5000);
-
-
-        // Popup Message on Load (replace with your desired logic)
-        window.onload = function() {
-            // Show the popup message
-            document.getElementById('popupMessage').style.display = 'block';
-
-            // Hide the popup after a delay (e.g., 5 seconds)
-            setTimeout(function() {
-                document.getElementById('popupMessage').style.display = 'none';
-            }, 5000); // 5000 milliseconds = 5 seconds
-
-        };
     </script>
 
 </body>
