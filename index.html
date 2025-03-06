@@ -1,297 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #0a192f; /* Deep Blue Dark Night */
-            color: #fff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+<style>
+body {
+    background-color: #191970; /* Deep Blue Dark Night */
+    color: white;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0; /* Ensures no default margins */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures content fills the viewport vertically */
+}
 
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
 
-        /* Header Styles */
-        header {
-            text-align: center;
-            padding: 20px 0;
-        }
 
-        /* Category Styles */
-        .category-container {
-            margin-bottom: 20px;
-        }
+/* Welcome Message Styling */
+#welcome {
+    background-color: rgba(0,0,0,0.7); /* Semi-transparent black background */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed; /* Keeps the message at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Ensure it's on top of other content */
+    animation: hideWelcome 5s forwards; /* Animation for hiding */
+}
 
-        .category-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 5px;
-            border: none;
-            border-radius: 5px;
-            text-align: left;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
+@keyframes hideWelcome {
+    0% { opacity: 1; }
+    99% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
 
-        /* Subcategory Styles */
-        .subcategory-container {
-            margin-top: 10px;
-        }
+.cover {
+    background-image: url('your-cover-image.jpg'); /* Replace with your cover image URL */
+    background-size: cover;
+    background-position: center;
+    min-height: 300px; /* Adjust minimum height as needed */
+    margin-bottom: 20px; /* Space between cover and categories */
 
-        .subcategory-button {
-            background-color: #444;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            text-align: left;
-            cursor: pointer;
-            width: 100%;
-            margin-bottom: 5px;
-            display: block;
-        }
+}
 
-        .subcategory-content {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #666;
-            border-radius: 5px;
-            display: none;
-            background-color: #333;
-        }
 
-        /* Welcome Message Styles */
-        #welcome-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
 
-        /* Popup Message Styles */
-        #popup-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            z-index: 1000;
-        }
 
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid #666;
-        }
-        
-        /* Social Media Icons */
-        .social-icons {
-            margin-top: 10px;
-            text-align: center;
-        }
+/* Category Styles */
 
-        .social-icons a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 20px;
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        /* Category Colors */
-        .stories-color { background-color: #6a5acd; color: #fff; } /* Slate Blue */
-        .poetries-color { background-color: #4682b4; color: #fff; } /* Steel Blue */
-        .quotes-color { background-color: #5f9ea0; color: #fff; } /* Cadet Blue */
-        .islamic-color { background-color: #2e8b57; color: #fff; } /* Sea Green */
-        .knowledge-color { background-color: #bc8f8f; color: #fff; } /* Rosy Brown */
-        .facts-color { background-color: #8fbc8f; color: #fff; } /* Dark Sea Green */
-        .emotions-color { background-color: #a9a9a9; color: #fff; } /* Dark Gray */
-        .smiley-color { background-color: #ffa500; color: #fff; } /* Orange */
-    </style>
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+  margin-top:  300px;
+
+}
+
+.category-button {
+    background-color: transparent; /* Make button background transparent */
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center the text within the button */
+
+
+}
+
+
+/* Example of individual category styling (add similar styles for others) */
+#stories { color: #FFD700; } /* Gold */
+#poetries { color: #DA70D6; } /* Orchid */
+#quotes { color: #00CED1; } /* Dark Turquoise */
+#islamic { color: #32CD32; } /* Lime Green */
+#knowledge { color: #FFA500; } /* Orange */
+#facts { color: #FF69B4; } /* Hot Pink */
+#feelings { color: #BA55D3; } /* Medium Orchid */
+#smiley { color: #FFFF00; }  /* Yellow */
+#photos { color: #ADD8E6; } /* Light Blue */
+#videos { color: #9932CC; } /* Dark Orchid */
+#about { color: #D2691E; } /* Chocolate */
+
+
+
+
+
+.subcategories, .content {
+  display: none;  /* Initially hidden */
+  margin-left: 20px;  /* Indent subcategories */
+}
+
+
+.show {
+  display: block;  /* Show when needed */
+}
+
+
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Welcome to My Website</h1>
-        </header>
 
-        <!-- Categories -->
-        <div class="category-container">
-            <button class="category-button stories-color">Stories</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Story 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of story 1.</p>
-                </div>
-                <button class="subcategory-button">Story 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of story 2.</p>
-                </div>
-            </div>
-        </div>
+<div id="welcome">Welcome to My Website!</div>
 
-        <div class="category-container">
-            <button class="category-button poetries-color">Poetries</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Poetry 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of poetry 1.</p>
-                </div>
-                <button class="subcategory-button">Poetry 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of poetry 2.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="category-container">
-            <button class="category-button quotes-color">Quotes</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Quote 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of quote 1.</p>
-                </div>
-                <button class="subcategory-button">Quote 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of quote 2.</p>
-                </div>
-            </div>
-        </div>
+<div class="cover"></div>
 
-        <div class="category-container">
-            <button class="category-button islamic-color">Islamic Messages</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Message 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of message 1.</p>
-                </div>
-                <button class="subcategory-button">Message 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of message 2.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="category-container">
-            <button class="category-button knowledge-color">Knowledge Transfer</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Knowledge 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of knowledge 1.</p>
-                </div>
-                <button class="subcategory-button">Knowledge 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of knowledge 2.</p>
-                </div>
-            </div>
-        </div>
+<div class="categories">
+    <button class="category-button" id="stories" onclick="toggleSub('storiesSub')">Stories</button>
+    <button class="category-button" id="poetries" onclick="toggleSub('poetriesSub')">Poetries</button>
+    <button class="category-button" id="quotes" onclick="toggleSub('quotesSub')">Quotes</button>
 
-        <div class="category-container">
-            <button class="category-button facts-color">Known and Unknown Facts</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Fact 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of fact 1.</p>
-                </div>
-                <button class="subcategory-button">Fact 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of fact 2.</p>
-                </div>
-            </div>
-        </div>
+    <button class="category-button" id="islamic" onclick="toggleSub('islamicSub')">Islamic Messages</button>
+    <button class="category-button" id="knowledge" onclick="toggleSub('knowledgeSub')">Knowledge Transfer</button>
+    <button class="category-button" id="facts" onclick="toggleSub('factsSub')">Known & Unknown Facts</button>
 
-        <div class="category-container">
-            <button class="category-button emotions-color">Feelings of Emotions</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Emotion 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of emotion 1.</p>
-                </div>
-                <button class="subcategory-button">Emotion 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of emotion 2.</p>
-                </div>
-            </div>
-        </div>
+    <button class="category-button" id="feelings" onclick="toggleSub('feelingsSub')">Feelings & Emotions</button>
+    <button class="category-button" id="smiley" onclick="toggleSub('smileySub')">Smiley Face</button>
 
-        <div class="category-container">
-            <button class="category-button smiley-color">Smiley Face</button>
-            <div class="subcategory-container">
-                <button class="subcategory-button">Smiley 1</button>
-                <div class="subcategory-content">
-                    <p>This is the content of smiley 1.</p>
-                </div>
-                <button class="subcategory-button">Smiley 2</button>
-                <div class="subcategory-content">
-                    <p>This is the content of smiley 2.</p>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <p>© 2024 My Website</p>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </footer>
-    </div>
+    <button class="category-button" id="about" onclick="toggleSub('aboutSub')">About Me</button>
 
-    <!-- Welcome Message -->
-    <div id="welcome-message">
-        Welcome to our website!
-    </div>
 
-    <!-- Popup Message -->
-    <div id="popup-message">
-        Assalamu Alaikum, the website is under construction.
-    </div>
 
-    <script>
-        // Welcome Message Hide
-        setTimeout(function() {
-            document.getElementById('welcome-message').style.display = 'none';
-        }, 5000);
+</div>
 
-        // Subcategory Content Toggle
-        const subcategoryButtons = document.querySelectorAll('.subcategory-button');
-        subcategoryButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                if (content.style.display === 'block') {
-                    content.style.display = 'none';
-                } else {
-                    content.style.display = 'block';
-                }
-            });
-        });
-        
-         // Hide popup message after 5 seconds
-        setTimeout(function() {
-            document.getElementById('popup-message').style.display = 'none';
-        }, 5000);
-    </script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<!-- Example Subcategories and Content Structure for Stories (Repeat for other categories) -->
+<div class="subcategories" id="storiesSub">
+  <button onclick="toggleContent('story1')">Story 1 Title</button>
+  <div class="content" id="story1">
+    Content of story 1 goes here...
+  </div>
+  <button onclick="toggleContent('story2')">Story 2 Title</button>
+  <div class="content" id="story2">
+    Content of story 2 goes here...
+  </div>
+  <!-- Add more story buttons/content as needed -->
+</div>
+
+
+<script>
+
+alert("আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে");
+
+
+
+function toggleSub(subId) {
+  var sub = document.getElementById(subId);
+  sub.classList.toggle("show");
+}
+
+function toggleContent(contentId) {
+    var content = document.getElementById(contentId);
+    content.classList.toggle("show");
+}
+
+
+
+
+</script>
+
+
+
 </body>
 </html>
