@@ -3,306 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ব্যক্তিগত ওয়েবসাইট</title>
+    <title>আমার ব্যক্তিগত ওয়েবসাইট</title>
     <style>
-        /* ব্যাকগ্রাউন্ড ও সাধারণ ডিজাইন */
         body {
-            background-color: #0a0f29; /* ডিপ ব্লু ডার্ক নাইট */
+            background-color: #0a0a23;
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
+        }
+
+        /* পপ-আপ মেসেজ */
+        .popup {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            display: none;
         }
 
         /* ওয়েলকাম মেসেজ */
-        .welcome-box {
+        .welcome {
+            background: #fff;
+            color: black;
+            padding: 10px;
             position: fixed;
-            top: 20%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            border-radius: 10px;
-            font-size: 20px;
-            animation: fadeOut 5s forwards;
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; display: none; }
+            border-radius: 5px;
+            display: none;
         }
 
         /* কভার ফটো */
-        .cover {
+        header img {
             width: 100%;
-            height: 200px;
-            background: url('cover.jpg') no-repeat center center/cover;
+            max-height: 300px;
         }
 
-        /* ক্যাটাগরি ডিজাইন */
-        .category {
-            margin: 15px auto;
-            width: 80%;
-        }
-
-        /* বাটন ডিজাইন */
+        /* ক্যাটাগরি বাটন */
         .btn {
-            width: 100%;
+            width: 80%;
             padding: 10px;
-            border: none;
+            margin: 10px;
             font-size: 18px;
             font-weight: bold;
+            border: none;
             cursor: pointer;
-            margin-bottom: 5px;
+            border-radius: 5px;
         }
 
-        /* প্রত্যেক ক্যাটাগরির আলাদা রঙ */
-        .stories { background: #ff5733; color: white; }
-        .poetries { background: #33c3ff; color: black; }
-        .quotes { background: #ff33bb; color: white; }
-        .islamic { background: #33ff57; color: black; }
-        .knowledge { background: #f4a261; color: black; }
-        .facts { background: #6a0572; color: white; }
-        .emotions { background: #ffb400; color: black; }
-        .smiley { background: #bada55; color: black; }
-        .photos { background: #005f73; color: white; }
-        .videos { background: #8a2be2; color: white; }
-        .about { background: #ff6b6b; color: white; }
-        .social { background: #2d6a4f; color: white; }
+        /* সাবক্যাটাগরি বাটন */
+        .sub-btn {
+            background: #444;
+            color: white;
+            border: none;
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
-        /* কন্টেন্ট হাইড করা */
+        /* ক্যাটাগরি ফন্ট কালার */
+        .stories { background: #ff5733; }
+        .poetries { background: #33ff57; }
+        .quotes { background: #5733ff; }
+        .islamic { background: #ff33a1; }
+        .knowledge { background: #33d1ff; }
+        .facts { background: #ffd133; }
+        .emotions { background: #ff9933; }
+        .smiley { background: #ff3385; }
+        .photos { background: #9933ff; }
+        .videos { background: #33ff99; }
+        .about { background: #3399ff; }
+        .social { background: #ff3333; }
+
+        /* কন্টেন্ট স্টাইল */
         .content {
             display: none;
             padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            margin-top: 5px;
         }
 
-        /* ছবি গ্যালারি */
+        /* গ্যালারি */
         .gallery img {
             width: 100px;
-            margin: 5px;
-            cursor: pointer;
+            height: 100px;
             border-radius: 5px;
         }
 
-        /* ভিডিও গ্যালারি */
-        .video-gallery video {
-            width: 200px;
-            margin: 5px;
-            border-radius: 5px;
+        /* ভিডিও */
+        video {
+            width: 80%;
+            max-width: 400px;
         }
 
         /* ফুটার */
         footer {
             margin-top: 20px;
-            font-size: 14px;
-            color: lightgray;
+            padding: 10px;
+            background: black;
+            color: white;
         }
     </style>
-
-<style>
-        /* ব্যাকগ্রাউন্ড ও সাধারণ ডিজাইন */
-        body {
-            background-color: #0a0f29; /* ডিপ ব্লু ডার্ক নাইট */
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* পপআপ ডিজাইন */
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            color: white;
-            display: block;
-            width: 80%;
-            max-width: 300px;
-            text-align: center;
-        }
-
-        .popup button {
-            margin-top: 10px;
-            padding: 8px 15px;
-            border: none;
-            background: #ff5733;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-    </style>
-
 </head>
 <body>
-<!-- পপআপ মেসেজ -->
+
+    <!-- পপ-আপ মেসেজ -->
     <div class="popup" id="popup">
         <p>আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে।</p>
-        <button onclick="closePopup()">ঠিক আছে</button>
     </div>
 
-    <script>
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
-
-    <!-- ওয়েলকাম মেসেজ -->
-    <div class="welcome-box">স্বাগতম! 🚀</div>
+    <!-- ওয়েলকাম মেসেজ -->
+    <div class="welcome" id="welcome">
+        <p>স্বাগতম! তোমার মূল্যবান সময়ের জন্য ধন্যবাদ।</p>
+    </div>
 
     <!-- কভার ফটো -->
-    <div class="cover"></div>
+    <header>
+        <img src="cover.jpg" alt="Cover Photo">
+    </header>
 
-    <!-- ক্যাটাগরি তালিকা -->
-    <div class="category">
-        <button class="btn stories" onclick="toggleContent('stories')">📖 Stories</button>
-        <div class="content" id="stories">এখানে স্টোরির কন্টেন্ট থাকবে।</div>
+    <!-- ক্যাটাগরি সেকশন -->
+    <section>
+        <button class="btn stories">📖 Stories</button>
+        <div class="content">
+            <button class="sub-btn">📝 গল্প ১</button>
+            <p class="hidden">এখানে গল্পের কন্টেন্ট থাকবে...</p>
+        </div>
+        
+        <button class="btn poetries">📜 Poetries</button>
+        <div class="content">
+            <button class="sub-btn">✒️ কবিতা ১</button>
+            <p class="hidden">এখানে কবিতার কন্টেন্ট থাকবে...</p>
+        </div>
 
-       
-<!-- কবিতা বাটন -->
-<button class="poetry-btn" onclick="togglePoetry()">অপেক্ষায় চক্রাকার</button>
+        <button class="btn quotes">💬 Quotes</button>
+        <div class="content">
+            <button class="sub-btn">💡 উক্তি ১</button>
+            <p class="hidden">এখানে উক্তির কন্টেন্ট থাকবে...</p>
+        </div>
 
-<!-- কবিতা কন্টেন্ট -->
-<div class="poetry-content" id="poetry">
-    <h3>অপেক্ষায় চক্রাকার</h3>
-    <p>ᏇᏒᎥᏖᏋᏒ ✍🏿 ᎷᏋ</p>
-    <hr>
-    <p>
-        “প্রিয়তে ফিরে পাওয়ার আকাঙ্ক্ষায়<br>
-        কাটিয়ে দেওয়া অপেক্ষার মূহূর্ত ,<br>
-        যেনো মনে হয়, রয়েছে সে অজানায়<br>
-        ফিরে আসবে কখন, বাড়ছে কি দূরত্ব!”<br><br>
+        <button class="btn islamic">🕌 Islamic Messages</button>
+        <div class="content">
+            <button class="sub-btn">📖 ইসলামিক কথা ১</button>
+            <p class="hidden">এখানে ইসলামিক কন্টেন্ট থাকবে...</p>
+        </div>
 
-        “তাকে ফিরে পাওয়ার আকাঙ্ক্ষায়<br>
-        থাকি আনমনে বসে তারি অপেক্ষায়”<br><br>
+        <button class="btn knowledge">📚 Knowledge Transfer</button>
+        <div class="content">
+            <button class="sub-btn">🧠 জ্ঞান ১</button>
+            <p class="hidden">এখানে শিক্ষামূলক কন্টেন্ট থাকবে...</p>
+        </div>
 
-        “অতঃপর ঘটিল অবসান অপেক্ষার<br>
-        তাহাকে ফিরে পাওয়ায়,<br>
-        সময়টা হারিয়ে হঠাৎ নামলে আঁধার<br>
-        কয়েক সেকেন্ড মূহূর্ত ভাবনায়!”<br><br>
-
-        “মনে হলো , রয়েছি তারি সাথে যেনো<br>       
-        জন্ম-জন্মান্তর ;<br>
-        তবে কি পুণরায় দাঁড়িয়ে গুণবো অপেক্ষার প্রহর?”
-    </p>
-</div>
-
-<script>
-    function togglePoetry() {
-        var content = document.getElementById("poetry");
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block";
-        } else {
-            content.style.display = "none";
-        }
-    }
-</script>
-
-
-
-           
-
-
-        <button class="btn quotes" onclick="toggleContent('quotes')">💬 Quotes</button>
-        <div class="content" id="quotes"><!-- কবিতা বাটন -->
-<button class="poetry-btn" onclick="togglePoetry()">অপেক্ষায় চক্রাকার</button>
-
-<!-- কবিতা কন্টেন্ট -->
-<div class="poetry-content" id="poetry">
-    <h3>অপেক্ষায় চক্রাকার</h3>
-    <p>ᏇᏒᎥᏖᏋᏒ ✍🏿 ᎷᏋ</p>
-    <hr>
-    <p>
-        “প্রিয়তে ফিরে পাওয়ার আকাঙ্ক্ষায়<br>
-        কাটিয়ে দেওয়া অপেক্ষার মূহূর্ত ,<br>
-        যেনো মনে হয়, রয়েছে সে অজানায়<br>
-        ফিরে আসবে কখন, বাড়ছে কি দূরত্ব!”<br><br>
-
-        “তাকে ফিরে পাওয়ার আকাঙ্ক্ষায়<br>
-        থাকি আনমনে বসে তারি অপেক্ষায়”<br><br>
-
-        “অতঃপর ঘটিল অবসান অপেক্ষার<br>
-        তাহাকে ফিরে পাওয়ায়,<br>
-        সময়টা হারিয়ে হঠাৎ নামলে আঁধার<br>
-        কয়েক সেকেন্ড মূহূর্ত ভাবনায়!”<br><br>
-
-        “মনে হলো , রয়েছি তারি সাথে যেনো<br>       
-        জন্ম-জন্মান্তর ;<br>
-        তবে কি পুণরায় দাঁড়িয়ে গুণবো অপেক্ষার প্রহর?”
-    </p>
-</div>
-
-<script>
-    function togglePoetry() {
-        var content = document.getElementById("poetry");
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block";
-        } else {
-            content.style.display = "none";
-        }
-    }
-</script></div>
-
-        <button class="btn islamic" onclick="toggleContent('islamic')">☪️ Islamic Messages</button>
-        <div class="content" id="islamic">ইসলামিক মেসেজ এখানে।</div>
-
-        <button class="btn knowledge" onclick="toggleContent('knowledge')">📚 Knowledge Transfer</button>
-        <div class="content" id="knowledge">নলেজ ট্রান্সফার কন্টেন্ট।</div>
-
-        <button class="btn facts" onclick="toggleContent('facts')">🔍 Known & Unknown Facts</button>
-        <div class="content" id="facts">অজানা তথ্য এখানে।</div>
-
-        <button class="btn emotions" onclick="toggleContent('emotions')">❤️ Feelings of Emotions</button>
-        <div class="content" id="emotions">অনুভূতি সম্পর্কে লেখা।</div>
-
-        <button class="btn smiley" onclick="toggleContent('smiley')">😊 Smiley Face</button>
-        <div class="content" id="smiley">মজার কন্টেন্ট।</div>
-
-        <button class="btn photos" onclick="toggleContent('photos')">📷 Photos Album</button>
-        <div class="content" id="photos">
+        <button class="btn photos">📷 Photos Album</button>
+        <div class="content">
             <div class="gallery">
-                <img src="photo1.jpg">
-                <img src="photo2.jpg">
+                <img src="photo1.jpg" alt="Photo 1">
+                <img src="photo2.jpg" alt="Photo 2">
             </div>
         </div>
 
-        <button class="btn videos" onclick="toggleContent('videos')">🎥 Videos Album</button>
-        <div class="content" id="videos">
-            <div class="video-gallery">
-                <video controls><source src="video1.mp4"></video>
-                <video controls><source src="video2.mp4"></video>
-            </div>
+        <button class="btn videos">🎥 Videos Album</button>
+        <div class="content">
+            <video controls>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
         </div>
 
-        <button class="btn about" onclick="toggleContent('about')">🧑 About Me</button>
-        <div class="content" id="about">আমার সম্পর্কে।</div>
+        <button class="btn about">ℹ️ About Me</button>
+        <div class="content">
+            <p>আমি একজন কন্টেন্ট ক্রিয়েটর...</p>
+        </div>
 
-        <button class="btn social" onclick="toggleContent('social')">🌍 Social Media</button>
-        <div class="content" id="social">সোশ্যাল মিডিয়া লিংক।</div>
-    </div>
+        <button class="btn social">🌍 Social Media</button>
+        <div class="content">
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+        </div>
+    </section>
 
-    <footer>© All rights reserved</footer>
-
-    <script>
-        function toggleContent(id) {
-            var element = document.getElementById(id);
-            if (element.style.display === "block") {
-                element.style.display = "none";
-            } else {
-                element.style.display = "block";
-            }
-        }
-    </script>
+    <!-- ফুটার -->
+    <footer>
+        <p>© All rights reserved</p>
+    </footer>
 
 </body>
 </html>
