@@ -1,203 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>ব্যক্তিগত ওয়েবসাইট</title>
     <style>
-        * {
+        /* ব্যাকগ্রাউন্ড ও সাধারণ ডিজাইন */
+        body {
+            background-color: #0a0f29; /* ডিপ ব্লু ডার্ক নাইট */
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
-        body {
-            background-color: #0a1128;
-            color: white;
-            text-align: center;
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        /* Welcome Box */
-        .welcome {
+
+        /* ওয়েলকাম মেসেজ */
+        .welcome-box {
             position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 20px;
+            animation: fadeOut 5s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+
+        /* কভার ফটো */
+        .cover {
             width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            font-size: 2em;
-            z-index: 1000;
-            transition: opacity 1s ease-in-out;
-        }
-        .hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .header {
+            height: 200px;
             background: url('cover.jpg') no-repeat center center/cover;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5em;
-            font-weight: bold;
         }
+
+        /* ক্যাটাগরি ডিজাইন */
         .category {
-            margin: 20px auto;
-            text-align: left;
+            margin: 15px auto;
+            width: 80%;
         }
+
+        /* বাটন ডিজাইন */
         .btn {
             width: 100%;
             padding: 10px;
-            font-size: 18px;
             border: none;
+            font-size: 18px;
+            font-weight: bold;
             cursor: pointer;
-            text-align: left;
+            margin-bottom: 5px;
         }
+
+        /* প্রত্যেক ক্যাটাগরির আলাদা রঙ */
+        .stories { background: #ff5733; color: white; }
+        .poetries { background: #33c3ff; color: black; }
+        .quotes { background: #ff33bb; color: white; }
+        .islamic { background: #33ff57; color: black; }
+        .knowledge { background: #f4a261; color: black; }
+        .facts { background: #6a0572; color: white; }
+        .emotions { background: #ffb400; color: black; }
+        .smiley { background: #bada55; color: black; }
+        .photos { background: #005f73; color: white; }
+        .videos { background: #8a2be2; color: white; }
+        .about { background: #ff6b6b; color: white; }
+        .social { background: #2d6a4f; color: white; }
+
+        /* কন্টেন্ট হাইড করা */
         .content {
             display: none;
             padding: 10px;
-            background: #222;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
             margin-top: 5px;
         }
-        /* Different Colors for Each Category */
-        .stories { color: #ff9800; }
-        .poetries { color: #4caf50; }
-        .quotes { color: #2196f3; }
-        .islamic { color: #ff5722; }
-        .knowledge { color: #9c27b0; }
-        .facts { color: #e91e63; }
-        .feelings { color: #795548; }
-        .smiley { color: #ffc107; }
-        .photos { color: #00bcd4; }
-        .videos { color: #673ab7; }
-        .about { color: #8bc34a; }
-        /* Footer */
-        .footer {
-            margin-top: 30px;
-            padding: 10px;
-            background: #000;
-        }
-        /* Photos & Videos */
-        .gallery, .video-gallery {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+
+        /* ছবি গ্যালারি */
         .gallery img {
             width: 100px;
-            height: 100px;
-            border-radius: 5px;
+            margin: 5px;
             cursor: pointer;
-            transition: transform 0.3s;
+            border-radius: 5px;
         }
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
+
+        /* ভিডিও গ্যালারি */
         .video-gallery video {
             width: 200px;
-            height: 120px;
+            margin: 5px;
             border-radius: 5px;
+        }
+
+        /* ফুটার */
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: lightgray;
         }
     </style>
 </head>
 <body>
 
-    <!-- Welcome Box -->
-    <div class="welcome" id="welcome-box">
-        <p>Welcome to My Personal Website</p>
-    </div>
+    <!-- ওয়েলকাম মেসেজ -->
+    <div class="welcome-box">স্বাগতম! 🚀</div>
 
-    <!-- Header -->
-    <div class="header">
-        My Personal Space
-    </div>
+    <!-- কভার ফটো -->
+    <div class="cover"></div>
 
-    <div class="container">
+    <!-- ক্যাটাগরি তালিকা -->
+    <div class="category">
+        <button class="btn stories" onclick="toggleContent('stories')">📖 Stories</button>
+        <div class="content" id="stories">এখানে স্টোরির কন্টেন্ট থাকবে।</div>
 
-        <!-- Categories -->
-        <div class="category">
-            <button class="btn stories" onclick="toggleContent('stories')">📖 Stories</button>
-            <div class="content" id="stories">এখানে গল্প থাকবে...</div>
-        </div>
+        <button class="btn poetries" onclick="toggleContent('poetries')">📜 Poetries</button>
+        <div class="content" id="poetries">এখানে কবিতা থাকবে।</div>
 
-        <div class="category">
-            <button class="btn poetries" onclick="toggleContent('poetries')">📜 Poetries</button>
-            <div class="content" id="poetries">এখানে কবিতা থাকবে...</div>
-        </div>
+        <button class="btn quotes" onclick="toggleContent('quotes')">💬 Quotes</button>
+        <div class="content" id="quotes">এখানে কোটস থাকবে।</div>
 
-        <div class="category">
-            <button class="btn quotes" onclick="toggleContent('quotes')">💬 Quotes</button>
-            <div class="content" id="quotes">এখানে কোটস থাকবে...</div>
-        </div>
+        <button class="btn islamic" onclick="toggleContent('islamic')">☪️ Islamic Messages</button>
+        <div class="content" id="islamic">ইসলামিক মেসেজ এখানে।</div>
 
-        <div class="category">
-            <button class="btn islamic" onclick="toggleContent('islamic')">☪ Islamic Messages</button>
-            <div class="content" id="islamic">এখানে ইসলামিক মেসেজ থাকবে...</div>
-        </div>
+        <button class="btn knowledge" onclick="toggleContent('knowledge')">📚 Knowledge Transfer</button>
+        <div class="content" id="knowledge">নলেজ ট্রান্সফার কন্টেন্ট।</div>
 
-        <div class="category">
-            <button class="btn knowledge" onclick="toggleContent('knowledge')">📚 Knowledge Transfer</button>
-            <div class="content" id="knowledge">এখানে জ্ঞান বিনিময় সংক্রান্ত কন্টেন্ট থাকবে...</div>
-        </div>
+        <button class="btn facts" onclick="toggleContent('facts')">🔍 Known & Unknown Facts</button>
+        <div class="content" id="facts">অজানা তথ্য এখানে।</div>
 
-        <div class="category">
-            <button class="btn photos" onclick="toggleContent('photos')">📷 Photos Album</button>
-            <div class="content" id="photos">
-                <div class="gallery">
-                    <img src="photo1.jpg" alt="Photo 1">
-                    <img src="photo2.jpg" alt="Photo 2">
-                </div>
+        <button class="btn emotions" onclick="toggleContent('emotions')">❤️ Feelings of Emotions</button>
+        <div class="content" id="emotions">অনুভূতি সম্পর্কে লেখা।</div>
+
+        <button class="btn smiley" onclick="toggleContent('smiley')">😊 Smiley Face</button>
+        <div class="content" id="smiley">মজার কন্টেন্ট।</div>
+
+        <button class="btn photos" onclick="toggleContent('photos')">📷 Photos Album</button>
+        <div class="content" id="photos">
+            <div class="gallery">
+                <img src="photo1.jpg">
+                <img src="photo2.jpg">
             </div>
         </div>
 
-        <div class="category">
-            <button class="btn videos" onclick="toggleContent('videos')">🎥 Videos Album</button>
-            <div class="content" id="videos">
-                <div class="video-gallery">
-                    <video controls>
-                        <source src="video1.mp4" type="video/mp4">
-                    </video>
-                </div>
+        <button class="btn videos" onclick="toggleContent('videos')">🎥 Videos Album</button>
+        <div class="content" id="videos">
+            <div class="video-gallery">
+                <video controls><source src="video1.mp4"></video>
+                <video controls><source src="video2.mp4"></video>
             </div>
         </div>
 
-        <!-- About Me -->
-        <div class="category">
-            <button class="btn about" onclick="toggleContent('about')">👤 About Me</button>
-            <div class="content" id="about">এখানে নিজের পরিচয় লিখতে পারিস।</div>
-        </div>
+        <button class="btn about" onclick="toggleContent('about')">🧑 About Me</button>
+        <div class="content" id="about">আমার সম্পর্কে।</div>
 
-        <!-- Social Media -->
-        <h2>🔗 Follow Me</h2>
-        <p>📘 Facebook | 📷 Instagram | ▶ YouTube</p>
-
+        <button class="btn social" onclick="toggleContent('social')">🌍 Social Media</button>
+        <div class="content" id="social">সোশ্যাল মিডিয়া লিংক।</div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        © All rights reserved
-    </div>
+    <footer>© All rights reserved</footer>
 
     <script>
-        // Hide Welcome Box after 10 sec
-        setTimeout(() => {
-            document.getElementById("welcome-box").classList.add("hide");
-        }, 10000);
-
-        // Toggle Category Content
         function toggleContent(id) {
-            var content = document.getElementById(id);
-            content.style.display = (content.style.display === "block") ? "none" : "block";
+            var element = document.getElementById(id);
+            if (element.style.display === "block") {
+                element.style.display = "none";
+            } else {
+                element.style.display = "block";
+            }
         }
     </script>
 
