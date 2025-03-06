@@ -1,176 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Website</title>
-<style>
-body {
-    background-color: #191970; /* Deep Blue Dark Night */
-    color: white;
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0; /* Ensures no default margins */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensures content fills the viewport vertically */
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        body {
+            background-color: #191970; /* Deep Blue Dark Night */
+            color: white;
+            font-family: sans-serif;
+            margin: 5%; /* Consistent margin */
+            text-align: center; /* Center align text */
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+
+        /* Category Color Styles */
+        #stories .category-title { color: #FFD700; } /* Gold */
+        #stories button { background-color: #DAA520; color: white;} /* Goldenrod */
+
+        #poetries .category-title{ color: #008080; } /* Teal */
+        #poetries button { background-color: #4682B4; color: white;} /* Steel Blue */
+
+
+        #quotes .category-title { color: #800080; } /* Purple */
+        #quotes button { background-color: #DA70D6; color: white;} /* Orchid */
+
+
+        #islamic .category-title { color: #228B22; } /* Forest Green */
+        #islamic button { background-color: #3CB371; color: white;} /* Medium Sea Green */
+
+
+        #knowledge .category-title { color: #DC143C; } /* Crimson */
+        #knowledge button { background-color:  #FF6347; color: white;} /* Tomato */
+
+
+        #facts .category-title { color: #4B0082; } /* Indigo */
+        #facts button { background-color: #6A5ACD; color: white;} /* Slate Blue */
+
+
+        #feelings .category-title { color: #FF4500; } /* Orange Red */
+        #feelings button { background-color: #FFA500; color: white;} /* Orange */
+
+
+        #smiley .category-title { color: #FFFF00; } /* Yellow */
+        #smiley button { background-color: #FFFACD; color: black;} /* Lemon Chiffon */
+
+
+        /* About Me will be static text, no button needed */
+        #about .category-title { color: #7FFF00; }  /* Chartreuse */
 
 
 
-/* Welcome Message Styling */
-#welcome {
-    background-color: rgba(0,0,0,0.7); /* Semi-transparent black background */
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: fixed; /* Keeps the message at the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100; /* Ensure it's on top of other content */
-    animation: hideWelcome 5s forwards; /* Animation for hiding */
-}
-
-@keyframes hideWelcome {
-    0% { opacity: 1; }
-    99% { opacity: 1; }
-    100% { opacity: 0; display: none; }
-}
-
-.cover {
-    background-image: url('your-cover-image.jpg'); /* Replace with your cover image URL */
-    background-size: cover;
-    background-position: center;
-    min-height: 300px; /* Adjust minimum height as needed */
-    margin-bottom: 20px; /* Space between cover and categories */
-
-}
+        button {
+          padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+          font-weight: bold;
+        }
 
 
+        .content {
+            display: none;
+            margin-top: 10px;
+            text-align: left; /* Align content to the left */  
+            white-space: pre-line; /* Preserve whitespace */
+        }
 
 
-/* Category Styles */
+        .welcome-message {
+           position: fixed;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           background-color: #4CAF50;
+           color: white;
+           padding: 15px;
+           border-radius: 5px;
+           z-index: 999; /* Ensure it's on top */
+        }
 
-.categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 20px;
-    padding: 20px;
-  margin-top:  300px;
-
-}
-
-.category-button {
-    background-color: transparent; /* Make button background transparent */
-    border: none;
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center; /* Center the text within the button */
-
-
-}
-
-
-/* Example of individual category styling (add similar styles for others) */
-#stories { color: #FFD700; } /* Gold */
-#poetries { color: #DA70D6; } /* Orchid */
-#quotes { color: #00CED1; } /* Dark Turquoise */
-#islamic { color: #32CD32; } /* Lime Green */
-#knowledge { color: #FFA500; } /* Orange */
-#facts { color: #FF69B4; } /* Hot Pink */
-#feelings { color: #BA55D3; } /* Medium Orchid */
-#smiley { color: #FFFF00; }  /* Yellow */
-#photos { color: #ADD8E6; } /* Light Blue */
-#videos { color: #9932CC; } /* Dark Orchid */
-#about { color: #D2691E; } /* Chocolate */
-
-
-
-
-
-.subcategories, .content {
-  display: none;  /* Initially hidden */
-  margin-left: 20px;  /* Indent subcategories */
-}
-
-
-.show {
-  display: block;  /* Show when needed */
-}
-
-
-
-</style>
+    </style>
 </head>
+
+
 <body>
 
-<div id="welcome">Welcome to My Website!</div>
+    <div class="welcome-message" id="welcomeMessage">Welcome to my website!</div>
+
+    <div id="popupMessage" class="welcome-message" style="display: none;"> আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে</div>
 
 
-<div class="cover"></div>
+    <div class="category" id="stories">
+        <div class="category-title">Stories</div>
+        <button onclick="toggleContent('story1')">Story 1 Title</button>
+        <div class="content" id="story1">Once upon a time...</div> <button onclick="toggleContent('story2')">Story 2 Title</button>
+        <div class="content" id="story2">In a land far away...</div>
+    </div>
+
+    <div class="category" id="poetries">
+        <div class="category-title">Poetries</div>
+        <button onclick="toggleContent('poetry1')">Poetry 1 Title</button>
+        <div class="content" id="poetry1">The sun rises...</div>
+    </div>
 
 
-<div class="categories">
-    <button class="category-button" id="stories" onclick="toggleSub('storiesSub')">Stories</button>
-    <button class="category-button" id="poetries" onclick="toggleSub('poetriesSub')">Poetries</button>
-    <button class="category-button" id="quotes" onclick="toggleSub('quotesSub')">Quotes</button>
+    <div class="category" id="quotes">
+      <div class="category-title">Quotes</div>
+      <button onclick="toggleContent('quote1')">Quote 1 Title</button>
+      <div class="content" id="quote1">"The only way to do great work is to love what you do." - Steve Jobs </div>
+    </div>
 
-    <button class="category-button" id="islamic" onclick="toggleSub('islamicSub')">Islamic Messages</button>
-    <button class="category-button" id="knowledge" onclick="toggleSub('knowledgeSub')">Knowledge Transfer</button>
-    <button class="category-button" id="facts" onclick="toggleSub('factsSub')">Known & Unknown Facts</button>
+    <div class="category" id="islamic">
+        <div class="category-title">Islamic Massages</div>
+        <button onclick="toggleContent('islamic1')">Message 1 Title</button>
+        <div class="content" id="islamic1">Content of Islamic Message 1</div>
+    </div>
 
-    <button class="category-button" id="feelings" onclick="toggleSub('feelingsSub')">Feelings & Emotions</button>
-    <button class="category-button" id="smiley" onclick="toggleSub('smileySub')">Smiley Face</button>
+      <div class="category" id="knowledge">
+        <div class="category-title">Knowledge Transfer</div>
+        <button onclick="toggleContent('knowledge1')">Knowledge 1 Title</button>
+        <div class="content" id="knowledge1">The transfer of knowledge...</div>
+    </div>
 
-    <button class="category-button" id="about" onclick="toggleSub('aboutSub')">About Me</button>
+ <div class="category" id="facts">
+        <div class="category-title">Known and Unknown Facts</div>
+        <button onclick="toggleContent('fact1')">Fact 1 Title</button>
+        <div class="content" id="fact1">Did you know that...</div>
+ </div>
 
+<div class="category" id="feelings">
+        <div class="category-title">Feelings of emotions</div>
+        <button onclick="toggleContent('feeling1')">Feeling 1 Title</button>
+        <div class="content" id="feeling1">Joy, sadness, anger...</div>
+    </div>
 
-
-</div>
-
-
-
-<!-- Example Subcategories and Content Structure for Stories (Repeat for other categories) -->
-<div class="subcategories" id="storiesSub">
-  <button onclick="toggleContent('story1')">Story 1 Title</button>
-  <div class="content" id="story1">
-    Content of story 1 goes here...
-  </div>
-  <button onclick="toggleContent('story2')">Story 2 Title</button>
-  <div class="content" id="story2">
-    Content of story 2 goes here...
-  </div>
-  <!-- Add more story buttons/content as needed -->
-</div>
-
-
-<script>
-
-alert("আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে");
+    <div class="category" id="smiley">
+        <div class="category-title">Smiley Face</div>
+        <button onclick="toggleContent('smiley1')">Smiley 1 Title</button>
+        <div class="content" id="smiley1">:) :D :(</div>
+ </div>
 
 
+ <div class="category" id="about">
+        <div class="category-title">About Me</div>
+        <p>This is a static section about me. No button needed here. You can write about yourself, your hobbies, interests, etc.</p> 
+    </div>
+  
 
-function toggleSub(subId) {
-  var sub = document.getElementById(subId);
-  sub.classList.toggle("show");
-}
-
-function toggleContent(contentId) {
-    var content = document.getElementById(contentId);
-    content.classList.toggle("show");
-}
-
-
+    <script>
+      function toggleContent(id) {
+        var x = document.getElementById(id);
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+      }
 
 
-</script>
+        // Welcome message timeout
+        setTimeout(function(){
+            document.getElementById('welcomeMessage').style.display = 'none';
+        }, 5000);
 
 
+        // Popup Message on Load (replace with your desired logic)
+        window.onload = function() {
+            // Show the popup message
+            document.getElementById('popupMessage').style.display = 'block';
+
+            // Hide the popup after a delay (e.g., 5 seconds)
+            setTimeout(function() {
+                document.getElementById('popupMessage').style.display = 'none';
+            }, 5000); // 5000 milliseconds = 5 seconds
+
+        };
+    </script>
 
 </body>
 </html>
