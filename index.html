@@ -204,11 +204,9 @@
 <style>
         body {
             background-color: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
 
         /* স্বাগতম বক্স */
@@ -227,12 +225,24 @@
             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
             opacity: 1;
             animation: fadeOut 3s forwards;
+            z-index: 999;
         }
 
         @keyframes fadeOut {
             0% { opacity: 1; }
             80% { opacity: 1; }
             100% { opacity: 0; visibility: hidden; }
+        }
+
+        /* ইফেক্ট কন্টেইনার */
+        .container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
 
         /* কনফেটি এবং ফুলের পাপড়ি */
@@ -266,17 +276,7 @@
             100% { transform: scale(3); opacity: 0; }
         }
 
-        /* CSS দিয়ে রেনডম জেনারেশন */
-        .container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        /* ৫০টি পার্টিকেল তৈরি */
+        /* রেনডম পার্টিকেল */
         .container .particle:nth-child(odd) {
             background: red;
         }
@@ -289,14 +289,47 @@
         .container .firework:nth-child(3n+1) {
             background: green;
         }
-    </style>
 
+        /* ওয়েবসাইটের অন্যান্য কন্টেন্ট */
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 50px;
+        }
+    </style>
 </head>
+
 <body onload="showWelcomeDialog()" onbeforeunload="return showExitDialog()">
 
 
 
- 
+ <!-- স্বাগতম মেসেজ -->
+    <div class="welcome-box">
+        আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়া বারাকাতুহু <br> স্বাগতম!
+    </div>
+
+    <!-- ইফেক্ট কন্টেইনার -->
+    <div class="container">
+        <script>
+            for (let i = 0; i < 50; i++) {
+                let particle = document.createElement("div");
+                particle.className = "particle";
+                particle.style.left = Math.random() * 100 + "vw";
+                particle.style.animationDuration = (Math.random() * 2 + 1) + "s";
+                document.querySelector(".container").appendChild(particle);
+
+                let firework = document.createElement("div");
+                firework.className = "firework";
+                firework.style.left = Math.random() * 100 + "vw";
+                firework.style.top = Math.random() * 100 + "vh";
+                firework.style.animationDuration = (Math.random() * 1.5 + 1) + "s";
+                document.querySelector(".container").appendChild(firework);
+            }
+        </script>
+    </div>
+
 
 
     <!-- 🌟 ওয়েলকাম টেক্সট -->
@@ -682,29 +715,7 @@
 }
 </style>
 
-<div class="welcome-box">
-        আসসালামু আলাইকুম ওয়া রাহমাতুল্লাহি ওয়া বারাকাতুহু <br> স্বাগতম!
-    </div>
 
-    <div class="container">
-        <!-- ৫০টি কনফেটি / ফুল / পার্টিকেল / আতশবাজি -->
-        <script>
-            for (let i = 0; i < 50; i++) {
-                let particle = document.createElement("div");
-                particle.className = "particle";
-                particle.style.left = Math.random() * 100 + "vw";
-                particle.style.animationDuration = (Math.random() * 2 + 1) + "s";
-                document.querySelector(".container").appendChild(particle);
-
-                let firework = document.createElement("div");
-                firework.className = "firework";
-                firework.style.left = Math.random() * 100 + "vw";
-                firework.style.top = Math.random() * 100 + "vh";
-                firework.style.animationDuration = (Math.random() * 1.5 + 1) + "s";
-                document.querySelector(".container").appendChild(firework);
-            }
-        </script>
-    </div>
 
 
 </body>
