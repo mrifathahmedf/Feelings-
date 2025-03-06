@@ -66,7 +66,10 @@
             margin-bottom: 20px;
             display: block;
         }
-        /* Social Media */
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 20px;
+        }
         .social-icons a {
             margin: 10px;
             display: inline-block;
@@ -90,64 +93,42 @@
     <div class="container">
         <h1>📜 My Personal Website</h1>
 
-        <!-- Category: Stories -->
-        <div class="category">
-            <button class="btn" onclick="toggleContent('stories')">📖 Stories</button>
-            <div class="content" id="stories">
-                <button class="btn" onclick="toggleContent('story1')">📜 Story 1</button>
-                <div class="content" id="story1">এখানে তোমার গল্প থাকবে।</div>
-            </div>
-        </div>
+        <!-- All Categories -->
+        <div class="category"><button class="btn" onclick="toggleContent('stories')">📖 Stories</button>
+            <div class="content" id="stories"><button class="btn" onclick="toggleContent('story1')">📜 Story 1</button>
+                <div class="content" id="story1">এখানে তোমার গল্প থাকবে।</div></div></div>
 
-        <!-- Category: Quotes -->
-        <div class="category">
-            <button class="btn" onclick="toggleContent('quotes')">💬 Quotes</button>
-            <div class="content" id="quotes">
-                <button class="btn" onclick="toggleContent('quote1')">💡 Inspiration</button>
-                <div class="content" id="quote1">"সফলতা ধৈর্যশীলদের জন্য।"</div>
-            </div>
-        </div>
+        <div class="category"><button class="btn" onclick="toggleContent('poetries')">✍️ Poetries</button>
+            <div class="content" id="poetries"><button class="btn" onclick="toggleContent('poetry1')">🖊️ Poetry 1</button>
+                <div class="content" id="poetry1">এখানে তোমার কবিতা থাকবে।</div></div></div>
 
-        <!-- Category: Photos Album -->
-        <div class="category">
-            <button class="btn" onclick="toggleContent('photos')">📷 Photos Album</button>
-            <div class="content" id="photos">
-                <div class="gallery">
-                    <img src="photo1.jpg" alt="Photo 1">
-                    <img src="photo2.jpg" alt="Photo 2">
-                </div>
-            </div>
-        </div>
+        <div class="category"><button class="btn" onclick="toggleContent('quotes')">💬 Quotes</button>
+            <div class="content" id="quotes"><button class="btn" onclick="toggleContent('quote1')">💡 Inspiration</button>
+                <div class="content" id="quote1">"সফলতা ধৈর্যশীলদের জন্য।"</div></div></div>
 
-        <!-- Category: Videos Album -->
-        <div class="category">
-            <button class="btn" onclick="toggleContent('videos')">🎥 Videos Album</button>
-            <div class="content" id="videos">
-                <div class="video-gallery">
-                    <video controls>
-                        <source src="video1.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
+        <div class="category"><button class="btn" onclick="toggleContent('islamic')">☪️ Islamic Messages</button>
+            <div class="content" id="islamic"><button class="btn" onclick="toggleContent('dua')">🙏 Dua</button>
+                <div class="content" id="dua">এখানে ইসলামিক বার্তা থাকবে।</div></div></div>
 
-        <!-- About Me -->
-        <div class="category">
-            <button class="btn" onclick="toggleContent('about')">👤 About Me</button>
-            <div class="content" id="about">
-                <p>আমি একজন কন্টেন্ট ক্রিয়েটর।</p>
-            </div>
-        </div>
+        <div class="category"><button class="btn" onclick="toggleContent('knowledge')">📚 Knowledge Transfer</button>
+            <div class="content" id="knowledge"><button class="btn" onclick="toggleContent('fact1')">🔎 Fact 1</button>
+                <div class="content" id="fact1">এখানে জ্ঞানমূলক তথ্য থাকবে।</div></div></div>
 
-        <!-- Social Media -->
-        <div class="category">
-            <button class="btn">🌐 Social Media</button>
-            <div class="social-icons">
-                <a href="#" style="color:#1877f2;">🔵 Facebook</a>
-                <a href="#" style="color:#1da1f2;">🔷 Twitter</a>
-                <a href="#" style="color:#e1306c;">💖 Instagram</a>
-            </div>
-        </div>
+        <div class="category"><button class="btn" onclick="toggleContent('photos')">📷 Photos Album</button>
+            <div class="content" id="photos"><div class="gallery"><img src="photo1.jpg"><img src="photo2.jpg"></div></div></div>
+
+        <div class="category"><button class="btn" onclick="toggleContent('videos')">🎥 Videos Album</button>
+            <div class="content" id="videos"><div class="video-gallery"><video controls><source src="video1.mp4"></video></div></div></div>
+
+        <div class="category"><button class="btn" onclick="toggleContent('about')">👤 About Me</button>
+            <div class="content" id="about"><p>আমি একজন কন্টেন্ট ক্রিয়েটর।</p></div></div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+        <a href="#" style="color:#1877f2;">🔵 Facebook</a>
+        <a href="#" style="color:#1da1f2;">🔷 Twitter</a>
+        <a href="#" style="color:#e1306c;">💖 Instagram</a>
     </div>
 
     <!-- Footer -->
