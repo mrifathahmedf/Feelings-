@@ -12,10 +12,34 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background-color: #121212;
+            background-color: #0a1128;
             color: white;
             text-align: center;
-            padding-bottom: 50px;
+        }
+        /* Welcome Box */
+        .welcome {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 2em;
+            z-index: 1000;
+            transition: opacity 1s ease-in-out;
+        }
+        .hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('flower-light.gif') no-repeat center center/cover;
+            opacity: 0.7;
         }
         /* Header */
         .header {
@@ -42,6 +66,7 @@
             text-align: left;
             font-size: 18px;
             cursor: pointer;
+            margin-top: 5px;
         }
         .btn:hover {
             background: #1565c0;
@@ -50,17 +75,6 @@
             background: #333;
             padding: 10px;
             display: none;
-        }
-        /* Photo & Video Album */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            padding: 20px;
-        }
-        .gallery img, .gallery video {
-            width: 100%;
-            border-radius: 5px;
         }
         /* About Me */
         .about {
@@ -84,24 +98,31 @@
             margin-top: 10px;
         }
         .social-links a {
-            font-size: 24px;
             color: white;
+            font-size: 18px;
             text-decoration: none;
-            transition: 0.3s;
+            background: #1e88e5;
+            padding: 10px;
+            border-radius: 5px;
         }
         .social-links a:hover {
-            color: #1e88e5;
+            background: #1565c0;
         }
         /* Footer */
         .footer {
             margin-top: 30px;
             padding: 10px;
-            background: #1e1e1e;
-            text-align: center;
+            background: #000;
         }
     </style>
 </head>
 <body>
+
+    <!-- Welcome Box -->
+    <div class="welcome" id="welcome-box">
+        <div class="effect"></div>
+        <p>Welcome to My Personal Website</p>
+    </div>
 
     <!-- Header / Cover Photo -->
     <div class="header">
@@ -110,57 +131,59 @@
 
     <!-- Categories -->
     <div class="category">
-        <button class="btn" onclick="toggleContent('story')">📖 Stories</button>
-        <div class="content" id="story"><p>এখানে গল্প থাকবে...</p></div>
+        <button class="btn" onclick="toggleContent('stories')">📖 Stories</button>
+        <div class="content" id="stories">
+            <p>এখানে গল্প থাকবে...</p>
+        </div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('poetry')">📜 Poetries</button>
-        <div class="content" id="poetry"><p>এখানে কবিতা থাকবে...</p></div>
+        <button class="btn" onclick="toggleContent('poetries')">📜 Poetries</button>
+        <div class="content" id="poetries">
+            <p>এখানে কবিতা থাকবে...</p>
+        </div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('quote')">💬 Quotes</button>
-        <div class="content" id="quote"><p>এখানে কোটস থাকবে...</p></div>
+        <button class="btn" onclick="toggleContent('quotes')">💬 Quotes</button>
+        <div class="content" id="quotes">
+            <p>এখানে কোটস থাকবে...</p>
+        </div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('islamic')">🕌 Islamic Messages</button>
-        <div class="content" id="islamic"><p>এখানে ইসলামিক বার্তা থাকবে...</p></div>
+        <button class="btn" onclick="toggleContent('islamic')">☪ Islamic Messages</button>
+        <div class="content" id="islamic">
+            <p>এখানে ইসলামিক মেসেজ থাকবে...</p>
+        </div>
     </div>
 
     <div class="category">
         <button class="btn" onclick="toggleContent('knowledge')">📚 Knowledge Transfer</button>
-        <div class="content" id="knowledge"><p>এখানে শিক্ষামূলক কন্টেন্ট থাকবে...</p></div>
+        <div class="content" id="knowledge">
+            <p>এখানে জ্ঞান বিনিময় সংক্রান্ত কন্টেন্ট থাকবে...</p>
+        </div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('facts')">🔎 Known and Unknown Facts</button>
-        <div class="content" id="facts"><p>এখানে অজানা তথ্য থাকবে...</p></div>
+        <button class="btn" onclick="toggleContent('facts')">🔍 Known and Unknown Facts</button>
+        <div class="content" id="facts">
+            <p>এখানে অজানা তথ্য থাকবে...</p>
+        </div>
     </div>
 
     <div class="category">
         <button class="btn" onclick="toggleContent('feelings')">❤️ Feelings of Emotions</button>
-        <div class="content" id="feelings"><p>এখানে অনুভূতির কন্টেন্ট থাকবে...</p></div>
+        <div class="content" id="feelings">
+            <p>এখানে আবেগ-অনুভূতি থাকবে...</p>
+        </div>
     </div>
 
     <div class="category">
         <button class="btn" onclick="toggleContent('smiley')">😊 Smiley Face</button>
-        <div class="content" id="smiley"><p>এখানে মজার কন্টেন্ট থাকবে...</p></div>
-    </div>
-
-    <!-- Photos Album -->
-    <h2>📸 Photos Album</h2>
-    <div class="gallery">
-        <img src="photo1.jpg" alt="Photo 1">
-        <img src="photo2.jpg" alt="Photo 2">
-    </div>
-
-    <!-- Videos Album -->
-    <h2>🎥 Videos Album</h2>
-    <div class="gallery">
-        <video src="video1.mp4" controls></video>
-        <video src="video2.mp4" controls></video>
+        <div class="content" id="smiley">
+            <p>এখানে হাসির কন্টেন্ট থাকবে...</p>
+        </div>
     </div>
 
     <!-- About Me -->
@@ -173,9 +196,9 @@
     <!-- Social Media -->
     <h2>🔗 Follow Me</h2>
     <div class="social-links">
-        <a href="https://facebook.com" target="_blank">🌐</a>
-        <a href="https://instagram.com" target="_blank">📷</a>
-        <a href="https://youtube.com" target="_blank">▶️</a>
+        <a href="#">📘 Facebook</a>
+        <a href="#">📷 Instagram</a>
+        <a href="#">▶ YouTube</a>
     </div>
 
     <!-- Footer -->
@@ -184,6 +207,12 @@
     </div>
 
     <script>
+        // Welcome Box Hide after 10 sec
+        setTimeout(() => {
+            document.getElementById("welcome-box").classList.add("hide");
+        }, 10000);
+
+        // Toggle Category Content
         function toggleContent(id) {
             var content = document.getElementById(id);
             content.style.display = (content.style.display === "block") ? "none" : "block";
