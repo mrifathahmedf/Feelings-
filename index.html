@@ -92,12 +92,6 @@
             -ms-user-select: none;
         }
 
-        /* ইমেজ ড্র্যাগ বন্ধ */
-        img {
-            pointer-events: none;
-            -webkit-user-drag: none;
-        }
-
         /* লিংক কপি বন্ধ */
         a {
             pointer-events: none;
@@ -117,13 +111,15 @@
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
     </style>
+
+
 </head>
 
 <body>
 <div class="content">
         <h2>এই কন্টেন্ট কপি করা যাবে না!</h2>
         <p>CSS ব্যবহার করে এই টেক্সট সিলেক্ট করা যাবে না এবং কপি করাও সম্ভব হবে না।</p>
-        <img src="example.jpg" alt="ড্র্যাগ বন্ধ করা ইমেজ">
+        <img src="example.jpg" alt="নরমাল ইমেজ">
         <p><a href="#">এই লিংকে ক্লিক করা যাবে না</a></p>
     </div>
 
