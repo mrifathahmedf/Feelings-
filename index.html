@@ -1,191 +1,297 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <style>
+        /* Global Styles */
         body {
-            background-color: #0a192f; /* Deep Blue Dark Night */
-            color: #ffffff;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #0a192f; /* Deep Blue Dark Night */
+            color: #fff;
         }
 
-        .welcome-message {
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Category Styles */
+        .category-container {
+            margin-bottom: 20px;
+        }
+
+        .category-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Subcategory Styles */
+        .subcategory-container {
+            margin-top: 10px;
+        }
+
+        .subcategory-button {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .subcategory-content {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #666;
+            border-radius: 5px;
+            display: none;
+            background-color: #333;
+        }
+
+        /* Welcome Message Styles */
+        #welcome-message {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 24px;
-            animation: hideWelcome 5s forwards;
-        }
-
-        @keyframes hideWelcome {
-            0% { opacity: 1; }
-            100% { opacity: 0; display: none; }
-        }
-
-        .popup-message {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #1e3a8a;
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 5px;
-            display: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
             padding: 20px;
-        }
-
-        .category {
-            margin-bottom: 20px;
-        }
-
-        .category h2 {
-            color: #ff6f61; /* Category Title Color */
-            font-weight: bold;
-        }
-
-        .sub-category-btn {
-            background-color: #1e3a8a; /* Button Color */
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px 0;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .sub-category-btn:hover {
-            background-color: #3b82f6; /* Button Hover Color */
-        }
-
-        .content {
-            display: none;
-            padding: 10px;
-            background-color: #1e3a8a;
-            margin-top: 10px;
             border-radius: 5px;
+            z-index: 1000;
         }
 
-        /* Different Colors for Each Category */
-        #stories h2 { color: #ff6f61; }
-        #poetries h2 { color: #ff9f40; }
-        #quotes h2 { color: #ffd700; }
-        #islamic-messages h2 { color: #32cd32; }
-        #knowledge-transfer h2 { color: #00bfff; }
-        #known-unknown-facts h2 { color: #9370db; }
-        #feelings-emotions h2 { color: #ff1493; }
-        #smiley-face h2 { color: #ffd700; }
-        #photos-album h2 { color: #ff6f61; }
-        #videos-album h2 { color: #ff9f40; }
-        #about-me h2 { color: #00bfff; }
+        /* Popup Message Styles */
+        #popup-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #666;
+        }
+        
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* Category Colors */
+        .stories-color { background-color: #6a5acd; color: #fff; } /* Slate Blue */
+        .poetries-color { background-color: #4682b4; color: #fff; } /* Steel Blue */
+        .quotes-color { background-color: #5f9ea0; color: #fff; } /* Cadet Blue */
+        .islamic-color { background-color: #2e8b57; color: #fff; } /* Sea Green */
+        .knowledge-color { background-color: #bc8f8f; color: #fff; } /* Rosy Brown */
+        .facts-color { background-color: #8fbc8f; color: #fff; } /* Dark Sea Green */
+        .emotions-color { background-color: #a9a9a9; color: #fff; } /* Dark Gray */
+        .smiley-color { background-color: #ffa500; color: #fff; } /* Orange */
     </style>
 </head>
 <body>
-    <div class="welcome-message">
-        <p>Welcome to My Website</p>
-    </div>
-
-    <div class="popup-message">
-        <p>আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে</p>
-    </div>
-
     <div class="container">
-        <div class="category" id="stories">
-            <h2>Stories</h2>
-            <button class="sub-category-btn">Story 1</button>
-            <div class="content">
-                <p>This is a story content.</p>
+        <header>
+            <h1>Welcome to My Website</h1>
+        </header>
+
+        <!-- Categories -->
+        <div class="category-container">
+            <button class="category-button stories-color">Stories</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Story 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of story 1.</p>
+                </div>
+                <button class="subcategory-button">Story 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of story 2.</p>
+                </div>
             </div>
         </div>
 
-        <div class="category" id="poetries">
-            <h2>Poetries</h2>
-            <button class="sub-category-btn">Poetry 1</button>
-            <div class="content">
-                <p>This is a poetry content.</p>
+        <div class="category-container">
+            <button class="category-button poetries-color">Poetries</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Poetry 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of poetry 1.</p>
+                </div>
+                <button class="subcategory-button">Poetry 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of poetry 2.</p>
+                </div>
             </div>
         </div>
 
-        <div class="category" id="quotes">
-            <h2>Quotes</h2>
-            <button class="sub-category-btn">Quote 1</button>
-            <div class="content">
-                <p>This is a quote content.</p>
+        <div class="category-container">
+            <button class="category-button quotes-color">Quotes</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Quote 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of quote 1.</p>
+                </div>
+                <button class="subcategory-button">Quote 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of quote 2.</p>
+                </div>
             </div>
         </div>
 
-        <div class="category" id="islamic-messages">
-            <h2>Islamic Messages</h2>
-            <button class="sub-category-btn">Message 1</button>
-            <div class="content">
-                <p>This is an Islamic message content.</p>
+        <div class="category-container">
+            <button class="category-button islamic-color">Islamic Messages</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Message 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of message 1.</p>
+                </div>
+                <button class="subcategory-button">Message 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of message 2.</p>
+                </div>
             </div>
         </div>
 
-        <div class="category" id="knowledge-transfer">
-            <h2>Knowledge Transfer</h2>
-            <button class="sub-category-btn">Knowledge 1</button>
-            <div class="content">
-                <p>This is a knowledge transfer content.</p>
+        <div class="category-container">
+            <button class="category-button knowledge-color">Knowledge Transfer</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Knowledge 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of knowledge 1.</p>
+                </div>
+                <button class="subcategory-button">Knowledge 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of knowledge 2.</p>
+                </div>
             </div>
         </div>
 
-        <div class="category" id="known-unknown-facts">
-            <h2>Known and Unknown Facts</h2>
-            <button class="sub-category-btn">Fact 1</button>
-            <div class="content">
-                <p>This is a known/unknown fact content.</p>
+        <div class="category-container">
+            <button class="category-button facts-color">Known and Unknown Facts</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Fact 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of fact 1.</p>
+                </div>
+                <button class="subcategory-button">Fact 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of fact 2.</p>
+                </div>
             </div>
         </div>
 
-        <div class="category" id="feelings-emotions">
-            <h2>Feelings of Emotions</h2>
-            <button class="sub-category-btn">Feeling 1</button>
-            <div class="content">
-                <p>This is a feeling/emotion content.</p>
+        <div class="category-container">
+            <button class="category-button emotions-color">Feelings of Emotions</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Emotion 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of emotion 1.</p>
+                </div>
+                <button class="subcategory-button">Emotion 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of emotion 2.</p>
+                </div>
             </div>
         </div>
 
-        <div class="category" id="smiley-face">
-            <h2>Smiley Face</h2>
-            <button class="sub-category-btn">Smiley 1</button>
-            <div class="content">
-                <p>This is a smiley face content.</p>
+        <div class="category-container">
+            <button class="category-button smiley-color">Smiley Face</button>
+            <div class="subcategory-container">
+                <button class="subcategory-button">Smiley 1</button>
+                <div class="subcategory-content">
+                    <p>This is the content of smiley 1.</p>
+                </div>
+                <button class="subcategory-button">Smiley 2</button>
+                <div class="subcategory-content">
+                    <p>This is the content of smiley 2.</p>
+                </div>
             </div>
         </div>
-
-        <div class="category" id="photos-album">
-            <h2>Photos Album</h2>
-            <button class="sub-category-btn">Photo 1</button>
-            <div class="content">
-                <p>This is a photo album content.</p>
+        
+        <footer>
+            <p>© 2024 My Website</p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
-        </div>
-
-        <div class="category" id="videos-album">
-            <h2>Videos Album</h2>
-            <button class="sub-category-btn">Video 1</button>
-            <div class="content">
-                <p>This is a video album content.</p>
-            </div>
-        </div>
-
-        <div class="category" id="about-me">
-            <h2>About Me</h2>
-            <button class="sub-category-btn">About Me</button>
-            <div class="content">
-                <p>This is about me content.</p>
-            </div>
-        </div>
+        </footer>
     </div>
+
+    <!-- Welcome Message -->
+    <div id="welcome-message">
+        Welcome to our website!
+    </div>
+
+    <!-- Popup Message -->
+    <div id="popup-message">
+        Assalamu Alaikum, the website is under construction.
+    </div>
+
+    <script>
+        // Welcome Message Hide
+        setTimeout(function() {
+            document.getElementById('welcome-message').style.display = 'none';
+        }, 5000);
+
+        // Subcategory Content Toggle
+        const subcategoryButtons = document.querySelectorAll('.subcategory-button');
+        subcategoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+        
+         // Hide popup message after 5 seconds
+        setTimeout(function() {
+            document.getElementById('popup-message').style.display = 'none';
+        }, 5000);
+    </script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </body>
 </html>
