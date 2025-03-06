@@ -15,6 +15,7 @@
             background-color: #121212;
             color: white;
             text-align: center;
+            padding-bottom: 50px;
         }
         /* Header */
         .header {
@@ -28,7 +29,7 @@
         }
         /* Categories */
         .category {
-            margin: 15px auto;
+            margin: 20px auto;
             width: 90%;
             max-width: 600px;
         }
@@ -49,6 +50,17 @@
             background: #333;
             padding: 10px;
             display: none;
+        }
+        /* Photo & Video Album */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+        .gallery img, .gallery video {
+            width: 100%;
+            border-radius: 5px;
         }
         /* About Me */
         .about {
@@ -72,100 +84,83 @@
             margin-top: 10px;
         }
         .social-links a {
+            font-size: 24px;
             color: white;
-            font-size: 18px;
             text-decoration: none;
-            background: #1e88e5;
-            padding: 10px;
-            border-radius: 5px;
+            transition: 0.3s;
         }
         .social-links a:hover {
-            background: #1565c0;
+            color: #1e88e5;
         }
         /* Footer */
         .footer {
             margin-top: 30px;
             padding: 10px;
             background: #1e1e1e;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header / Cover Photo -->
     <div class="header">
         My Personal Space
     </div>
 
     <!-- Categories -->
     <div class="category">
-        <button class="btn" onclick="toggleContent('stories')">📖 Stories</button>
-        <div class="content" id="stories">
-            <p>এখানে গল্প থাকবে...</p>
-        </div>
+        <button class="btn" onclick="toggleContent('story')">📖 Stories</button>
+        <div class="content" id="story"><p>এখানে গল্প থাকবে...</p></div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('poetries')">📜 Poetries</button>
-        <div class="content" id="poetries">
-            <p>এখানে কবিতা থাকবে...</p>
-        </div>
+        <button class="btn" onclick="toggleContent('poetry')">📜 Poetries</button>
+        <div class="content" id="poetry"><p>এখানে কবিতা থাকবে...</p></div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('quotes')">💬 Quotes</button>
-        <div class="content" id="quotes">
-            <p>এখানে কোটস থাকবে...</p>
-        </div>
+        <button class="btn" onclick="toggleContent('quote')">💬 Quotes</button>
+        <div class="content" id="quote"><p>এখানে কোটস থাকবে...</p></div>
     </div>
 
     <div class="category">
         <button class="btn" onclick="toggleContent('islamic')">🕌 Islamic Messages</button>
-        <div class="content" id="islamic">
-            <p>এখানে ইসলামিক বার্তা থাকবে...</p>
-        </div>
+        <div class="content" id="islamic"><p>এখানে ইসলামিক বার্তা থাকবে...</p></div>
     </div>
 
     <div class="category">
         <button class="btn" onclick="toggleContent('knowledge')">📚 Knowledge Transfer</button>
-        <div class="content" id="knowledge">
-            <p>এখানে জ্ঞান বিষয়ক তথ্য থাকবে...</p>
-        </div>
+        <div class="content" id="knowledge"><p>এখানে শিক্ষামূলক কন্টেন্ট থাকবে...</p></div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('facts')">❓ Known and Unknown Facts</button>
-        <div class="content" id="facts">
-            <p>এখানে জানা-অজানা তথ্য থাকবে...</p>
-        </div>
+        <button class="btn" onclick="toggleContent('facts')">🔎 Known and Unknown Facts</button>
+        <div class="content" id="facts"><p>এখানে অজানা তথ্য থাকবে...</p></div>
     </div>
 
     <div class="category">
-        <button class="btn" onclick="toggleContent('emotions')">💖 Feelings of Emotions</button>
-        <div class="content" id="emotions">
-            <p>এখানে আবেগময় লেখাগুলো থাকবে...</p>
-        </div>
+        <button class="btn" onclick="toggleContent('feelings')">❤️ Feelings of Emotions</button>
+        <div class="content" id="feelings"><p>এখানে অনুভূতির কন্টেন্ট থাকবে...</p></div>
     </div>
 
     <div class="category">
         <button class="btn" onclick="toggleContent('smiley')">😊 Smiley Face</button>
-        <div class="content" id="smiley">
-            <p>এখানে হাসি-খুশি লেখা থাকবে...</p>
-        </div>
+        <div class="content" id="smiley"><p>এখানে মজার কন্টেন্ট থাকবে...</p></div>
     </div>
 
-    <div class="category">
-        <button class="btn" onclick="toggleContent('photos')">📸 Photos Album</button>
-        <div class="content" id="photos">
-            <p>এখানে ফটো অ্যালবাম থাকবে...</p>
-        </div>
+    <!-- Photos Album -->
+    <h2>📸 Photos Album</h2>
+    <div class="gallery">
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
     </div>
 
-    <div class="category">
-        <button class="btn" onclick="toggleContent('videos')">🎥 Videos Album</button>
-        <div class="content" id="videos">
-            <p>এখানে ভিডিও অ্যালবাম থাকবে...</p>
-        </div>
+    <!-- Videos Album -->
+    <h2>🎥 Videos Album</h2>
+    <div class="gallery">
+        <video src="video1.mp4" controls></video>
+        <video src="video2.mp4" controls></video>
     </div>
 
     <!-- About Me -->
@@ -178,9 +173,9 @@
     <!-- Social Media -->
     <h2>🔗 Follow Me</h2>
     <div class="social-links">
-        <a href="https://facebook.com" target="_blank">Facebook</a>
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="https://youtube.com" target="_blank">YouTube</a>
+        <a href="https://facebook.com" target="_blank">🌐</a>
+        <a href="https://instagram.com" target="_blank">📷</a>
+        <a href="https://youtube.com" target="_blank">▶️</a>
     </div>
 
     <!-- Footer -->
@@ -189,7 +184,6 @@
     </div>
 
     <script>
-        // Toggle Category Content
         function toggleContent(id) {
             var content = document.getElementById(id);
             content.style.display = (content.style.display === "block") ? "none" : "block";
