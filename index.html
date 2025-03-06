@@ -107,41 +107,6 @@
         }
     </style>
 
-<style>
-.category, .content {
-    margin: 10px 0;
-}
-
-.btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: #3498db;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    font-size: 16px;
-    margin-top: 5px;
-}
-
-.btn:hover {
-    background: #2980b9;
-}
-
-/* Content হাইড করা */
-.content {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.5s ease-in-out;
-}
-
-/* বাটন ক্লিক করলে কন্টেন্ট দেখাবে */
-.btn:focus + .content {
-    height: auto;
-    padding: 10px 0;
-}
-</style>
 
 
 
@@ -322,16 +287,27 @@
 </div>
 
 
-
 <div class="category">
-    <button class="btn">💬 Quotes</button>
-    <div class="content">
-        <button class="btn">মায়ার চোখে সৌন্দর্য</button>
-        <div class="content">
-            <p>যার প্রতি আপনার মায়া <br> তাকে আপনি শত দোষের মধ্যেও সুন্দর দেখতে পারবেন :⁠,⁠-⁠)</p>
-        </div>
-    </div>
-</div>
+    <button class="btn" onclick="toggleContent('quotes')">✨ Quotes </button>
+    <div class="content" id="quotes">
+        
+        <!-- মায়ার চোখে সৌন্দর্য -->
+        <button class="btn" onclick="toggleContent('মায়ার চোখে সৌন্দর্য')">মায়ার চোখে সৌন্দর্য</button>
+        <div class="content" id="মায়ার চোখে সৌন্দর্য">
+<p> 
+যার প্রতি আপনার মায়া<br>
+
+তাকে আপনি শত দোষের মধ্যেও সুন্দর দেখতে পারবেন :⁠,⁠-⁠)
+
+</p></div>
+
+
+</div></div>
+
+
+
+
+
 
 
         <div class="category"><button class="btn" onclick="toggleContent('islamic')">☪️ Islamic Messages</button>
