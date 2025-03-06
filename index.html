@@ -21,38 +21,19 @@
             font-size: 28px;
             margin-bottom: 20px;
         }
-        .popup {
-            background: #ffcc00;
-            color: black;
-            padding: 10px;
-            font-weight: bold;
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 5px;
-            display: block;
-        }
-        .welcome {
-            background: #00cc66;
-            padding: 10px;
-            display: block;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
         /* ক্যাটাগরি ডিজাইন */
         .category {
             margin: 20px 0;
         }
-        .category button {
+        .category label {
+            display: block;
             width: 100%;
             padding: 10px;
             font-size: 18px;
             font-weight: bold;
-            border: none;
             cursor: pointer;
             margin: 5px 0;
+            text-align: center;
         }
         /* ক্যাটাগরি আলাদা রঙ */
         .stories { background: #ff5733; color: white; }
@@ -75,65 +56,68 @@
             background: rgba(255, 255, 255, 0.2);
             border-radius: 5px;
         }
-        /* সোশ্যাল মিডিয়া */
-        .social-icons img {
-            width: 40px;
-            margin: 5px;
+        /* CSS দিয়ে বাটন সিস্টেম */
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"]:checked + .content {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <!-- পপ-আপ মেসেজ -->
-    <div class="popup">আসসালামুয়ালাইকুম, ওয়েবসাইটের কাজ চলমান রয়েছে</div>
-
     <div class="container">
-        <!-- ওয়েলকাম মেসেজ -->
-        <div class="welcome">স্বাগতম! ওয়েবসাইটের কাজ চলমান রয়েছে...</div>
+        <h1>📖 আমার ওয়েবসাইট</h1>
 
-        <!-- ক্যাটাগরি ও কন্টেন্ট -->
+        <!-- Stories -->
         <div class="category">
-            <button class="stories" onclick="toggleContent('story-content')">📖 Stories</button>
-            <div class="content" id="story-content">এখানে গল্পের কন্টেন্ট থাকবে...</div>
+            <input type="checkbox" id="story">
+            <label for="story" class="stories">📖 Stories</label>
+            <div class="content">এখানে গল্পের কন্টেন্ট থাকবে...</div>
         </div>
 
+        <!-- Poetries -->
         <div class="category">
-            <button class="poetries" onclick="toggleContent('poetry-content')">✍️ Poetries</button>
-            <div class="content" id="poetry-content">এখানে কবিতার কন্টেন্ট থাকবে...</div>
+            <input type="checkbox" id="poetry">
+            <label for="poetry" class="poetries">✍️ Poetries</label>
+            <div class="content">এখানে কবিতার কন্টেন্ট থাকবে...</div>
         </div>
 
+        <!-- Quotes -->
         <div class="category">
-            <button class="quotes" onclick="toggleContent('quotes-content')">💬 Quotes</button>
-            <div class="content" id="quotes-content">"জীবন একটি আয়না, তুমি যেমন ভাববে, তেমনই প্রতিফলিত হবে।"</div>
+            <input type="checkbox" id="quotes">
+            <label for="quotes" class="quotes">💬 Quotes</label>
+            <div class="content">"জীবন একটি আয়না, তুমি যেমন ভাববে, তেমনই প্রতিফলিত হবে।"</div>
         </div>
 
+        <!-- Islamic Messages -->
         <div class="category">
-            <button class="islamic" onclick="toggleContent('islamic-content')">🕌 Islamic Messages</button>
-            <div class="content" id="islamic-content">"নিশ্চয়ই আল্লাহ ধৈর্যশীলদের সঙ্গে আছেন।"</div>
+            <input type="checkbox" id="islamic">
+            <label for="islamic" class="islamic">🕌 Islamic Messages</label>
+            <div class="content">"নিশ্চয়ই আল্লাহ ধৈর্যশীলদের সঙ্গে আছেন।"</div>
         </div>
 
+        <!-- Knowledge Transfer -->
         <div class="category">
-            <button class="knowledge" onclick="toggleContent('knowledge-content')">📚 Knowledge Transfer</button>
-            <div class="content" id="knowledge-content">জ্ঞান মানুষের জীবনের শ্রেষ্ঠ সম্পদ।</div>
+            <input type="checkbox" id="knowledge">
+            <label for="knowledge" class="knowledge">📚 Knowledge Transfer</label>
+            <div class="content">জ্ঞান মানুষের জীবনের শ্রেষ্ঠ সম্পদ।</div>
         </div>
 
+        <!-- Photos Album -->
         <div class="category">
-            <button class="photos">🖼 Photos Album</button>
+            <label class="photos">🖼 Photos Album</label>
         </div>
 
+        <!-- Videos Album -->
         <div class="category">
-            <button class="videos">🎥 Videos Album</button>
+            <label class="videos">🎥 Videos Album</label>
         </div>
 
+        <!-- About Me -->
         <div class="category">
-            <button class="about">ℹ️ About Me</button>
-        </div>
-
-        <!-- সোশ্যাল মিডিয়া -->
-        <div class="social-icons">
-            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            <label class="about">ℹ️ About Me</label>
         </div>
 
     </div>
