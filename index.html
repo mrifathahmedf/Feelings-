@@ -497,9 +497,16 @@
         }, 5000);
     </script>
 
+
+
 <button class="learn-more" onclick="showPopup()">Learn More</button>
 
-<p> Assalamu alaikum 🤍 welcome to my website</p>
+<div id="popup">
+    <div class="popup-content">
+        <p>Assalamu Alaikum Wa Rahmatullahi Wa Barakatuhu</p>
+        <button onclick="hidePopup()">OK</button>
+    </div>
+</div>
 
 <style>
     /* Learn More বাটন (টেক্সটের মতো দেখাবে) */
@@ -514,13 +521,53 @@
         cursor: pointer;
         text-decoration: underline;
     }
+
+    /* পপআপ ডিজাইন */
+    #popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .popup-content button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
 </style>
 
 <script>
     function showPopup() {
         document.getElementById("popup").style.display = "flex";
     }
+
+    function hidePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
 </script>
+
+
+
+
+
 
 
 </body>
