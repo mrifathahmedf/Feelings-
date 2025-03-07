@@ -477,6 +477,26 @@
         <p>©myinnerfeelings All rights reserved</p>
     </div>
 
+
+
+
+    <script>
+        // Toggle Content Function
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        // Welcome Message Hide After 3 Seconds
+        setTimeout(function() {
+            document.getElementById("welcome").style.display = "none";
+        }, 5000);
+    </script>
+
 <button class="learn-more" onclick="showPopup()">Learn More</button>
 
 <p> Assalamu alaikum 🤍 welcome to my website</p>
@@ -501,25 +521,6 @@
         document.getElementById("popup").style.display = "flex";
     }
 </script>
-
-
-    <script>
-        // Toggle Content Function
-        function toggleContent(id) {
-            var content = document.getElementById(id);
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-
-        // Welcome Message Hide After 3 Seconds
-        setTimeout(function() {
-            document.getElementById("welcome").style.display = "none";
-        }, 5000);
-    </script>
-
 
 
 </body>
