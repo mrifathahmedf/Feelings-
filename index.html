@@ -477,39 +477,32 @@
         <p>©myinnerfeelings All rights reserved</p>
     </div>
 
-<details class="learn-more">
-    <summary>Learn More</summary>
-    <p>Assalamu Alaikum Wa Rahmatullahi Wa Barakatuhu</p>
-</details>
+<button class="learn-more" onclick="showPopup()">Learn More</button>
+
+<p> Assalamu alaikum 🤍 welcome to my website</p>
 
 <style>
+    /* Learn More বাটন (টেক্সটের মতো দেখাবে) */
     .learn-more {
         position: fixed;
         bottom: 10px;
         right: 10px;
-        text-align: center;
-        background-color: #007bff;
+        background: none;
+        border: none;
         color: white;
-        padding: 10px;
-        border-radius: 5px;
+        font-size: 16px;
         cursor: pointer;
-    }
-
-    .learn-more summary {
-        list-style: none;
-        font-size: 11px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .learn-more p {
-        background-color: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 5px;
+        text-decoration: underline;
     }
 </style>
+
+<script>
+    function showPopup() {
+        document.getElementById("popup").style.display = "flex";
+    }
+</script>
+
+
     <script>
         // Toggle Content Function
         function toggleContent(id) {
