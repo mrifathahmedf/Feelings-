@@ -476,24 +476,6 @@
     <div class="footer">
         <p>©myinnerfeelings All rights reserved</p>
     </div>
-
-    <script>
-        // Toggle Content Function
-        function toggleContent(id) {
-            var content = document.getElementById(id);
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-
-        // Welcome Message Hide After 3 Seconds
-        setTimeout(function() {
-            document.getElementById("welcome").style.display = "none";
-        }, 5000);
-    </script>
-
 <div class="learn-more">
     <button>Learn More</button>
     <p>Assalamu Alaikum Wa Rahmatullahi Wa Barakatuhu</p>
@@ -530,6 +512,25 @@
         display: block;
     }
 </style>
+
+    <script>
+        // Toggle Content Function
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        // Welcome Message Hide After 3 Seconds
+        setTimeout(function() {
+            document.getElementById("welcome").style.display = "none";
+        }, 5000);
+    </script>
+
+
 
 </body>
 </html>
