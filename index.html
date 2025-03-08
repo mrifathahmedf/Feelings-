@@ -579,57 +579,77 @@ FvNgQ"/>
             </button>
         </div>
 
-        <!-- Feedback Form (Hidden by default) -->
-        <div class="content feedback-form" id="feedbackForm">
-            <script type="text/javascript" src="https://form.jotform.com/jsform/250661642283456"></script>
-        </div>
-    </div>
-</div>
-
-<script>
-    function toggleContent(id) {
-        var content = document.getElementById(id);
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block";
-            content.style.opacity = "1";
-        } else {
-            content.style.opacity = "0";
-            setTimeout(() => {
-                content.style.display = "none";
-            }, 300); // Smooth hide effect
-        }
-    }
-</script>
-
-<style>
-    .content {
-        display: none;
-        text-align: center;
-        transition: opacity 0.3s ease-in-out;
-    }
-    .feedback-container {
-        text-align: center;
-        margin-top: 15px;
-    }
+      <style>
+    /* Feedback Button */
     .feedback-btn {
         background-color: #ff9800;
         color: white;
-        padding: 12px 25px;
         border: none;
+        padding: 10px 20px;
+        font-size: 16px;
         cursor: pointer;
-        font-size: 18px;
-        border-radius: 8px;
-        font-weight: bold;
-        transition: 0.3s;
+        display: block;
+        text-align: center;
+        width: 200px;
+        margin: 20px auto;
+        border-radius: 5px;
     }
-    .feedback-btn:hover {
-        background-color: #e68900;
-        transform: scale(1.05);
+
+    /* Hide Form Initially */
+    #feedback-form {
+        display: none;
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        background: #f4f4f4;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
-    .feedback-form {
-        margin-top: 15px;
+
+    /* Input Fields */
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Submit Button */
+    .submit-btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        width: 100%;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    /* Checkbox Hack to Show/Hide */
+    #toggle:checked ~ #feedback-form {
+        display: block;
     }
 </style>
+
+<!-- Toggle Button -->
+<label class="feedback-btn" for="toggle">Give Feedback</label>
+<input type="checkbox" id="toggle" style="display: none;">
+
+<!-- Feedback Form -->
+<form id="feedback-form" action="https://formspree.io/f/myzegold" method="POST">
+    <label>Your Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Your Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Your Review:</label>
+    <textarea name="message" required></textarea>
+
+    <button type="submit" class="submit-btn">Submit</button>
+</form>
 
 <!-- Social Media Section -->
 <div class="social-container">
