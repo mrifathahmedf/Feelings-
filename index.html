@@ -570,17 +570,16 @@ FvNgQ"/>
         👤 About Me
     </button>
     <div class="content" id="about">
-        <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p></div>
+        <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p>
         
-<!-- Placeholder for Feedback Button -->
-        <div id="feedback-placeholder"></div>
+        <!-- Feedback Button -->
+        <button class="feedback-btn" onclick="openFeedbackForm()">Feedback</button>
     </div>
 </div>
 
-<script src="https://form.jotform.com/static/feedback2.js"></script>
 <script>
-    setTimeout(function () {
-        var feedbackBtn = new JotformFeedback({
+    function openFeedbackForm() {
+        var componentID = new JotformFeedback({
             type: false,
             width: 700,
             height: 500,
@@ -588,16 +587,29 @@ FvNgQ"/>
             background: "#F59202",
             isCardForm: false,
             formId: "250661642283456",
-            buttonText: "Feedback",
-            base: "https://form.jotform.com/",
-        });
+            base: "https://form.jotform.com/"
+        }).componentID;
 
-        // Move the Feedback button inside the About Me section
-        var placeholder = document.getElementById("feedback-placeholder");
-        placeholder.appendChild(document.querySelector(".jfFeedback"));
-    }, 1000);
+        window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/");
+    }
 </script>
 
+<style>
+    .feedback-btn {
+        display: block;
+        margin: 15px auto;
+        padding: 10px 20px;
+        background: #F59202;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .feedback-btn:hover {
+        background: #d87b00;
+    }
+</style>
 
 
 
