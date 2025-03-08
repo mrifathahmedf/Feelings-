@@ -573,7 +573,9 @@ FvNgQ"/>
         <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p>
 
         <!-- Feedback Form -->
-        <div id="feedbackForm"></div>
+        <div id="feedbackForm">
+            <script type="text/javascript" src="https://form.jotform.com/jsform/250661642283456"></script>
+        </div>
     </div>
 </div>
 
@@ -582,12 +584,6 @@ FvNgQ"/>
         var content = document.getElementById(id);
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block";
-
-            // ফর্ম প্রথমবার লোড না থাকলে, সেট করতে হবে
-            var formContainer = document.getElementById("feedbackForm");
-            if (!formContainer.innerHTML) {
-                formContainer.innerHTML = '<script type="text/javascript" src="https://form.jotform.com/jsform/250661642283456"><\/script>';
-            }
         } else {
             content.style.display = "none";
         }
