@@ -572,45 +572,32 @@ FvNgQ"/>
     <div class="content" id="about">
         <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p>
 
-        <!-- Custom Feedback Button -->
-        <button id="customFeedbackBtn">Feedback</button>
+        <!-- Feedback Form -->
+        <div id="feedbackForm"></div>
     </div>
 </div>
 
-<script src="https://form.jotform.com/static/feedback2.js"></script>
 <script>
-    var feedbackForm = new JotformFeedback({
-        type: false,
-        width: 700,
-        height: 500,
-        fontColor: "#FFFFFF",
-        background: "#F59202",
-        isCardForm: false,
-        formId: "250661642283456",
-        buttonText: "Feedback",
-        base: "https://form.jotform.com/",
-    });
+    function toggleContent(id) {
+        var content = document.getElementById(id);
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
 
-    // Custom button click event
-    document.getElementById("customFeedbackBtn").addEventListener("click", function () {
-        feedbackForm.openFeedbackDialog();
-    });
+            // ফর্ম প্রথমবার লোড না থাকলে, সেট করতে হবে
+            var formContainer = document.getElementById("feedbackForm");
+            if (!formContainer.innerHTML) {
+                formContainer.innerHTML = '<script type="text/javascript" src="https://form.jotform.com/jsform/250661642283456"><\/script>';
+            }
+        } else {
+            content.style.display = "none";
+        }
+    }
 </script>
 
 <style>
-    #customFeedbackBtn {
-        display: block;
-        margin: 15px auto;
-        padding: 10px 20px;
-        background-color: #F59202;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    #customFeedbackBtn:hover {
-        background-color: #d47d00;
+    .content {
+        display: none;
+        text-align: center;
     }
 </style>
 
