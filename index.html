@@ -570,30 +570,39 @@ FvNgQ"/>
         👤 About Me
     </button>
     <div class="content" id="about">
-        <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p>
+        <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p></div>
         
-        
-  <script src="https://form.jotform.com/static/feedback2.js"></script>
-  <script>
-    var componentID = new JotformFeedback({
-      
-  type: false,
-  width: 300,
-  height: 300,
-  fontColor: "#FFFFFF",
-  background: "#F59202",
-  isCardForm: false,
-  formId: "250661642283456"
-  ,
-      buttonText: "Feedback",
-      buttonSide: "left",
-      buttonAlign: "center",
-      base: "https://form.jotform.com/",
-    }).componentID;
-  </script>
-  <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
-  <script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
+<!-- Placeholder for Feedback Button -->
+        <div id="feedback-placeholder"></div>
+    </div>
+</div>
 
+<script src="https://form.jotform.com/static/feedback2.js"></script>
+<script>
+    setTimeout(function () {
+        var feedbackBtn = new JotformFeedback({
+            type: false,
+            width: 700,
+            height: 500,
+            fontColor: "#FFFFFF",
+            background: "#F59202",
+            isCardForm: false,
+            formId: "250661642283456",
+            buttonText: "Feedback",
+            base: "https://form.jotform.com/",
+        });
+
+        // Move the Feedback button inside the About Me section
+        var placeholder = document.getElementById("feedback-placeholder");
+        placeholder.appendChild(document.querySelector(".jfFeedback"));
+    }, 1000);
+</script>
+
+
+
+
+       
+  
 
 <!-- Social Media Section -->
 <div class="social-container">
