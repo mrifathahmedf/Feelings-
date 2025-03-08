@@ -577,22 +577,28 @@ FvNgQ"/>
     </div>
 </div>
 
-<script>
-    function openFeedbackForm() {
-        var componentID = new JotformFeedback({
-            type: false,
-            width: 700,
-            height: 500,
-            fontColor: "#FFFFFF",
-            background: "#F59202",
-            isCardForm: false,
-            formId: "250661642283456",
-            base: "https://form.jotform.com/"
-        }).componentID;
 
-        window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/");
-    }
-</script>
+  <script src="https://form.jotform.com/static/feedback2.js"></script>
+  <script>
+    var componentID = new JotformFeedback({
+      
+  type: 0,
+  width: 700,
+  height: 500,
+  fontColor: "#FFFFFF",
+  background: "#F59202",
+  isCardForm: false,
+  formId: "250661642283456"
+  ,
+      buttonText: "Feedback",
+      buttonSide: "left",
+      buttonAlign: "center",
+      base: "https://form.jotform.com/",
+    }).componentID;
+  </script>
+  <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+  <script>window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/")</script>
+
 
 <style>
     .feedback-btn {
