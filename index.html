@@ -572,8 +572,15 @@ FvNgQ"/>
     <div class="content" id="about">
         <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p>
 
-        <!-- Feedback Form -->
-        <div id="feedbackForm">
+        <!-- Feedback Button -->
+        <div style="text-align: center; margin-top: 10px;">
+            <button class="feedback-btn" onclick="toggleContent('feedbackForm')">
+                📝 Feedback
+            </button>
+        </div>
+
+        <!-- Feedback Form (Hidden by default) -->
+        <div class="content" id="feedbackForm">
             <script type="text/javascript" src="https://form.jotform.com/jsform/250661642283456"></script>
         </div>
     </div>
@@ -595,8 +602,19 @@ FvNgQ"/>
         display: none;
         text-align: center;
     }
+    .feedback-btn {
+        background-color: #ff9800;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+    .feedback-btn:hover {
+        background-color: #e68900;
+    }
 </style>
-
        
   
 
