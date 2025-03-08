@@ -573,14 +573,14 @@ FvNgQ"/>
         <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p>
 
         <!-- Feedback Button -->
-        <div style="text-align: center; margin-top: 10px;">
+        <div class="feedback-container">
             <button class="feedback-btn" onclick="toggleContent('feedbackForm')">
                 📝 Feedback
             </button>
         </div>
 
         <!-- Feedback Form (Hidden by default) -->
-        <div class="content" id="feedbackForm">
+        <div class="content feedback-form" id="feedbackForm">
             <script type="text/javascript" src="https://form.jotform.com/jsform/250661642283456"></script>
         </div>
     </div>
@@ -591,8 +591,12 @@ FvNgQ"/>
         var content = document.getElementById(id);
         if (content.style.display === "none" || content.style.display === "") {
             content.style.display = "block";
+            content.style.opacity = "1";
         } else {
-            content.style.display = "none";
+            content.style.opacity = "0";
+            setTimeout(() => {
+                content.style.display = "none";
+            }, 300); // Smooth hide effect
         }
     }
 </script>
@@ -601,21 +605,31 @@ FvNgQ"/>
     .content {
         display: none;
         text-align: center;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .feedback-container {
+        text-align: center;
+        margin-top: 15px;
     }
     .feedback-btn {
         background-color: #ff9800;
         color: white;
-        padding: 10px 20px;
+        padding: 12px 25px;
         border: none;
         cursor: pointer;
-        font-size: 16px;
-        border-radius: 5px;
+        font-size: 18px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
     }
     .feedback-btn:hover {
         background-color: #e68900;
+        transform: scale(1.05);
+    }
+    .feedback-form {
+        margin-top: 15px;
     }
 </style>
-  
 
 <!-- Social Media Section -->
 <div class="social-container">
