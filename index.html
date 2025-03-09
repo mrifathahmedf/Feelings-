@@ -570,70 +570,67 @@ FvNgQ"/>
         👤 About Me
     </button>
     <div class="content" id="about">
-        <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p></div></div>
+        <p>“ওয়েবসাইটের কাজ চলমান রয়েছে। অনাকাঙ্ক্ষিত পরিস্থিতির জন্য দুঃখিত”</p></div>
+<style>
+  .feedback-form {
+    background-color: #0d1b2a; /* Dark Blue */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    display: none;
+  }
 
-       
+  .feedback-form label {
+    color: white;
+  }
 
-      <style>
-    /* Feedback Button */
-    .feedback-btn {
-        background-color: #ff9800;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        display: block;
-        text-align: center;
-        width: 200px;
-        margin: 20px auto;
-        border-radius: 5px;
-    }
+  .feedback-form input,
+  .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background: #1b263b; /* Deep Blue */
+    border: 1px solid #415a77; /* Light Blue Border */
+    color: white;
+    border-radius: 5px;
+  }
 
-    /* Hide Form Initially */
-    #feedback-form {
-        display: none;
-        max-width: 400px;
-        margin: auto;
-        padding: 20px;
-        background: #f4f4f4;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
+  .feedback-form button {
+    background: #1b263b; /* Deep Blue */
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-    /* Input Fields */
-    input, textarea {
-        width: 100%;
-        padding: 8px;
-        margin: 5px 0;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
+  .feedback-form button:hover {
+    background: #778da9; /* Hover Effect */
+  }
 
-    /* Submit Button */
-    .submit-btn {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px;
-        border: none;
-        width: 100%;
-        cursor: pointer;
-        font-size: 16px;
-        border-radius: 5px;
-    }
+  .toggle-btn {
+    background: #ff9800; /* Orange */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+  }
 
-    /* Checkbox Hack to Show/Hide */
-    #toggle:checked ~ #feedback-form {
-        display: block;
-    }
+  .toggle-btn:hover {
+    background: #e68900; /* Darker Orange */
+  }
 </style>
 
-<!-- Toggle Button -->
-<label class="feedback-btn" for="toggle">Give Feedback</label>
-<input type="checkbox" id="toggle" style="display: none;">
+<button class="toggle-btn" onclick="toggleFeedback()">Give Feedback</button>
 
-<!-- Feedback Form -->
-<form id="feedback-form" action="https://formspree.io/f/myzegold" method="POST">
+<div class="feedback-form" id="feedbackForm">
+  <form action="https://formspree.io/f/myzegold" method="POST">
     <label>Your Name:</label>
     <input type="text" name="name" required>
 
@@ -643,9 +640,24 @@ FvNgQ"/>
     <label>Your Review:</label>
     <textarea name="message" required></textarea>
 
-    <button type="submit" class="submit-btn">Submit</button>
-</form>
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
+<script>
+  function toggleFeedback() {
+    var form = document.getElementById("feedbackForm");
+    if (form.style.display === "none" || form.style.display === "") {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+    }
+  }
+</script>
+
+       
+
+      
 <!-- Social Media Section -->
 <div class="social-container">
     <a href="https://www.facebook.com/I.only.for.you.now" target="_blank" class="social-icon">
