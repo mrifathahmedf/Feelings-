@@ -726,7 +726,76 @@ FvNgQ"/>
 
 
 
+<details>
+    <summary>📢 Find me on social media</summary>
+    <div class="nav-list">
+        <a href="#" class="nav-item">📸 Instagram</a>
+        <a href="#" class="nav-item">🐦 Twitter</a>
+        <a href="#" class="nav-item">🎥 YouTube</a>
+        <a href="#" class="nav-item">🌍 Website</a>
+        <a href="#" class="nav-item">💼 LinkedIn</a>
+        <a href="#" class="nav-item">✈️ Telegram</a>
+    </div>
+</details>
 
+<style>
+    details {
+        width: 250px;
+        text-align: center;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    summary {
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+
+    summary:hover {
+        background: #0056b3;
+    }
+
+    .nav-list {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    details[open] .nav-list {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px;
+        text-decoration: none;
+        color: #333;
+        background: #eee;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+    .nav-item:hover {
+        background: #ddd;
+    }
+</style>
 
 </body>
 </html>
