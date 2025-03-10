@@ -1,0 +1,41 @@
+details {
+    width: 250px;
+    text-align: center;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+summary {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+summary:hover {
+    background: #0056b3;
+}
+
+/* Animation Effect */
+.nav-list {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* When details is open */
+details[open] .nav-list {
+    opacity: 1;
+    transform: translateY(0);
+}
