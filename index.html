@@ -126,9 +126,31 @@ FvNgQ"/>
 </head>
 
 <body>
-<iframe src="https://app.millis.ai/agents/embedded?id=-OvM6TZAnh9Gwl7pgxrl&k=AUqBpBYhWQlujDvUa2UnKdw3SFUq0Dyk" width="100%" height="100%" allow="microphone"></iframe>
 
 <script src="https://backend.dialogsy.ai/chatbot.js" data-api-key="bot_mq8hvw7r191740" data-bot-name="Friendship " data-greeting="Hello! How can I help you today?" data-color="#000000"></script>
+
+<script>
+  (function(){
+  const onLoad=function(){
+	window.embeddedChatbotConfig = {
+		chatbotId: "0480d459-0532-44d9-8ecf-64438384d88b",
+		divId: "kipps-chatbot"
+	};
+
+	let rootDiv = document.createElement("div");
+	rootDiv.id = window.embeddedChatbotConfig.divId;
+	document.body.appendChild(rootDiv);
+
+	let script = document.createElement("script");
+	script.src = "https://d3fauc22xtbmpo.cloudfront.net/embed-index.js";
+	script.defer = true;
+	script.async = true;
+	document.body.appendChild(script);
+     };
+   if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}
+})();
+</script>;
+
 
 
 <div class="content">
