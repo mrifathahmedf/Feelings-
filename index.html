@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My Inner Feelings - কবিতা, গল্প, উক্তি, ইসলামিক বার্তা ও অনুভূতির প্রকাশ">
+  <meta name="author" content="mrifathahmedf">
+  <meta name="theme-color" content="#0a0f24">
+
+  <!-- SEO -->
+  <meta property="og:title" content="My Inner Feelings">
+  <meta property="og:description" content="অনুভূতির ঠিকানা — কবিতা, গল্প, উক্তি ও আবেগের প্রকাশ">
+  <meta property="og:type" content="website">
+
+  <title>My Inner Feelings — অনুভূতির ঠিকানা</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ========== FACEBOOK PIXEL / GOOGLE (OPTIONAL - REMOVE IF NOT NEEDED) ========== -->
+  <!-- <meta name="google-site-verification" content="YOUR_CODE" /> -->
+  <!-- <meta name="google-adsense-account" content="YOUR_PUB_ID"> -->
+</head>
+<body>
+
+  <!-- ───── HERO SECTION ───── -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="hero__title">My Inner Feelings</h1>
+      <p class="hero__tagline">অনুভূতির ঠিকানা</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ───── WELCOME TOAST ───── -->
+    <div class="welcome-toast" id="welcome-toast"></div>
+
+    <!-- ───── SEARCH BAR ───── -->
+    <div class="search-wrapper" id="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input
+        type="text"
+        class="search-input"
+        id="search-input"
+        placeholder="কবিতা, গল্প, উক্তি খুঁজুন..."
+        aria-label="কন্টেন্ট সার্চ করুন"
+      >
+      <button class="search-clear" id="search-clear" aria-label="সার্চ ক্লিয়ার">✕</button>
+    </div>
+
+    <!-- ───── BACK BUTTON (hidden initially) ───── -->
+    <button class="back-btn" id="back-btn" style="display: none;" aria-label="ফিরে যান">
+      ← ফিরে যান
+    </button>
+
+    <!-- ───── CATEGORIES / CONTENT GRID ───── -->
+    <div class="categories-grid" id="categories-grid">
+      <!-- Dynamically rendered by main.js -->
+    </div>
+
+    <!-- ───── FEEDBACK SECTION ───── -->
+    <button class="feedback-btn" id="feedback-btn">💬 মতামত দিন</button>
+    <div class="feedback-form" id="feedback-form">
+      <form action="https://formspree.io/f/myzegold" method="POST">
+        <label for="fb-name">আপনার নাম:</label>
+        <input type="text" name="name" id="fb-name" required>
+
+        <label for="fb-email">ইমেইল:</label>
+        <input type="email" name="email" id="fb-email" required>
+
+        <label for="fb-message">আপনার মতামত:</label>
+        <textarea name="message" id="fb-message" required></textarea>
+
+        <button type="submit">জমা দিন</button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- ───── FOOTER ───── -->
+  <footer class="footer">
+    <div class="footer__social">
+      <a href="https://www.facebook.com/hidden.meForever" target="_blank" rel="noopener" class="social-link" aria-label="Facebook" title="Facebook">📘</a>
+      <a href="https://www.instagram.com/hidden.meforever" target="_blank" rel="noopener" class="social-link" aria-label="Instagram" title="Instagram">📷</a>
+      <a href="https://youtube.com/@akhifarjanabestfriend" target="_blank" rel="noopener" class="social-link" aria-label="YouTube" title="YouTube">▶️</a>
+      <a href="https://www.tiktok.com/@your_request_timedout" target="_blank" rel="noopener" class="social-link" aria-label="TikTok" title="TikTok">🎵</a>
+    </div>
+    <p class="footer__text">© 2025 My Inner Feelings — All rights reserved</p>
+  </footer>
+
+  <!-- ───── SETTINGS FAB ───── -->
+  <button class="settings-toggle" id="settings-toggle" aria-label="সেটিংস" title="কাস্টমাইজ করুন">⚙️</button>
+
+  <!-- ───── SETTINGS PANEL ───── -->
+  <div class="settings-panel" id="settings-panel">
+    <h3>🎨 থিম পরিবর্তন</h3>
+    <div class="theme-options">
+      <button class="theme-btn active" data-theme="default">ডিফল্ট</button>
+      <button class="theme-btn" data-theme="ocean">ওশান</button>
+      <button class="theme-btn" data-theme="sunset">সানসেট</button>
+      <button class="theme-btn" data-theme="forest">ফরেস্ট</button>
+    </div>
+
+    <h3 style="margin-top: 1rem;">🔤 ফন্ট সাইজ</h3>
+    <div class="font-size-control">
+      <label for="font-size-slider">A</label>
+      <input type="range" id="font-size-slider" min="14" max="22" value="16" step="1">
+      <label for="font-size-slider" style="font-size: 1.3rem;">A</label>
+    </div>
+  </div>
+
+  <!-- ───── SCRIPTS ───── -->
+  <!-- DATA: সব কন্টেন্ট এখানে। এই ফাইল এডিট করলেই কন্টেন্ট বদলাবে। -->
+  <script src="js/data.js"></script>
+  <!-- MAIN: সমস্ত ফাংশনালিটি -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
